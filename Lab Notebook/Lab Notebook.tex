@@ -114,7 +114,6 @@ Goals I have for today / {\bf done} if task completed
 \item Learn how to use Cypress EDS Laser Cutter  {\bf done}
 \item Look into VGA connection to PSoC, how to connect my capacitance based sensor
 \end{itemize}
-Side notes: Check out \href{http://web.mit.edu/6.115/www/document/cable_blackbird.pdf}{this link} to see how to connect my 8051 to my PSoC. 
 \begin{wrapfigure}{R}{0.3\textwidth}
 \centering
 \includegraphics[width = 30mm]{Pics/4-24b.jpg} 
@@ -149,6 +148,15 @@ Goals I have for today / {\bf done} if task completed
 
 \subsection{Designing the Capacitance Based Sensor } 
 This is the twin t notch filter that I have in mind: 
+\begin{center} \includegraphics[width = 50mm]{Pics/4-25a.jpg}  \end{center}
+The formula for the cutoff frequency is $f_c = \frac{1}{2\pi RC}$, and I am using $C = 100pF$ and $R = 27k\Omega$. However, I am unable to filter out a default 60Hz. 
+
+\subsection{Connecting PSoC to 8051}
+Check out \href{http://web.mit.edu/6.115/www/document/cable_blackbird.pdf}{this link} to see how to connect my 8051 to my PSoC. 
+\\ Today, I soldered the Sparkfun connector piece. 
+
+\subsection{Using the 74LS245}
+The purpose of the 74LS245 chip is to connect my PSoC to a VGA display, so I can effectively visualize the 3D tic tac toe game. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%

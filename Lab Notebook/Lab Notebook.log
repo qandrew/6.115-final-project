@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  25 APR 2016 16:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  25 APR 2016 17:01
 entering extended mode
 **C:/Users/Andrew/Dropbox*(Personal)/MIT/MIT*2016*Spring/6115/Final*Project/Lab
 *Notebook/Lab*Notebook.tex
@@ -337,7 +337,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
-<../Proposals/Hardware_final.png, id=59, 867.24pt x 301.8778pt>
+<../Proposals/Hardware_final.png, id=67, 867.24pt x 301.8778pt>
 File: ../Proposals/Hardware_final.png Graphic file (type png)
 
 <use ../Proposals/Hardware_final.png>
@@ -375,7 +375,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--105
 
  []
 
-<Pics/4-21python.png, id=90, 538.26094pt x 378.66469pt>
+<Pics/4-21python.png, id=98, 538.26094pt x 378.66469pt>
 File: Pics/4-21python.png Graphic file (type png)
 
 <use Pics/4-21python.png>
@@ -384,64 +384,74 @@ Package pdftex.def Info: Pics/4-21python.png used on input line 105.
  [3]
 
 Package wrapfig Warning: wrapfigure used inside a conflicting environment on in
-put line 118.
+put line 117.
 
-<Pics/4-24b.jpg, id=100, 557.08125pt x 532.99126pt>
+<Pics/4-24b.jpg, id=107, 557.08125pt x 532.99126pt>
 File: Pics/4-24b.jpg Graphic file (type jpg)
  <use Pics/4-24b.jpg>
-Package pdftex.def Info: Pics/4-24b.jpg used on input line 120.
+Package pdftex.def Info: Pics/4-24b.jpg used on input line 119.
 (pdftex.def)             Requested size: 85.35826pt x 81.66125pt.
 
-<Pics/4-24a.jpg, id=101, 712.16063pt x 697.8572pt>
+<Pics/4-24a.jpg, id=108, 712.16063pt x 697.8572pt>
 File: Pics/4-24a.jpg Graphic file (type jpg)
  <use Pics/4-24a.jpg>
-Package pdftex.def Info: Pics/4-24a.jpg used on input line 130.
+Package pdftex.def Info: Pics/4-24a.jpg used on input line 129.
 (pdftex.def)             Requested size: 142.26378pt x 139.39859pt.
 
 [4 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
 ab Notebook/Pics/4-21python.png> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 20
 16 Spring/6115/Final Project/Lab Notebook/Pics/4-24b.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
+Underfull \hbox (badness 10000) in paragraph at lines 131--134
 
  []
 
-<Pics/4-24c.jpg, id=108, 878.53218pt x 478.03593pt>
+<Pics/4-24c.jpg, id=115, 878.53218pt x 478.03593pt>
 File: Pics/4-24c.jpg Graphic file (type jpg)
  <use Pics/4-24c.jpg>
-Package pdftex.def Info: Pics/4-24c.jpg used on input line 135.
+Package pdftex.def Info: Pics/4-24c.jpg used on input line 134.
 (pdftex.def)             Requested size: 142.26378pt x 77.40637pt.
+
+<Pics/4-25a.jpg, id=117, 892.83563pt x 380.17032pt>
+File: Pics/4-25a.jpg Graphic file (type jpg)
+ <use Pics/4-25a.jpg>
+Package pdftex.def Info: Pics/4-25a.jpg used on input line 151.
+(pdftex.def)             Requested size: 142.26378pt x 60.57324pt.
 
 [5 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
 ab Notebook/Pics/4-24a.jpg> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Sp
-ring/6115/Final Project/Lab Notebook/Pics/4-24c.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
+ring/6115/Final Project/Lab Notebook/Pics/4-24c.jpg> <C:/Users/Andrew/Dropbox (
+Personal)/MIT/MIT 2016 Spring/6115/Final Project/Lab Notebook/Pics/4-25a.jpg>]
+[6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
 Package rerunfilecheck Info: File `Lab*Notebook.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
  ) 
 Here is how much of TeX's memory you used:
- 6144 strings out of 493921
- 87843 string characters out of 3147280
+ 6154 strings out of 493921
+ 87993 string characters out of 3147280
  168818 words of memory out of 3000000
- 9341 multiletter control sequences out of 15000+200000
+ 9347 multiletter control sequences out of 15000+200000
  10150 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  29i,11n,43p,562b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "Lab Notebook.pdf" (6 pages, 552926 bytes).
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti12.pfb>
+Output written on "Lab Notebook.pdf" (7 pages, 698143 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 

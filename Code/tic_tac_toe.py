@@ -16,7 +16,6 @@ class tic_tac_toe(object): #make it an object instead of classobj
 		self.turn = 1 #count number of turns
 
 	def check_win(self):
-		print 'checking for', self.player
 		for z in xrange(len(self.grid)):
 			#first, check nondiagonals
 			for x in xrange(len(self.grid[z])): #first, check flat
@@ -198,7 +197,7 @@ class tic_tac_toe(object): #make it an object instead of classobj
 if __name__ == '__main__':
 	test = tic_tac_toe()
 	test.play_game()
-	# print test.check_valid(1,0,-1)
+	#test.step(1,2,3)
 
 """
 A 000, 020, 021, 023, 111, 121, 202, 203, 211, 223, 321, 322, 302, 012, 003
