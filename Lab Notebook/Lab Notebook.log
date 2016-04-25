@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  22 APR 2016 00:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  25 APR 2016 16:04
 entering extended mode
 **C:/Users/Andrew/Dropbox*(Personal)/MIT/MIT*2016*Spring/6115/Final*Project/Lab
 *Notebook/Lab*Notebook.tex
@@ -144,6 +144,14 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen114
+\WF@size=\dimen115
+\c@WF@wrappedlines=\count100
+\WF@box=\box28
+\WF@everypar=\toks20
+Package: wrapfig 2003/01/31  v 3.6
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
@@ -201,14 +209,14 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen114
-\Hy@linkcounter=\count100
-\Hy@pagecounter=\count101
+\@linkdim=\dimen116
+\Hy@linkcounter=\count101
+\Hy@pagecounter=\count102
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count102
+\Hy@SavedSpaceFactor=\count103
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -221,17 +229,17 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count103
+\c@Hy@tempcnt=\count104
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen115
-\Fld@menulength=\count104
-\Field@Width=\dimen116
-\Fld@charsize=\dimen117
+\XeTeXLinkMargin=\dimen117
+\Fld@menulength=\count105
+\Field@Width=\dimen118
+\Fld@charsize=\dimen119
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -241,17 +249,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count105
-\c@Item=\count106
-\c@Hfootnote=\count107
+\Hy@abspage=\count106
+\c@Item=\count107
+\c@Hfootnote=\count108
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count108
-\c@bookmark@seq@number=\count109
+\Fld@listcount=\count109
+\c@bookmark@seq@number=\count110
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -262,36 +270,36 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen118
-\scratchbox=\box28
-\nofMPsegments=\count111
-\nofMParguments=\count112
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen119
-\MPnumerator=\count114
-\makeMPintoPDFobject=\count115
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count111
+\scratchdimen=\dimen120
+\scratchbox=\box29
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen121
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks22
 )
-\AtBeginShipoutBox=\box29
+\AtBeginShipoutBox=\box30
  ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -300,7 +308,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 30.
+Package hyperref Info: Link coloring ON on input line 31.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -308,11 +316,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count116
+\c@section@level=\count117
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.out")
@@ -320,81 +328,120 @@ LaTeX Info: Redefining \nameref on input line 30.
  Notebook\Lab Notebook.out")
 \@outlinefile=\write3
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--41
+Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--41
+Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
-<../Proposals/Hardware_final.png, id=35, 867.24pt x 301.8778pt>
+<../Proposals/Hardware_final.png, id=59, 867.24pt x 301.8778pt>
 File: ../Proposals/Hardware_final.png Graphic file (type png)
 
 <use ../Proposals/Hardware_final.png>
-Package pdftex.def Info: ../Proposals/Hardware_final.png used on input line 46.
+Package pdftex.def Info: ../Proposals/Hardware_final.png used on input line 47.
 
 (pdftex.def)             Requested size: 341.43306pt x 118.85118pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
  <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/Pro
 posals/Hardware_final.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 70.
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 80.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
+
+ []
+
+<Pics/4-21python.png, id=90, 538.26094pt x 378.66469pt>
+File: Pics/4-21python.png Graphic file (type png)
+
+<use Pics/4-21python.png>
+Package pdftex.def Info: Pics/4-21python.png used on input line 105.
+(pdftex.def)             Requested size: 284.52756pt x 200.16553pt.
+ [3]
+
+Package wrapfig Warning: wrapfigure used inside a conflicting environment on in
+put line 118.
+
+<Pics/4-24b.jpg, id=100, 557.08125pt x 532.99126pt>
+File: Pics/4-24b.jpg Graphic file (type jpg)
+ <use Pics/4-24b.jpg>
+Package pdftex.def Info: Pics/4-24b.jpg used on input line 120.
+(pdftex.def)             Requested size: 85.35826pt x 81.66125pt.
+
+<Pics/4-24a.jpg, id=101, 712.16063pt x 697.8572pt>
+File: Pics/4-24a.jpg Graphic file (type jpg)
+ <use Pics/4-24a.jpg>
+Package pdftex.def Info: Pics/4-24a.jpg used on input line 130.
+(pdftex.def)             Requested size: 142.26378pt x 139.39859pt.
+
+[4 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
+ab Notebook/Pics/4-21python.png> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 20
+16 Spring/6115/Final Project/Lab Notebook/Pics/4-24b.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
+
+ []
+
+<Pics/4-24c.jpg, id=108, 878.53218pt x 478.03593pt>
+File: Pics/4-24c.jpg Graphic file (type jpg)
+ <use Pics/4-24c.jpg>
+Package pdftex.def Info: Pics/4-24c.jpg used on input line 135.
+(pdftex.def)             Requested size: 142.26378pt x 77.40637pt.
+
+[5 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
+ab Notebook/Pics/4-24a.jpg> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Sp
+ring/6115/Final Project/Lab Notebook/Pics/4-24c.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `Lab*Notebook.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 103.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 6038 strings out of 493921
- 86456 string characters out of 3147280
- 167594 words of memory out of 3000000
- 9255 multiletter control sequences out of 15000+200000
+ 6144 strings out of 493921
+ 87843 string characters out of 3147280
+ 168818 words of memory out of 3000000
+ 9341 multiletter control sequences out of 15000+200000
  10150 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,11n,43p,562b,341s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,11n,43p,562b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "Lab Notebook.pdf" (3 pages, 91021 bytes).
+Output written on "Lab Notebook.pdf" (6 pages, 552926 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

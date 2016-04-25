@@ -4,6 +4,7 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{wrapfig}
 \usepackage[colorlinks=true, linkcolor=red, urlcolor=blue, citecolor=blue]{hyperref}
 
 
@@ -29,7 +30,7 @@
 
 \begin{document} 
 \begin{center} {\bf \Large \name}
-\\ \emph{Hardware Implementation of Tinder}
+\\ \emph{3D Tic Tac Toe}
 \\ {\bf \andrew}
 \end{center}
 \section{Overview}
@@ -73,6 +74,8 @@ As for my software, I will code my project in C, using the PSoC as my main contr
 I plan on formatting my lab notebook in this latex file, in which each day I work on the lab will be a section, and I can also reorganize my lab notebook to be thematically organized by the module that I will work on. 
 \\ Each day, or section, will contain an {\em introduction} section in which I discuss the goals that I have for the day, and I will detail the tasks that I will work on in the subsections for each day. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 \section{April 21, 2016}
 Goals I have for today / {\bf done} if task completed
@@ -99,5 +102,64 @@ To install {\bf C}, I am following this \href{https://en.wikibooks.org/wiki/C_Pr
 \\ To install the Cypress PSoC creator IDE, I am following the instructions \href{http://www.cypress.com/products/psoc-software}{here}. Having PSoC Creator on my computer should help increase my productivity and workflow. 
 \\
 \\ I completed a two player Tic Tac Toe game coded using python today. The logic of the game is documented in my code. I plan on investigating more into AI algorithms, potentially using minimax or alpha beta pruning. \href{http://www.half-real.net/tictactoe/}{This website} has pretty good information on evaluation methods and algorithms for 3D Tic Tac Toe. 
+\begin{center}\includegraphics[width = 100mm]{Pics/4-21python.png} \end{center}
+Above is an image of my python 3D tic tac toe script running
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{April 24 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{itemize}
+\item Learn how to use Cypress EDS Laser Cutter  {\bf done}
+\item Look into VGA connection to PSoC, how to connect my capacitance based sensor
+\end{itemize}
+Side notes: Check out \href{http://web.mit.edu/6.115/www/document/cable_blackbird.pdf}{this link} to see how to connect my 8051 to my PSoC. 
+\begin{wrapfigure}{R}{0.3\textwidth}
+\centering
+\includegraphics[width = 30mm]{Pics/4-24b.jpg} 
+\caption{\label{fig:frog1}test.} 
+\end{wrapfigure}
+\subsection{Using the Cypress EDS Laser Cutter}
+I printed out a circular acryllic piece today with ny name on it. Some things to remember: I should use CorelDRAW or solid works to design my cuts. The {\em red} line must be set to hairline width for cuts. The {\em blue} line must be set to hairline width for scones. The {\em black} areas must can be set to anything for rasters. 
+
+\subsection{Working on my capacitance based sensor}
+The initial circuit that I tested did not work. It was picking up a lot of 60Hz noise (which is coming from the AC power that exists all around the lab). The top resistor has value $220k\Omega$ and the bottom resistor has value $10k\Omega$. 
+%\begin{wrapfigure}{R}{0.3\textwidth}
+%\centering
+\begin{center} \includegraphics[width = 50mm]{Pics/4-24a.jpg}  \end{center} %\caption{\label{fig:frog1}test.} 
+%\end{wrapfigure}
+This circuit does not work.
+\\ 
+\\ I am now trying a new circuit, designed as follows according to the Makezine article
+\begin{center} \includegraphics[width = 50mm]{Pics/4-24c.jpg}  \end{center}
+I am able to sense when I touch the cardboard aluminum foil capacitor plate, but I am unable to get a different capacitor RC time constant reading when I vary my hand distance from the aluminum foil. 
+\\ I can consider designing a \href{http://www.radio-electronics.com/info/circuits/rc_notch_filter/twin_t_notch_filter.php}{twin t notch filter} to filter out the 60Hz noise. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{April 25 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{itemize}
+\item Finalize design for my user input % {\bf done}
+\item Look into connecting PSoC to 8051 and VGA display
+\end{itemize}
+
+\subsection{Designing the Capacitance Based Sensor } 
+This is the twin t notch filter that I have in mind: 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TEMPLATE%
+
+\newpage
+\section{DATE 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{itemize}
+\item Task % {\bf done}
+\item Task 
+\end{itemize}
 
 \end{document}

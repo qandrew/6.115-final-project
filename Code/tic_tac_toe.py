@@ -24,11 +24,11 @@ class tic_tac_toe(object): #make it an object instead of classobj
 				if self.grid[z][x][0] == self.player: #check if this place filled
 					#print 'checking flat', z,x,0,self.grid[z][x][0]
 					connected = True #assume that we connect at first
-					for y in xrange(1,len(self.grid[z][x])):
+					for y in xrange(len(self.grid[z][x])):
 						if self.grid[z][x][y] != self.player:
 							connected = False
 					if connected == True:
-						print 'got here!'
+						print 'got here! flat', z,x,y
 						self.game_not_won = False
 						return
 			for y in xrange(len(self.grid[z][0])): #then, check horizontals
@@ -36,11 +36,11 @@ class tic_tac_toe(object): #make it an object instead of classobj
 				if self.grid[z][0][y] == self.player: #check if this place filled
 					#print 'checking horiz',z,0,y,self.grid[z][0][y]
 					connected = True #assume that we connect at first
-					for x in xrange(1,len(self.grid[z])):
+					for x in xrange(len(self.grid[z])):
 						if self.grid[z][x][y] != self.player:
 							connected = False
 					if connected == True:
-						print 'got here!'
+						print 'got here! horiz',z,x,y
 						self.game_not_won = False
 						return
 			for y in xrange(len(self.grid[z][0])): #finally, check verticals, and z is actually x here
@@ -48,106 +48,106 @@ class tic_tac_toe(object): #make it an object instead of classobj
 				if self.grid[0][z][y] == self.player: #check if this place filled
 					#print 'checking vert',0,z,y,self.grid[0][z][y]
 					connected = True #assume that we connect at first
-					for zp in xrange(1,len(self.grid)):
+					for zp in xrange(len(self.grid)):
 						if self.grid[zp][z][y] != self.player:
 							connected = False
 					if connected == True:
-						print 'got here!'
+						print 'got here! vert',zp,z,y
 						self.game_not_won = False
 						return
 			#next, check diagonals
 			#check planar first
 			if self.grid[z][0][0] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[z][i][i] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! planar', z,i,i
 						self.game_not_won = False
 						return
 			if self.grid[z][3][0] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[z][3-i][i] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! planar2',z,3-i,i
 						self.game_not_won = False
 						return
 			#check frontal
 			if self.grid[0][z][0] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[i][z][i] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! frontal',i,z,i
 						self.game_not_won = False
 						return
 			if self.grid[3][z][0] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[3-i][z][i] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! frontal2',3-i,z,i
 						self.game_not_won = False
 						return
 			#check sidal
 			if self.grid[0][0][z] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[i][i][z] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! sidal',i,i,z
 						self.game_not_won = False
 						return
 			if self.grid[3][z][0] == self.player: 
 				connected = True #assume that we connect at first
-				for i in xrange(1,len(self.grid[0])):
+				for i in xrange(len(self.grid[0])):
 					if self.grid[3-i][i][z] != self.player:
 						connected = False
 				if connected == True:
-						print 'got here!'
+						print 'got here! sidal2',3-i,i,z
 						self.game_not_won = False
 						return
 		#finally, check superdiagonals
 		if self.grid[0][0][0] == self.player:
 			connected = True #assume that we connect at first
-			for i in xrange(1,len(self.grid[0])):
+			for i in xrange(len(self.grid[0])):
 				if self.grid[i][i][i] != self.player:
 					connected = False
 			if connected == True:
-					print 'got here!'
+					print 'got here! superdiag1',i,i,i
 					self.game_not_won = False
 					return
 		if self.grid[0][3][0] == self.player:
 			connected = True #assume that we connect at first
-			for i in xrange(1,len(self.grid[0])):
+			for i in xrange(len(self.grid[0])):
 				if self.grid[i][3-i][i] != self.player:
 					connected = False
 			if connected == True:
-					print 'got here!'
+					print 'got here! superdiag2',i,3-i,i
 					self.game_not_won = False
 					return
 		if self.grid[0][3][3] == self.player:
 			connected = True #assume that we connect at first
-			for i in xrange(1,len(self.grid[0])):
+			for i in xrange(len(self.grid[0])):
 				if self.grid[i][3-i][3-i] != self.player:
 					connected = False
 			if connected == True:
-					print 'got here!'
+					print 'got here! superdiag3',i,3-i,3-i
 					self.game_not_won = False
 					return
 		if self.grid[0][0][3] == self.player:
 			connected = True #assume that we connect at first
-			for i in xrange(1,len(self.grid[0])):
+			for i in xrange(len(self.grid[0])):
 				if self.grid[i][i][3-i] != self.player:
 					connected = False
 			if connected == True:
-					print 'got here!'
+					print 'got here! superdiag4',i,i,3-i
 					self.game_not_won = False
 					return
 
@@ -197,6 +197,11 @@ class tic_tac_toe(object): #make it an object instead of classobj
 
 if __name__ == '__main__':
 	test = tic_tac_toe()
-	#test.play_game()
-	print test.check_valid(1,0,-1)
+	test.play_game()
+	# print test.check_valid(1,0,-1)
 
+"""
+A 000, 020, 021, 023, 111, 121, 202, 203, 211, 223, 321, 322, 302, 012, 003
+B 022, 032, 120, 122, 123, 212, 220, 221, 222, 232, 233, 320, 112, 330, 030
+
+"""
