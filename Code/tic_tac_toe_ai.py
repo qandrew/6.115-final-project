@@ -308,19 +308,5 @@ class ai_tic(tic_tac_toe):
 				self.define_score('superdiag',count,empty_places[count])
 
 if __name__ == '__main__':
-	# c = C('hu')
-	# print c.huding
-
 	game = ai_tic(hardness = 4,player = 'B')
-	# game.step(0,0,3)
-	# game.step()
-	# game.step(0,1,2)
-	# game.step(1,0,3)
 	game.play_game()
-
-	# print 'flat', game.board['flat']
-	# print 'horiz', game.board['horiz']
-	# print 'vert', game.board['vert']
-	# print 'sidal', game.board['sidal']
-	# print 'frontal', game.board['frontal']
-	# print 'superdiag', game.board['superdiag']

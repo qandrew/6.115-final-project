@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  25 APR 2016 17:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  25 APR 2016 21:43
 entering extended mode
 **C:/Users/Andrew/Dropbox*(Personal)/MIT/MIT*2016*Spring/6115/Final*Project/Lab
 *Notebook/Lab*Notebook.tex
@@ -270,20 +270,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -308,7 +308,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 31.
+Package hyperref Info: Link coloring ON on input line 41.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -318,9 +318,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count117
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.out")
@@ -328,120 +328,134 @@ LaTeX Info: Redefining \nameref on input line 31.
  Notebook\Lab Notebook.out")
 \@outlinefile=\write3
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--42
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--42
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
 
  []
 
-<../Proposals/Hardware_final.png, id=67, 867.24pt x 301.8778pt>
+<../Proposals/Hardware_final.png, id=71, 867.24pt x 301.8778pt>
 File: ../Proposals/Hardware_final.png Graphic file (type png)
 
 <use ../Proposals/Hardware_final.png>
-Package pdftex.def Info: ../Proposals/Hardware_final.png used on input line 47.
+Package pdftex.def Info: ../Proposals/Hardware_final.png used on input line 57.
 
 (pdftex.def)             Requested size: 341.43306pt x 118.85118pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
  <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/Pro
 posals/Hardware_final.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+LaTeX Font Info:    Try loading font information for U+msa on input line 81.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+LaTeX Font Info:    Try loading font information for U+msb on input line 81.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--105
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
 
  []
 
-<Pics/4-21python.png, id=98, 538.26094pt x 378.66469pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
+
+ []
+
+<Pics/4-21python.png, id=102, 538.26094pt x 378.66469pt>
 File: Pics/4-21python.png Graphic file (type png)
 
 <use Pics/4-21python.png>
-Package pdftex.def Info: Pics/4-21python.png used on input line 105.
+Package pdftex.def Info: Pics/4-21python.png used on input line 115.
 (pdftex.def)             Requested size: 284.52756pt x 200.16553pt.
+
+Underfull \vbox (badness 1728) has occurred while \output is active []
+
  [3]
 
 Package wrapfig Warning: wrapfigure used inside a conflicting environment on in
-put line 117.
+put line 127.
 
-<Pics/4-24b.jpg, id=107, 557.08125pt x 532.99126pt>
+<Pics/4-24b.jpg, id=111, 557.08125pt x 532.99126pt>
 File: Pics/4-24b.jpg Graphic file (type jpg)
  <use Pics/4-24b.jpg>
-Package pdftex.def Info: Pics/4-24b.jpg used on input line 119.
+Package pdftex.def Info: Pics/4-24b.jpg used on input line 129.
 (pdftex.def)             Requested size: 85.35826pt x 81.66125pt.
 
-<Pics/4-24a.jpg, id=108, 712.16063pt x 697.8572pt>
+<Pics/4-24a.jpg, id=112, 712.16063pt x 697.8572pt>
 File: Pics/4-24a.jpg Graphic file (type jpg)
  <use Pics/4-24a.jpg>
-Package pdftex.def Info: Pics/4-24a.jpg used on input line 129.
+Package pdftex.def Info: Pics/4-24a.jpg used on input line 139.
 (pdftex.def)             Requested size: 142.26378pt x 139.39859pt.
 
 [4 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
 ab Notebook/Pics/4-21python.png> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 20
 16 Spring/6115/Final Project/Lab Notebook/Pics/4-24b.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 131--134
+Underfull \hbox (badness 10000) in paragraph at lines 141--144
 
  []
 
-<Pics/4-24c.jpg, id=115, 878.53218pt x 478.03593pt>
+<Pics/4-24c.jpg, id=119, 878.53218pt x 478.03593pt>
 File: Pics/4-24c.jpg Graphic file (type jpg)
  <use Pics/4-24c.jpg>
-Package pdftex.def Info: Pics/4-24c.jpg used on input line 134.
+Package pdftex.def Info: Pics/4-24c.jpg used on input line 144.
 (pdftex.def)             Requested size: 142.26378pt x 77.40637pt.
 
-<Pics/4-25a.jpg, id=117, 892.83563pt x 380.17032pt>
+<Pics/4-25a.jpg, id=121, 892.83563pt x 380.17032pt>
 File: Pics/4-25a.jpg Graphic file (type jpg)
  <use Pics/4-25a.jpg>
-Package pdftex.def Info: Pics/4-25a.jpg used on input line 151.
+Package pdftex.def Info: Pics/4-25a.jpg used on input line 162.
 (pdftex.def)             Requested size: 142.26378pt x 60.57324pt.
 
 [5 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
 ab Notebook/Pics/4-24a.jpg> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Sp
 ring/6115/Final Project/Lab Notebook/Pics/4-24c.jpg> <C:/Users/Andrew/Dropbox (
 Personal)/MIT/MIT 2016 Spring/6115/Final Project/Lab Notebook/Pics/4-25a.jpg>]
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
+<Pics/4-25b.png, id=129, 277.78781pt x 292.09125pt>
+File: Pics/4-25b.png Graphic file (type png)
+ <use Pics/4-25b.png>
+Package pdftex.def Info: Pics/4-25b.png used on input line 176.
+(pdftex.def)             Requested size: 187.89912pt x 197.57648pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--191
+
+ []
+
+[6 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project/L
+ab Notebook/Pics/4-25b.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 204.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
 Package rerunfilecheck Info: File `Lab*Notebook.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 204.
  ) 
 Here is how much of TeX's memory you used:
- 6154 strings out of 493921
- 87993 string characters out of 3147280
- 168818 words of memory out of 3000000
- 9347 multiletter control sequences out of 15000+200000
+ 6172 strings out of 493921
+ 88218 string characters out of 3147280
+ 168914 words of memory out of 3000000
+ 9356 multiletter control sequences out of 15000+200000
  10150 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,11n,43p,562b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,11n,43p,640b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
@@ -449,9 +463,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmti12.pfb>
-Output written on "Lab Notebook.pdf" (7 pages, 698143 bytes).
+Output written on "Lab Notebook.pdf" (7 pages, 709948 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

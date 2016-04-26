@@ -7,7 +7,17 @@
 \usepackage{wrapfig}
 \usepackage[colorlinks=true, linkcolor=red, urlcolor=blue, citecolor=blue]{hyperref}
 
+\newenvironment{tight_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}{\end{enumerate}}
 
+\newenvironment{tight_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}{\end{itemize}}
 
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{0pt}
@@ -34,7 +44,7 @@
 \\ {\bf \andrew}
 \end{center}
 \section{Overview}
-For my final project, I hope to build a 3D touchless tracking interface and connect it with my 8051 and PSoC to allow users to play 3D tic tac toe with either each other or a computer AI. 
+{\em April 20, 2016 Proposal:} For my final project, I hope to build a 3D touchless tracking interface and connect it with my 8051 and PSoC to allow users to play 3D tic tac toe with either each other or a computer AI. 
 \\
 \\ \emph{What interested you in the idea?} I am interested in this idea because I want to work on a project that has both an interesting and flashy hardware and software component. Writing the AI software for my 3D tic tac toe board will be a very rewarding and educational experience for me, and building the 3D tracing interface will also be very fun. 
 \\ 
@@ -51,22 +61,22 @@ As for my software, I will code my project in C, using the PSoC as my main contr
 \\ Here is the high level software workflow for my final project:
 \begin{center}\fbox{\begin{minipage}{35em}
 
-\begin{enumerate}
+\begin{tight_enumerate}
 \item Initiate \& Reset Tic Tac Toe Board
 \item Mode 1: two player Tic Tac Toe
-	\begin{enumerate}
+	\begin{tight_enumerate}
 	\item User can view \& rotate, using 74L922 or capacitive-based sensors, current 3D tic tac toe board on VGA display
 	\item User adds piece to the board by leaving hand in position of 3D touchless tracking interface for extended amound of time
 	\item After entering piece on board, the other player can play. 
-	\end{enumerate}
+	\end{tight_enumerate}
 \item Mode 2: one player AI Tic Tac Toe
-	\begin{enumerate}
+	\begin{tight_enumerate}
 	\item User can view \& rotate, using 74L922 or capacitive-based sensors, current 3D tic tac toe board on VGA display
 	\item User adds piece to the board by leaving hand in position of 3D touchless tracking interface for extended amound of time
 	\item After entering piece on board, computer plays against user and submits his move through AI algorithm. 
-	\end{enumerate}
+	\end{tight_enumerate}
 \item Reset the game and enter either mode through the 74C922 Keypad
-\end{enumerate}
+\end{tight_enumerate}
 
 \end{minipage}} \end{center}
 
@@ -79,11 +89,11 @@ I plan on formatting my lab notebook in this latex file, in which each day I wor
 \newpage
 \section{April 21, 2016}
 Goals I have for today / {\bf done} if task completed
-\begin{itemize}
+\begin{tight_itemize}
 \item Set up github for version control of my lab notebook and code {\bf done}
 \item Build my initial capacitance based sensor
 \item Set up my computer so I can code in C {\bf done}
-\end{itemize}
+\end{tight_itemize}
 
 \subsection{Setting up github}
 I am following the tutorial \href{https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/}{here} to create a new github repository. It will be located in my 6.115 dropbox folder, and on my github account under the repository \href{https://github.com/qandrew/6.115-final-project}{6.115-final-project}
@@ -91,10 +101,10 @@ I am following the tutorial \href{https://help.github.com/articles/adding-an-exi
 \subsection{Building my initial capacitance based sensor}
 References include this \href{http://makezine.com/projects/a-touchless-3d-tracking-interface/}{Makezine link}. 
 \\ Notes on building a capacitance based sensor:
-\begin{enumerate}%[itemsep=5mm]
+\begin{tight_enumerate}%[itemsep=5mm]
 \item Beacuse humans have very little capacitance $~ 10 pF$, the time constant to which the plate would charge up based on the distance of the finger to the plate should be very small. Thus, I may need to think of more intelligent methods to build an effective capacitance based sensor. 
 \item I can design different circuits
-\end{enumerate}
+\end{tight_enumerate}
 
 \subsection{Software development}
 To install {\bf C}, I am following this \href{https://en.wikibooks.org/wiki/C_Programming/What_you_need_before_you_can_learn}{website} to install a C compiler for my computer. It is in fact better to code in Linux rather than $C$, so I will be using linux/ubuntu when needing to test my Tic Tac Toe code on my computer.
@@ -110,10 +120,10 @@ Above is an image of my python 3D tic tac toe script running
 \section{April 24 2016}
 
 Goals I have for today / {\bf done} if task completed
-\begin{itemize}
+\begin{tight_itemize}
 \item Learn how to use Cypress EDS Laser Cutter  {\bf done}
 \item Look into VGA connection to PSoC, how to connect my capacitance based sensor
-\end{itemize}
+\end{tight_itemize}
 \begin{wrapfigure}{R}{0.3\textwidth}
 \centering
 \includegraphics[width = 30mm]{Pics/4-24b.jpg} 
@@ -141,10 +151,11 @@ I am able to sense when I touch the cardboard aluminum foil capacitor plate, but
 \section{April 25 2016}
 
 Goals I have for today / {\bf done} if task completed
-\begin{itemize}
+\begin{tight_itemize}
 \item Finalize design for my user input % {\bf done}
 \item Look into connecting PSoC to 8051 and VGA display
-\end{itemize}
+\item Continue Building my 3D Tic Tac Toe AI {\bf [done]}
+\end{tight_itemize}
 
 \subsection{Designing the Capacitance Based Sensor } 
 This is the twin t notch filter that I have in mind: 
@@ -153,10 +164,30 @@ The formula for the cutoff frequency is $f_c = \frac{1}{2\pi RC}$, and I am usin
 
 \subsection{Connecting PSoC to 8051}
 Check out \href{http://web.mit.edu/6.115/www/document/cable_blackbird.pdf}{this link} to see how to connect my 8051 to my PSoC. 
-\\ Today, I soldered the Sparkfun connector piece. 
+\\ Today, I soldered the Sparkfun connector piece, and I got the LA checkoff showing that I could successfully power my PSoC using R31JP power. I finished the pdf linked above and got the following to display:
+\\ (insert image)
 
 \subsection{Using the 74LS245}
 The purpose of the 74LS245 chip is to connect my PSoC to a VGA display, so I can effectively visualize the 3D tic tac toe game. 
+
+\subsection{Building my 3D Tic Tac Toe AI}
+\begin{wrapfigure}{R}{0.42\textwidth}
+\centering
+\includegraphics[width = 0.4\textwidth]{Pics/4-25b.png} 
+\end{wrapfigure}
+I completed building my AI for my 3D Tic Tac Toe Game in python today. I thought about running a brute force tree search to exhaust all combinations of the 3D Tic Tac Toe Game, but that would be on the order of 64! moves and would be a bit complicated. Instead, I wrote an evaluation metric to evaluate the values of certain locations on the boards, and the AI would place its next move based on the highest scoring location. My scoring works as follows, for a certain row/diagonal of 4 that does not have both an AI and player move:
+\begin{tight_enumerate}
+\item If the AI has a 3 in a row, connect it
+\item If the opponent has a 3 in a row, block it
+\item If the opponent has a 2 in a row, block it
+\item If the AI has a 2 in a row, connect it
+\item If the AI has a 1 in a row, connect it
+\item If the row has nothing, add a move
+\item If the opponent has a 1 in a row, block it
+\end{tight_enumerate}
+The cumulative sum of the scores after checking all potential connect 4 paths will determine the next place to play. You can take a look at the code \href{https://github.com/qandrew/6.115-final-project/blob/master/Code/tic_tac_toe_ai.py}{here}.
+\\
+\\ As for further work to be done, I should (a) port the game to C to put on the PSoC, (b) consider difficulty settings for the game, (c) WORK ON THE HARDWARE ASPECT!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
@@ -165,9 +196,9 @@ The purpose of the 74LS245 chip is to connect my PSoC to a VGA display, so I can
 \section{DATE 2016}
 
 Goals I have for today / {\bf done} if task completed
-\begin{itemize}
+\begin{tight_itemize}
 \item Task % {\bf done}
 \item Task 
-\end{itemize}
+\end{tight_itemize}
 
 \end{document}
