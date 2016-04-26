@@ -3,8 +3,8 @@ import random
 from copy import deepcopy
 
 class ai_tic(tic_tac_toe):
-	def __init__(self,hardness = 10,size = 4,dimension = 3):
-		super(ai_tic,self).__init__(size,dimension)
+	def __init__(self,hardness = 10,size = 4,dimension = 3,player = 'A'):
+		super(ai_tic,self).__init__(size,dimension,player)
 		#hardness is on a scale from 1 to 10 where 1 is easy and 10 is hard
 		self.hardness = hardness
 		self.init_ai_stuff()
@@ -45,21 +45,33 @@ class ai_tic(tic_tac_toe):
 				i += 4
 			print ''
 
-	def step(self,z,x,y): #we2
+	def step(self,z=0,x=0,y=0):
 		#print("\033c") #clear terminal window
-		if self.check_valid(z,x,y):
-			self.grid[z][x][y] = self.player
-			self.set_grid_eval(z,x,y,-1000)
-			print '\n', self.player, 'has input', z,x,y
-			self.check_win() #check for human
+		if self.player == 'B': #AI is player B
+			self.ai_move()
+			self.check_win() #check for AI
 			self.change_player()
-			if self.game_not_won:
-				self.ai_move()
-				self.check_win() #check for AI
+		elif self.player == 'A':
+			if self.check_valid(z,x,y):
+				self.grid[z][x][y] = self.player
+				self.set_grid_eval(z,x,y,-1000)
+				print '\n', self.player, 'has input', z,x,y
+				self.check_win() #check for human
 				self.change_player()
-			self.print_board()
-		else:
-			print 'invalid input'
+			else:
+				print 'invalid input'
+		self.print_board()
+
+	def play_game(self):
+		while self.game_not_won:
+			if self.player == 'A':
+				print self.player, 'turn', self.turn
+				inp = raw_input('input location zxy: ')
+				self.step(int(inp[0]),int(inp[1]),int(inp[2]))
+			else:
+				self.step()
+		self.change_player()
+		print self.player, 'has won'
 
 	def ai_move(self):
 		if self.hardness == 0:
@@ -82,13 +94,17 @@ class ai_tic(tic_tac_toe):
 
 	def algorithm(self): #this is our AI algorithm
 		self.evaluate_board()
-		self.disp_grid_eval()
+		# self.disp_grid_eval()
 		self.play_best_move()
 
 	def play_best_move(self):
 		#this looks at self.grid_eval and plays the highest valued spot
 		val = max(self.grid_eval)
-		loc = self.grid_eval.index(max(self.grid_eval))
+		locs = [i for i, j in enumerate(self.grid_eval) if j == max(self.grid_eval)]
+		if len(locs) == 1:
+			loc = locs[0]
+		else: #if we have more than one optimal answer, randomly select
+			loc = locs[random.randint(0,len(locs)-1)]		
 		self.grid_eval[loc] = -1000 #now that we have played move, don't play there anymore
 		z,x,y = self.loc_to_grid(loc)
 		self.grid[z][x][y] = self.player	
@@ -220,6 +236,8 @@ class ai_tic(tic_tac_toe):
 					empty_places.append(tuple((i,z,i)))
 			if (a and b) == False: #the row does not have both A and B inputs
 				self.define_score('sidal',z*2,empty_places)
+			empty_places = []
+			a,b = False,False #we have not visited a,b
 			for i in xrange(len(self.grid[0])):
 				if self.grid[3-i][z][i] == 'A':
 					self.board['sidal'][z*2+1] += 1; a = True
@@ -242,6 +260,8 @@ class ai_tic(tic_tac_toe):
 					empty_places.append(tuple((i,i,z)))
 			if (a and b) == False: #the row does not have both A and B inputs
 				self.define_score('frontal',z*2,empty_places)
+			empty_places = []
+			a,b = False,False #we have not visited a,b
 			for i in xrange(len(self.grid[0])):
 				if self.grid[3-i][i][z] == 'A':
 					self.board['frontal'][z*2+1] += 1; a = True
@@ -268,7 +288,7 @@ class ai_tic(tic_tac_toe):
 			elif self.grid[i][3-i][i] == 'B':
 				self.board['superdiag'][1] -= 1; b[1] = True
 			else:
-				empty_places[1].append(tuple((3-i,i,i)))
+				empty_places[1].append(tuple((i,3-i,i)))
 
 			if self.grid[i][3-i][3-i] == 'A':
 				self.board['superdiag'][2] += 1; a[2] = True
@@ -282,20 +302,18 @@ class ai_tic(tic_tac_toe):
 			elif self.grid[i][i][3-i] == 'B':
 				self.board['superdiag'][3] -= 1; b[3] = True
 			else:
-				empty_places[3].append(tuple((i,3-i,3-i)))
+				empty_places[3].append(tuple((i,i,3-i)))
 		for count in xrange(4):
-			# print empty_places[count]
 			if (a[count] and b[count]) == False: #the row does not have both A and B inputs
-				# print 'got here', count
 				self.define_score('superdiag',count,empty_places[count])
-
 
 if __name__ == '__main__':
 	# c = C('hu')
 	# print c.huding
 
-	game = ai_tic(hardness = 4)
-	# game.step(0,2,0)
+	game = ai_tic(hardness = 4,player = 'B')
+	# game.step(0,0,3)
+	# game.step()
 	# game.step(0,1,2)
 	# game.step(1,0,3)
 	game.play_game()

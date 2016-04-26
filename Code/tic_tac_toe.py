@@ -4,14 +4,14 @@
 
 
 class tic_tac_toe(object): #make it an object instead of classobj
-	def __init__(self,size = 4,dimension = 3):
+	def __init__(self,size = 4,dimension = 3,player = 'A'):
 		self.size = size
 		self.dimension = dimension
 		if dimension == 3:
 			self.grid = [[[' ' for i in xrange(size)] for j in xrange(size)] for k in xrange(size)]
 		elif dimension == 2:
 			self.grid = [[[' '] for i in xrange(size)] for j in xrange(size)]
-		self.player = 'A'
+		self.player = player
 		self.game_not_won = True #the game is still running
 		self.turn = 1 #count number of turns
 
