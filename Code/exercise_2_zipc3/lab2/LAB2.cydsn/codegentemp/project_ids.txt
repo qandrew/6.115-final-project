@@ -1,0 +1,6 @@
+C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\exercise_2_zipc3\lab2\LAB2.cydsn\LAB2.cyprj|cc06075e-1cfd-4211-b0ff-d5675f95705f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|601dae4e-5b99-425a-a412-3b46ccc76907
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|c288846c-aae9-4a2a-b8e1-e638651c30c9
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3b42effd-f1a2-4d10-b32d-8f91121d89b3
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d866f77d-81bc-4e90-8d54-30243b23447a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|1a40ac64-74b9-4b43-a6b5-63013f7715e9

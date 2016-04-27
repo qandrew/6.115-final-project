@@ -1,0 +1,911 @@
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.wait,"ax",%progbits
+  19              		.align	2
+  20              		.global	wait
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	wait, %function
+  24              	wait:
+  25              	.LFB63:
+  26              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright Andrew MIT 6.115, 2016
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF MIT 6.115.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * This file is necessary for your project to build.
+  11:.\main.c      ****  * Please do not delete it.
+  12:.\main.c      ****  *
+  13:.\main.c      ****  * ========================================
+  14:.\main.c      **** */
+  15:.\main.c      **** 
+  16:.\main.c      **** #include <device.h>
+  17:.\main.c      **** 
+  18:.\main.c      **** //CY_ISR(RX_INT)
+  19:.\main.c      **** //{
+  20:.\main.c      **** //    LCD_PutChar(UART_ReadRxData());     // RX ISR
+  21:.\main.c      **** //}
+  22:.\main.c      **** 
+  23:.\main.c      **** #include <unistd.h>
+  24:.\main.c      **** 
+  25:.\main.c      **** void wait( int seconds )
+  26:.\main.c      **** {   // Pretty crossplatform, both ALL POSIX compliant systems AND Windows
+  27              		.loc 1 26 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 16
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 2
+
+
+  32 0000 80B4     		push	{r7}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 85B0     		sub	sp, sp, #20
+  36              		.cfi_def_cfa_offset 24
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  27:.\main.c      ****     int i,j;
+  28:.\main.c      ****     for (i = 0; i < seconds*1000; i++){
+  40              		.loc 1 28 0
+  41 0008 0023     		movs	r3, #0
+  42 000a FB60     		str	r3, [r7, #12]
+  43 000c 10E0     		b	.L2
+  44              	.L5:
+  29:.\main.c      ****         for (j = 0; j < seconds*1000; j++){
+  45              		.loc 1 29 0
+  46 000e 0023     		movs	r3, #0
+  47 0010 BB60     		str	r3, [r7, #8]
+  48 0012 02E0     		b	.L3
+  49              	.L4:
+  50              		.loc 1 29 0 is_stmt 0 discriminator 3
+  51 0014 BB68     		ldr	r3, [r7, #8]
+  52 0016 0133     		adds	r3, r3, #1
+  53 0018 BB60     		str	r3, [r7, #8]
+  54              	.L3:
+  55              		.loc 1 29 0 discriminator 1
+  56 001a 7B68     		ldr	r3, [r7, #4]
+  57 001c 4FF47A72 		mov	r2, #1000
+  58 0020 02FB03F2 		mul	r2, r2, r3
+  59 0024 BB68     		ldr	r3, [r7, #8]
+  60 0026 9A42     		cmp	r2, r3
+  61 0028 F4DC     		bgt	.L4
+  28:.\main.c      ****         for (j = 0; j < seconds*1000; j++){
+  62              		.loc 1 28 0 is_stmt 1 discriminator 2
+  63 002a FB68     		ldr	r3, [r7, #12]
+  64 002c 0133     		adds	r3, r3, #1
+  65 002e FB60     		str	r3, [r7, #12]
+  66              	.L2:
+  28:.\main.c      ****         for (j = 0; j < seconds*1000; j++){
+  67              		.loc 1 28 0 is_stmt 0 discriminator 1
+  68 0030 7B68     		ldr	r3, [r7, #4]
+  69 0032 4FF47A72 		mov	r2, #1000
+  70 0036 02FB03F2 		mul	r2, r2, r3
+  71 003a FB68     		ldr	r3, [r7, #12]
+  72 003c 9A42     		cmp	r2, r3
+  73 003e E6DC     		bgt	.L5
+  30:.\main.c      ****         }
+  31:.\main.c      ****     }
+  32:.\main.c      **** }
+  74              		.loc 1 32 0 is_stmt 1
+  75 0040 1437     		adds	r7, r7, #20
+  76              		.cfi_def_cfa_offset 4
+  77 0042 BD46     		mov	sp, r7
+  78              		.cfi_def_cfa_register 13
+  79              		@ sp needed
+  80 0044 5DF8047B 		ldr	r7, [sp], #4
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 3
+
+
+  81              		.cfi_restore 7
+  82              		.cfi_def_cfa_offset 0
+  83 0048 7047     		bx	lr
+  84              		.cfi_endproc
+  85              	.LFE63:
+  86              		.size	wait, .-wait
+  87 004a 00BF     		.section	.text.disp,"ax",%progbits
+  88              		.align	2
+  89              		.global	disp
+  90              		.thumb
+  91              		.thumb_func
+  92              		.type	disp, %function
+  93              	disp:
+  94              	.LFB64:
+  33:.\main.c      **** 
+  34:.\main.c      **** void disp(uint8 colorA, uint8 colorB){
+  95              		.loc 1 34 0
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 16
+  98              		@ frame_needed = 1, uses_anonymous_args = 0
+  99 0000 80B5     		push	{r7, lr}
+ 100              		.cfi_def_cfa_offset 8
+ 101              		.cfi_offset 7, -8
+ 102              		.cfi_offset 14, -4
+ 103 0002 84B0     		sub	sp, sp, #16
+ 104              		.cfi_def_cfa_offset 24
+ 105 0004 00AF     		add	r7, sp, #0
+ 106              		.cfi_def_cfa_register 7
+ 107 0006 0346     		mov	r3, r0
+ 108 0008 0A46     		mov	r2, r1
+ 109 000a FB71     		strb	r3, [r7, #7]
+ 110 000c 1346     		mov	r3, r2
+ 111 000e BB71     		strb	r3, [r7, #6]
+  35:.\main.c      ****     int row,col;
+  36:.\main.c      ****     for (row = 0; row < 16; row++){
+ 112              		.loc 1 36 0
+ 113 0010 0023     		movs	r3, #0
+ 114 0012 FB60     		str	r3, [r7, #12]
+ 115 0014 13E0     		b	.L7
+ 116              	.L10:
+  37:.\main.c      ****         for (col = 0; col < 6; col++){
+ 117              		.loc 1 37 0
+ 118 0016 0023     		movs	r3, #0
+ 119 0018 BB60     		str	r3, [r7, #8]
+ 120 001a 0AE0     		b	.L8
+ 121              	.L9:
+  38:.\main.c      ****             UART_PutChar(colorA); // red
+ 122              		.loc 1 38 0 discriminator 3
+ 123 001c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 124 001e 1846     		mov	r0, r3
+ 125 0020 FFF7FEFF 		bl	UART_PutChar
+  39:.\main.c      ****             UART_PutChar(colorB); // green
+ 126              		.loc 1 39 0 discriminator 3
+ 127 0024 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 128 0026 1846     		mov	r0, r3
+ 129 0028 FFF7FEFF 		bl	UART_PutChar
+  37:.\main.c      ****         for (col = 0; col < 6; col++){
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 4
+
+
+ 130              		.loc 1 37 0 discriminator 3
+ 131 002c BB68     		ldr	r3, [r7, #8]
+ 132 002e 0133     		adds	r3, r3, #1
+ 133 0030 BB60     		str	r3, [r7, #8]
+ 134              	.L8:
+  37:.\main.c      ****         for (col = 0; col < 6; col++){
+ 135              		.loc 1 37 0 is_stmt 0 discriminator 1
+ 136 0032 BB68     		ldr	r3, [r7, #8]
+ 137 0034 052B     		cmp	r3, #5
+ 138 0036 F1DD     		ble	.L9
+  36:.\main.c      ****         for (col = 0; col < 6; col++){
+ 139              		.loc 1 36 0 is_stmt 1 discriminator 2
+ 140 0038 FB68     		ldr	r3, [r7, #12]
+ 141 003a 0133     		adds	r3, r3, #1
+ 142 003c FB60     		str	r3, [r7, #12]
+ 143              	.L7:
+  36:.\main.c      ****         for (col = 0; col < 6; col++){
+ 144              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 145 003e FB68     		ldr	r3, [r7, #12]
+ 146 0040 0F2B     		cmp	r3, #15
+ 147 0042 E8DD     		ble	.L10
+  40:.\main.c      ****         }
+  41:.\main.c      ****     }    
+  42:.\main.c      **** }
+ 148              		.loc 1 42 0 is_stmt 1
+ 149 0044 1037     		adds	r7, r7, #16
+ 150              		.cfi_def_cfa_offset 8
+ 151 0046 BD46     		mov	sp, r7
+ 152              		.cfi_def_cfa_register 13
+ 153              		@ sp needed
+ 154 0048 80BD     		pop	{r7, pc}
+ 155              		.cfi_endproc
+ 156              	.LFE64:
+ 157              		.size	disp, .-disp
+ 158 004a 00BF     		.section	.text.main,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	main
+ 161              		.thumb
+ 162              		.thumb_func
+ 163              		.type	main, %function
+ 164              	main:
+ 165              	.LFB65:
+  43:.\main.c      **** 
+  44:.\main.c      **** void main()
+  45:.\main.c      **** {	
+ 166              		.loc 1 45 0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 8
+ 169              		@ frame_needed = 1, uses_anonymous_args = 0
+ 170 0000 80B5     		push	{r7, lr}
+ 171              		.cfi_def_cfa_offset 8
+ 172              		.cfi_offset 7, -8
+ 173              		.cfi_offset 14, -4
+ 174 0002 82B0     		sub	sp, sp, #8
+ 175              		.cfi_def_cfa_offset 16
+ 176 0004 00AF     		add	r7, sp, #0
+ 177              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 5
+
+
+  46:.\main.c      **** 	LCD_Start();					    // initialize lcd
+ 178              		.loc 1 46 0
+ 179 0006 FFF7FEFF 		bl	LCD_Start
+  47:.\main.c      **** 	LCD_ClearDisplay();
+ 180              		.loc 1 47 0
+ 181 000a 0120     		movs	r0, #1
+ 182 000c FFF7FEFF 		bl	LCD_WriteControl
+  48:.\main.c      ****     
+  49:.\main.c      ****     //CyGlobalIntEnable;
+  50:.\main.c      ****     //rx_int_StartEx(RX_INT);             // start RX interrupt (look for CY_ISR with RX_INT addres
+  51:.\main.c      ****                                         // for code that writes received bytes to LCD.
+  52:.\main.c      ****     
+  53:.\main.c      ****     UART_Start();                       // initialize UART
+ 183              		.loc 1 53 0
+ 184 0010 FFF7FEFF 		bl	UART_Start
+  54:.\main.c      ****     //UART_ClearRxBuffer();
+  55:.\main.c      ****     
+  56:.\main.c      ****     LCD_PutChar(0x35); //print a 5
+ 185              		.loc 1 56 0
+ 186 0014 3520     		movs	r0, #53
+ 187 0016 FFF7FEFF 		bl	LCD_PutChar
+  57:.\main.c      ****    
+  58:.\main.c      ****     
+  59:.\main.c      ****     int i;
+  60:.\main.c      ****     for (i = 0; i < 5; i++){
+ 188              		.loc 1 60 0
+ 189 001a 0023     		movs	r3, #0
+ 190 001c 7B60     		str	r3, [r7, #4]
+ 191 001e 16E0     		b	.L12
+ 192              	.L13:
+  61:.\main.c      ****         UART_PutChar(0x80); // init connection; set to 16x12 image 
+ 193              		.loc 1 61 0 discriminator 3
+ 194 0020 8020     		movs	r0, #128
+ 195 0022 FFF7FEFF 		bl	UART_PutChar
+  62:.\main.c      ****         disp(0x30,0x00); //red black
+ 196              		.loc 1 62 0 discriminator 3
+ 197 0026 3020     		movs	r0, #48
+ 198 0028 0021     		movs	r1, #0
+ 199 002a FFF7FEFF 		bl	disp
+  63:.\main.c      ****         wait(1);
+ 200              		.loc 1 63 0 discriminator 3
+ 201 002e 0120     		movs	r0, #1
+ 202 0030 FFF7FEFF 		bl	wait
+  64:.\main.c      ****         UART_PutChar(0x80); // init connection; set to 16x12 image 
+ 203              		.loc 1 64 0 discriminator 3
+ 204 0034 8020     		movs	r0, #128
+ 205 0036 FFF7FEFF 		bl	UART_PutChar
+  65:.\main.c      ****         disp(0x30,0x0c); //red green
+ 206              		.loc 1 65 0 discriminator 3
+ 207 003a 3020     		movs	r0, #48
+ 208 003c 0C21     		movs	r1, #12
+ 209 003e FFF7FEFF 		bl	disp
+  66:.\main.c      ****         wait(1);
+ 210              		.loc 1 66 0 discriminator 3
+ 211 0042 0120     		movs	r0, #1
+ 212 0044 FFF7FEFF 		bl	wait
+  60:.\main.c      ****         UART_PutChar(0x80); // init connection; set to 16x12 image 
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 6
+
+
+ 213              		.loc 1 60 0 discriminator 3
+ 214 0048 7B68     		ldr	r3, [r7, #4]
+ 215 004a 0133     		adds	r3, r3, #1
+ 216 004c 7B60     		str	r3, [r7, #4]
+ 217              	.L12:
+  60:.\main.c      ****         UART_PutChar(0x80); // init connection; set to 16x12 image 
+ 218              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 219 004e 7B68     		ldr	r3, [r7, #4]
+ 220 0050 042B     		cmp	r3, #4
+ 221 0052 E5DD     		ble	.L13
+  67:.\main.c      ****     }
+  68:.\main.c      ****     
+  69:.\main.c      ****     LCD_PutChar(0x35); //print a 5
+ 222              		.loc 1 69 0 is_stmt 1
+ 223 0054 3520     		movs	r0, #53
+ 224 0056 FFF7FEFF 		bl	LCD_PutChar
+ 225              	.L14:
+  70:.\main.c      ****     
+  71:.\main.c      ****     
+  72:.\main.c      **** 
+  73:.\main.c      ****     for(;;)
+  74:.\main.c      ****     {}
+ 226              		.loc 1 74 0 discriminator 1
+ 227 005a FEE7     		b	.L14
+ 228              		.cfi_endproc
+ 229              	.LFE65:
+ 230              		.size	main, .-main
+ 231              		.text
+ 232              	.Letext0:
+ 233              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 234              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 235              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 236              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 237              		.section	.debug_info,"",%progbits
+ 238              	.Ldebug_info0:
+ 239 0000 63010000 		.4byte	0x163
+ 240 0004 0400     		.2byte	0x4
+ 241 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 242 000a 04       		.byte	0x4
+ 243 000b 01       		.uleb128 0x1
+ 244 000c 0A000000 		.4byte	.LASF21
+ 245 0010 01       		.byte	0x1
+ 246 0011 1B010000 		.4byte	.LASF22
+ 247 0015 98000000 		.4byte	.LASF23
+ 248 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 249 001d 00000000 		.4byte	0
+ 250 0021 00000000 		.4byte	.Ldebug_line0
+ 251 0025 02       		.uleb128 0x2
+ 252 0026 01       		.byte	0x1
+ 253 0027 06       		.byte	0x6
+ 254 0028 E3010000 		.4byte	.LASF0
+ 255 002c 02       		.uleb128 0x2
+ 256 002d 01       		.byte	0x1
+ 257 002e 08       		.byte	0x8
+ 258 002f 0D010000 		.4byte	.LASF1
+ 259 0033 02       		.uleb128 0x2
+ 260 0034 02       		.byte	0x2
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 7
+
+
+ 261 0035 05       		.byte	0x5
+ 262 0036 CA010000 		.4byte	.LASF2
+ 263 003a 02       		.uleb128 0x2
+ 264 003b 02       		.byte	0x2
+ 265 003c 07       		.byte	0x7
+ 266 003d 36010000 		.4byte	.LASF3
+ 267 0041 03       		.uleb128 0x3
+ 268 0042 00000000 		.4byte	.LASF9
+ 269 0046 02       		.byte	0x2
+ 270 0047 3F       		.byte	0x3f
+ 271 0048 4C000000 		.4byte	0x4c
+ 272 004c 02       		.uleb128 0x2
+ 273 004d 04       		.byte	0x4
+ 274 004e 05       		.byte	0x5
+ 275 004f DA010000 		.4byte	.LASF4
+ 276 0053 02       		.uleb128 0x2
+ 277 0054 04       		.byte	0x4
+ 278 0055 07       		.byte	0x7
+ 279 0056 24010000 		.4byte	.LASF5
+ 280 005a 02       		.uleb128 0x2
+ 281 005b 08       		.byte	0x8
+ 282 005c 05       		.byte	0x5
+ 283 005d AF010000 		.4byte	.LASF6
+ 284 0061 02       		.uleb128 0x2
+ 285 0062 08       		.byte	0x8
+ 286 0063 07       		.byte	0x7
+ 287 0064 82010000 		.4byte	.LASF7
+ 288 0068 04       		.uleb128 0x4
+ 289 0069 04       		.byte	0x4
+ 290 006a 05       		.byte	0x5
+ 291 006b 696E7400 		.ascii	"int\000"
+ 292 006f 02       		.uleb128 0x2
+ 293 0070 04       		.byte	0x4
+ 294 0071 07       		.byte	0x7
+ 295 0072 67010000 		.4byte	.LASF8
+ 296 0076 03       		.uleb128 0x3
+ 297 0077 9E010000 		.4byte	.LASF10
+ 298 007b 03       		.byte	0x3
+ 299 007c 2C       		.byte	0x2c
+ 300 007d 41000000 		.4byte	0x41
+ 301 0081 05       		.uleb128 0x5
+ 302 0082 D4010000 		.4byte	.LASF11
+ 303 0086 04       		.byte	0x4
+ 304 0087 3801     		.2byte	0x138
+ 305 0089 2C000000 		.4byte	0x2c
+ 306 008d 02       		.uleb128 0x2
+ 307 008e 04       		.byte	0x4
+ 308 008f 04       		.byte	0x4
+ 309 0090 07010000 		.4byte	.LASF12
+ 310 0094 02       		.uleb128 0x2
+ 311 0095 08       		.byte	0x8
+ 312 0096 04       		.byte	0x4
+ 313 0097 56010000 		.4byte	.LASF13
+ 314 009b 02       		.uleb128 0x2
+ 315 009c 01       		.byte	0x1
+ 316 009d 08       		.byte	0x8
+ 317 009e C5010000 		.4byte	.LASF14
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 8
+
+
+ 318 00a2 02       		.uleb128 0x2
+ 319 00a3 04       		.byte	0x4
+ 320 00a4 07       		.byte	0x7
+ 321 00a5 A6010000 		.4byte	.LASF15
+ 322 00a9 06       		.uleb128 0x6
+ 323 00aa 62010000 		.4byte	.LASF16
+ 324 00ae 01       		.byte	0x1
+ 325 00af 19       		.byte	0x19
+ 326 00b0 00000000 		.4byte	.LFB63
+ 327 00b4 4A000000 		.4byte	.LFE63-.LFB63
+ 328 00b8 01       		.uleb128 0x1
+ 329 00b9 9C       		.byte	0x9c
+ 330 00ba E5000000 		.4byte	0xe5
+ 331 00be 07       		.uleb128 0x7
+ 332 00bf BD010000 		.4byte	.LASF18
+ 333 00c3 01       		.byte	0x1
+ 334 00c4 19       		.byte	0x19
+ 335 00c5 68000000 		.4byte	0x68
+ 336 00c9 02       		.uleb128 0x2
+ 337 00ca 91       		.byte	0x91
+ 338 00cb 6C       		.sleb128 -20
+ 339 00cc 08       		.uleb128 0x8
+ 340 00cd 6900     		.ascii	"i\000"
+ 341 00cf 01       		.byte	0x1
+ 342 00d0 1B       		.byte	0x1b
+ 343 00d1 68000000 		.4byte	0x68
+ 344 00d5 02       		.uleb128 0x2
+ 345 00d6 91       		.byte	0x91
+ 346 00d7 74       		.sleb128 -12
+ 347 00d8 08       		.uleb128 0x8
+ 348 00d9 6A00     		.ascii	"j\000"
+ 349 00db 01       		.byte	0x1
+ 350 00dc 1B       		.byte	0x1b
+ 351 00dd 68000000 		.4byte	0x68
+ 352 00e1 02       		.uleb128 0x2
+ 353 00e2 91       		.byte	0x91
+ 354 00e3 70       		.sleb128 -16
+ 355 00e4 00       		.byte	0
+ 356 00e5 09       		.uleb128 0x9
+ 357 00e6 99010000 		.4byte	.LASF17
+ 358 00ea 01       		.byte	0x1
+ 359 00eb 22       		.byte	0x22
+ 360 00ec 00000000 		.4byte	.LFB64
+ 361 00f0 4A000000 		.4byte	.LFE64-.LFB64
+ 362 00f4 01       		.uleb128 0x1
+ 363 00f5 9C       		.byte	0x9c
+ 364 00f6 33010000 		.4byte	0x133
+ 365 00fa 07       		.uleb128 0x7
+ 366 00fb 74010000 		.4byte	.LASF19
+ 367 00ff 01       		.byte	0x1
+ 368 0100 22       		.byte	0x22
+ 369 0101 81000000 		.4byte	0x81
+ 370 0105 02       		.uleb128 0x2
+ 371 0106 91       		.byte	0x91
+ 372 0107 6F       		.sleb128 -17
+ 373 0108 07       		.uleb128 0x7
+ 374 0109 7B010000 		.4byte	.LASF20
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 9
+
+
+ 375 010d 01       		.byte	0x1
+ 376 010e 22       		.byte	0x22
+ 377 010f 81000000 		.4byte	0x81
+ 378 0113 02       		.uleb128 0x2
+ 379 0114 91       		.byte	0x91
+ 380 0115 6E       		.sleb128 -18
+ 381 0116 08       		.uleb128 0x8
+ 382 0117 726F7700 		.ascii	"row\000"
+ 383 011b 01       		.byte	0x1
+ 384 011c 23       		.byte	0x23
+ 385 011d 68000000 		.4byte	0x68
+ 386 0121 02       		.uleb128 0x2
+ 387 0122 91       		.byte	0x91
+ 388 0123 74       		.sleb128 -12
+ 389 0124 08       		.uleb128 0x8
+ 390 0125 636F6C00 		.ascii	"col\000"
+ 391 0129 01       		.byte	0x1
+ 392 012a 23       		.byte	0x23
+ 393 012b 68000000 		.4byte	0x68
+ 394 012f 02       		.uleb128 0x2
+ 395 0130 91       		.byte	0x91
+ 396 0131 70       		.sleb128 -16
+ 397 0132 00       		.byte	0
+ 398 0133 0A       		.uleb128 0xa
+ 399 0134 5D010000 		.4byte	.LASF24
+ 400 0138 01       		.byte	0x1
+ 401 0139 2C       		.byte	0x2c
+ 402 013a 00000000 		.4byte	.LFB65
+ 403 013e 5C000000 		.4byte	.LFE65-.LFB65
+ 404 0142 01       		.uleb128 0x1
+ 405 0143 9C       		.byte	0x9c
+ 406 0144 55010000 		.4byte	0x155
+ 407 0148 08       		.uleb128 0x8
+ 408 0149 6900     		.ascii	"i\000"
+ 409 014b 01       		.byte	0x1
+ 410 014c 3B       		.byte	0x3b
+ 411 014d 68000000 		.4byte	0x68
+ 412 0151 02       		.uleb128 0x2
+ 413 0152 91       		.byte	0x91
+ 414 0153 74       		.sleb128 -12
+ 415 0154 00       		.byte	0
+ 416 0155 0B       		.uleb128 0xb
+ 417 0156 49010000 		.4byte	.LASF25
+ 418 015a 05       		.byte	0x5
+ 419 015b 5506     		.2byte	0x655
+ 420 015d 61010000 		.4byte	0x161
+ 421 0161 0C       		.uleb128 0xc
+ 422 0162 76000000 		.4byte	0x76
+ 423 0166 00       		.byte	0
+ 424              		.section	.debug_abbrev,"",%progbits
+ 425              	.Ldebug_abbrev0:
+ 426 0000 01       		.uleb128 0x1
+ 427 0001 11       		.uleb128 0x11
+ 428 0002 01       		.byte	0x1
+ 429 0003 25       		.uleb128 0x25
+ 430 0004 0E       		.uleb128 0xe
+ 431 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 10
+
+
+ 432 0006 0B       		.uleb128 0xb
+ 433 0007 03       		.uleb128 0x3
+ 434 0008 0E       		.uleb128 0xe
+ 435 0009 1B       		.uleb128 0x1b
+ 436 000a 0E       		.uleb128 0xe
+ 437 000b 55       		.uleb128 0x55
+ 438 000c 17       		.uleb128 0x17
+ 439 000d 11       		.uleb128 0x11
+ 440 000e 01       		.uleb128 0x1
+ 441 000f 10       		.uleb128 0x10
+ 442 0010 17       		.uleb128 0x17
+ 443 0011 00       		.byte	0
+ 444 0012 00       		.byte	0
+ 445 0013 02       		.uleb128 0x2
+ 446 0014 24       		.uleb128 0x24
+ 447 0015 00       		.byte	0
+ 448 0016 0B       		.uleb128 0xb
+ 449 0017 0B       		.uleb128 0xb
+ 450 0018 3E       		.uleb128 0x3e
+ 451 0019 0B       		.uleb128 0xb
+ 452 001a 03       		.uleb128 0x3
+ 453 001b 0E       		.uleb128 0xe
+ 454 001c 00       		.byte	0
+ 455 001d 00       		.byte	0
+ 456 001e 03       		.uleb128 0x3
+ 457 001f 16       		.uleb128 0x16
+ 458 0020 00       		.byte	0
+ 459 0021 03       		.uleb128 0x3
+ 460 0022 0E       		.uleb128 0xe
+ 461 0023 3A       		.uleb128 0x3a
+ 462 0024 0B       		.uleb128 0xb
+ 463 0025 3B       		.uleb128 0x3b
+ 464 0026 0B       		.uleb128 0xb
+ 465 0027 49       		.uleb128 0x49
+ 466 0028 13       		.uleb128 0x13
+ 467 0029 00       		.byte	0
+ 468 002a 00       		.byte	0
+ 469 002b 04       		.uleb128 0x4
+ 470 002c 24       		.uleb128 0x24
+ 471 002d 00       		.byte	0
+ 472 002e 0B       		.uleb128 0xb
+ 473 002f 0B       		.uleb128 0xb
+ 474 0030 3E       		.uleb128 0x3e
+ 475 0031 0B       		.uleb128 0xb
+ 476 0032 03       		.uleb128 0x3
+ 477 0033 08       		.uleb128 0x8
+ 478 0034 00       		.byte	0
+ 479 0035 00       		.byte	0
+ 480 0036 05       		.uleb128 0x5
+ 481 0037 16       		.uleb128 0x16
+ 482 0038 00       		.byte	0
+ 483 0039 03       		.uleb128 0x3
+ 484 003a 0E       		.uleb128 0xe
+ 485 003b 3A       		.uleb128 0x3a
+ 486 003c 0B       		.uleb128 0xb
+ 487 003d 3B       		.uleb128 0x3b
+ 488 003e 05       		.uleb128 0x5
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 11
+
+
+ 489 003f 49       		.uleb128 0x49
+ 490 0040 13       		.uleb128 0x13
+ 491 0041 00       		.byte	0
+ 492 0042 00       		.byte	0
+ 493 0043 06       		.uleb128 0x6
+ 494 0044 2E       		.uleb128 0x2e
+ 495 0045 01       		.byte	0x1
+ 496 0046 3F       		.uleb128 0x3f
+ 497 0047 19       		.uleb128 0x19
+ 498 0048 03       		.uleb128 0x3
+ 499 0049 0E       		.uleb128 0xe
+ 500 004a 3A       		.uleb128 0x3a
+ 501 004b 0B       		.uleb128 0xb
+ 502 004c 3B       		.uleb128 0x3b
+ 503 004d 0B       		.uleb128 0xb
+ 504 004e 27       		.uleb128 0x27
+ 505 004f 19       		.uleb128 0x19
+ 506 0050 11       		.uleb128 0x11
+ 507 0051 01       		.uleb128 0x1
+ 508 0052 12       		.uleb128 0x12
+ 509 0053 06       		.uleb128 0x6
+ 510 0054 40       		.uleb128 0x40
+ 511 0055 18       		.uleb128 0x18
+ 512 0056 9742     		.uleb128 0x2117
+ 513 0058 19       		.uleb128 0x19
+ 514 0059 01       		.uleb128 0x1
+ 515 005a 13       		.uleb128 0x13
+ 516 005b 00       		.byte	0
+ 517 005c 00       		.byte	0
+ 518 005d 07       		.uleb128 0x7
+ 519 005e 05       		.uleb128 0x5
+ 520 005f 00       		.byte	0
+ 521 0060 03       		.uleb128 0x3
+ 522 0061 0E       		.uleb128 0xe
+ 523 0062 3A       		.uleb128 0x3a
+ 524 0063 0B       		.uleb128 0xb
+ 525 0064 3B       		.uleb128 0x3b
+ 526 0065 0B       		.uleb128 0xb
+ 527 0066 49       		.uleb128 0x49
+ 528 0067 13       		.uleb128 0x13
+ 529 0068 02       		.uleb128 0x2
+ 530 0069 18       		.uleb128 0x18
+ 531 006a 00       		.byte	0
+ 532 006b 00       		.byte	0
+ 533 006c 08       		.uleb128 0x8
+ 534 006d 34       		.uleb128 0x34
+ 535 006e 00       		.byte	0
+ 536 006f 03       		.uleb128 0x3
+ 537 0070 08       		.uleb128 0x8
+ 538 0071 3A       		.uleb128 0x3a
+ 539 0072 0B       		.uleb128 0xb
+ 540 0073 3B       		.uleb128 0x3b
+ 541 0074 0B       		.uleb128 0xb
+ 542 0075 49       		.uleb128 0x49
+ 543 0076 13       		.uleb128 0x13
+ 544 0077 02       		.uleb128 0x2
+ 545 0078 18       		.uleb128 0x18
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 12
+
+
+ 546 0079 00       		.byte	0
+ 547 007a 00       		.byte	0
+ 548 007b 09       		.uleb128 0x9
+ 549 007c 2E       		.uleb128 0x2e
+ 550 007d 01       		.byte	0x1
+ 551 007e 3F       		.uleb128 0x3f
+ 552 007f 19       		.uleb128 0x19
+ 553 0080 03       		.uleb128 0x3
+ 554 0081 0E       		.uleb128 0xe
+ 555 0082 3A       		.uleb128 0x3a
+ 556 0083 0B       		.uleb128 0xb
+ 557 0084 3B       		.uleb128 0x3b
+ 558 0085 0B       		.uleb128 0xb
+ 559 0086 27       		.uleb128 0x27
+ 560 0087 19       		.uleb128 0x19
+ 561 0088 11       		.uleb128 0x11
+ 562 0089 01       		.uleb128 0x1
+ 563 008a 12       		.uleb128 0x12
+ 564 008b 06       		.uleb128 0x6
+ 565 008c 40       		.uleb128 0x40
+ 566 008d 18       		.uleb128 0x18
+ 567 008e 9642     		.uleb128 0x2116
+ 568 0090 19       		.uleb128 0x19
+ 569 0091 01       		.uleb128 0x1
+ 570 0092 13       		.uleb128 0x13
+ 571 0093 00       		.byte	0
+ 572 0094 00       		.byte	0
+ 573 0095 0A       		.uleb128 0xa
+ 574 0096 2E       		.uleb128 0x2e
+ 575 0097 01       		.byte	0x1
+ 576 0098 3F       		.uleb128 0x3f
+ 577 0099 19       		.uleb128 0x19
+ 578 009a 03       		.uleb128 0x3
+ 579 009b 0E       		.uleb128 0xe
+ 580 009c 3A       		.uleb128 0x3a
+ 581 009d 0B       		.uleb128 0xb
+ 582 009e 3B       		.uleb128 0x3b
+ 583 009f 0B       		.uleb128 0xb
+ 584 00a0 11       		.uleb128 0x11
+ 585 00a1 01       		.uleb128 0x1
+ 586 00a2 12       		.uleb128 0x12
+ 587 00a3 06       		.uleb128 0x6
+ 588 00a4 40       		.uleb128 0x40
+ 589 00a5 18       		.uleb128 0x18
+ 590 00a6 9642     		.uleb128 0x2116
+ 591 00a8 19       		.uleb128 0x19
+ 592 00a9 01       		.uleb128 0x1
+ 593 00aa 13       		.uleb128 0x13
+ 594 00ab 00       		.byte	0
+ 595 00ac 00       		.byte	0
+ 596 00ad 0B       		.uleb128 0xb
+ 597 00ae 34       		.uleb128 0x34
+ 598 00af 00       		.byte	0
+ 599 00b0 03       		.uleb128 0x3
+ 600 00b1 0E       		.uleb128 0xe
+ 601 00b2 3A       		.uleb128 0x3a
+ 602 00b3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 13
+
+
+ 603 00b4 3B       		.uleb128 0x3b
+ 604 00b5 05       		.uleb128 0x5
+ 605 00b6 49       		.uleb128 0x49
+ 606 00b7 13       		.uleb128 0x13
+ 607 00b8 3F       		.uleb128 0x3f
+ 608 00b9 19       		.uleb128 0x19
+ 609 00ba 3C       		.uleb128 0x3c
+ 610 00bb 19       		.uleb128 0x19
+ 611 00bc 00       		.byte	0
+ 612 00bd 00       		.byte	0
+ 613 00be 0C       		.uleb128 0xc
+ 614 00bf 35       		.uleb128 0x35
+ 615 00c0 00       		.byte	0
+ 616 00c1 49       		.uleb128 0x49
+ 617 00c2 13       		.uleb128 0x13
+ 618 00c3 00       		.byte	0
+ 619 00c4 00       		.byte	0
+ 620 00c5 00       		.byte	0
+ 621              		.section	.debug_aranges,"",%progbits
+ 622 0000 2C000000 		.4byte	0x2c
+ 623 0004 0200     		.2byte	0x2
+ 624 0006 00000000 		.4byte	.Ldebug_info0
+ 625 000a 04       		.byte	0x4
+ 626 000b 00       		.byte	0
+ 627 000c 0000     		.2byte	0
+ 628 000e 0000     		.2byte	0
+ 629 0010 00000000 		.4byte	.LFB63
+ 630 0014 4A000000 		.4byte	.LFE63-.LFB63
+ 631 0018 00000000 		.4byte	.LFB64
+ 632 001c 4A000000 		.4byte	.LFE64-.LFB64
+ 633 0020 00000000 		.4byte	.LFB65
+ 634 0024 5C000000 		.4byte	.LFE65-.LFB65
+ 635 0028 00000000 		.4byte	0
+ 636 002c 00000000 		.4byte	0
+ 637              		.section	.debug_ranges,"",%progbits
+ 638              	.Ldebug_ranges0:
+ 639 0000 00000000 		.4byte	.LFB63
+ 640 0004 4A000000 		.4byte	.LFE63
+ 641 0008 00000000 		.4byte	.LFB64
+ 642 000c 4A000000 		.4byte	.LFE64
+ 643 0010 00000000 		.4byte	.LFB65
+ 644 0014 5C000000 		.4byte	.LFE65
+ 645 0018 00000000 		.4byte	0
+ 646 001c 00000000 		.4byte	0
+ 647              		.section	.debug_line,"",%progbits
+ 648              	.Ldebug_line0:
+ 649 0000 F5010000 		.section	.debug_str,"MS",%progbits,1
+ 649      02004901 
+ 649      00000201 
+ 649      FB0E0D00 
+ 649      01010101 
+ 650              	.LASF9:
+ 651 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 651      7433325F 
+ 651      7400
+ 652              	.LASF21:
+ 653 000a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 14
+
+
+ 653      4320342E 
+ 653      392E3320 
+ 653      32303135 
+ 653      30333033 
+ 654 003d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 654      20726576 
+ 654      6973696F 
+ 654      6E203232 
+ 654      31323230 
+ 655 0070 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 655      66756E63 
+ 655      74696F6E 
+ 655      2D736563 
+ 655      74696F6E 
+ 656              	.LASF23:
+ 657 0098 433A5C55 		.ascii	"C:\\Users\\Andrew\\Dropbox (Personal)\\MIT\\MIT 201"
+ 657      73657273 
+ 657      5C416E64 
+ 657      7265775C 
+ 657      44726F70 
+ 658 00c6 36205370 		.ascii	"6 Spring\\6115\\Final Project\\Code\\PSoc to R31JP\\"
+ 658      72696E67 
+ 658      5C363131 
+ 658      355C4669 
+ 658      6E616C20 
+ 659 00f5 50534F43 		.ascii	"PSOC to VGA.cydsn\000"
+ 659      20746F20 
+ 659      5647412E 
+ 659      63796473 
+ 659      6E00
+ 660              	.LASF12:
+ 661 0107 666C6F61 		.ascii	"float\000"
+ 661      7400
+ 662              	.LASF1:
+ 663 010d 756E7369 		.ascii	"unsigned char\000"
+ 663      676E6564 
+ 663      20636861 
+ 663      7200
+ 664              	.LASF22:
+ 665 011b 2E5C6D61 		.ascii	".\\main.c\000"
+ 665      696E2E63 
+ 665      00
+ 666              	.LASF5:
+ 667 0124 6C6F6E67 		.ascii	"long unsigned int\000"
+ 667      20756E73 
+ 667      69676E65 
+ 667      6420696E 
+ 667      7400
+ 668              	.LASF3:
+ 669 0136 73686F72 		.ascii	"short unsigned int\000"
+ 669      7420756E 
+ 669      7369676E 
+ 669      65642069 
+ 669      6E7400
+ 670              	.LASF25:
+ 671 0149 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 671      52784275 
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 15
+
+
+ 671      66666572 
+ 671      00
+ 672              	.LASF13:
+ 673 0156 646F7562 		.ascii	"double\000"
+ 673      6C6500
+ 674              	.LASF24:
+ 675 015d 6D61696E 		.ascii	"main\000"
+ 675      00
+ 676              	.LASF16:
+ 677 0162 77616974 		.ascii	"wait\000"
+ 677      00
+ 678              	.LASF8:
+ 679 0167 756E7369 		.ascii	"unsigned int\000"
+ 679      676E6564 
+ 679      20696E74 
+ 679      00
+ 680              	.LASF19:
+ 681 0174 636F6C6F 		.ascii	"colorA\000"
+ 681      724100
+ 682              	.LASF20:
+ 683 017b 636F6C6F 		.ascii	"colorB\000"
+ 683      724200
+ 684              	.LASF7:
+ 685 0182 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 685      206C6F6E 
+ 685      6720756E 
+ 685      7369676E 
+ 685      65642069 
+ 686              	.LASF17:
+ 687 0199 64697370 		.ascii	"disp\000"
+ 687      00
+ 688              	.LASF10:
+ 689 019e 696E7433 		.ascii	"int32_t\000"
+ 689      325F7400 
+ 690              	.LASF15:
+ 691 01a6 73697A65 		.ascii	"sizetype\000"
+ 691      74797065 
+ 691      00
+ 692              	.LASF6:
+ 693 01af 6C6F6E67 		.ascii	"long long int\000"
+ 693      206C6F6E 
+ 693      6720696E 
+ 693      7400
+ 694              	.LASF18:
+ 695 01bd 7365636F 		.ascii	"seconds\000"
+ 695      6E647300 
+ 696              	.LASF14:
+ 697 01c5 63686172 		.ascii	"char\000"
+ 697      00
+ 698              	.LASF2:
+ 699 01ca 73686F72 		.ascii	"short int\000"
+ 699      7420696E 
+ 699      7400
+ 700              	.LASF11:
+ 701 01d4 75696E74 		.ascii	"uint8\000"
+ 701      3800
+ 702              	.LASF4:
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccoCLDIK.s 			page 16
+
+
+ 703 01da 6C6F6E67 		.ascii	"long int\000"
+ 703      20696E74 
+ 703      00
+ 704              	.LASF0:
+ 705 01e3 7369676E 		.ascii	"signed char\000"
+ 705      65642063 
+ 705      68617200 
+ 706              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

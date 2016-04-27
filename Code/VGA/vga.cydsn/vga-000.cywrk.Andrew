@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="vga-000\vga\Source Files\draw.c">
+<ExpandedNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\TopDesign</v>
+<v>vga-000\vga\vga.cydwr</v>
+<v>vga-000\vga\Header Files</v>
+<v>vga-000\vga\Header Files\device.h</v>
+<v>vga-000\vga\Source Files</v>
+<v>vga-000\vga\Source Files\draw.c</v>
+<v>vga-000\vga\Source Files\main.c</v>
+<v>vga-000\vga\custom.ld</v>
+<v>vga-000\vga\Generated_Source</v>
+<v>vga-000\vga\Generated_Source\PSoC5</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA\DMA_dma.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA\DMA_dma.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT\HSYNC_OUT.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT\HSYNC_OUT.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT\HSYNC_OUT_aliases.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\NEWLINE</v>
+<v>vga-000\vga\Generated_Source\PSoC5\NEWLINE\NEWLINE.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\NEWLINE\NEWLINE.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\PIXEL</v>
+<v>vga-000\vga\Generated_Source\PSoC5\PIXEL\PIXEL.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\PIXEL\PIXEL.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART\UART.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART\UART.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART\UART_BOOT.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART\UART_INT.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART\UART_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART_IntClock</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART_IntClock\UART_IntClock.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\UART_IntClock\UART_IntClock.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VERT</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VERT\VERT.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VERT\VERT.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VERT\VERT_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA\VGA.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA\VGA.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA\VGA_aliases.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA_CLK</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA_CLK\VGA_CLK.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VGA_CLK\VGA_CLK.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC\VSYNC.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC\VSYNC.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC\VSYNC_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC_OUT</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC_OUT\VSYNC_OUT.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC_OUT\VSYNC_OUT.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\VSYNC_OUT\VSYNC_OUT_aliases.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevice.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfitter.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cymetadata.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\TopDesign</v>
+<v>vga-000\vga\vga.cydwr</v>
+<v>vga-000\vga\Header Files</v>
+<v>vga-000\vga\Header Files\device.h</v>
+<v>vga-000\vga\Source Files</v>
+<v>vga-000\vga\Source Files\draw.c</v>
+<v>vga-000\vga\Source Files\main.c</v>
+<v>vga-000\vga\custom.ld</v>
+<v>vga-000\vga\Generated_Source</v>
+<v>vga-000\vga\Generated_Source\PSoC5</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA\DMA_dma.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\DMA\DMA_dma.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HORIZ\HORIZ_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC.h</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC\HSYNC_PM.c</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT</v>
+<v>vga-000\vga\Generated_Source\PSoC5\HSYNC_OUT\HSYNC_OUT.c</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\TopDesign</v>
+<v>vga-000\vga\TopDesign\TopDesign.cysch</v>
+<v>vga-000\vga\TopDesign\TopDesign.cysym</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\TopDesign</v>
+<v>vga-000\vga\TopDesign\TopDesign.cysch</v>
+<v>vga-000\vga\TopDesign\TopDesign.cysym</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\vga.gpdsc</v>
+<v>vga-000\vga\vga.rpt</v>
+<v>vga-000\vga\vga_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\vga.gpdsc</v>
+<v>vga-000\vga\vga.rpt</v>
+<v>vga-000\vga\vga_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\PSoC 5 Architecture TRM</v>
+<v>vga-000\vga\CY8C52LP Family Datasheet</v>
+<v>vga-000\vga\System Reference Guides</v>
+<v>vga-000\vga\System Reference Guides\cy_boot_v4_0</v>
+<v>vga-000\vga\cy_clock_v2_10.pdf</v>
+<v>vga-000\vga\cy_constant_v1_0.pdf</v>
+<v>vga-000\vga\cy_dma_v1_70.pdf</v>
+<v>vga-000\vga\cy_isr_v1_70.pdf</v>
+<v>vga-000\vga\cy_pins_v1_90</v>
+<v>vga-000\vga\cy_pins_v1_90\cy_pins_v1_90.pdf</v>
+<v>vga-000\vga\CyControlReg_v1_70.pdf</v>
+<v>vga-000\vga\cydff_v1_30.pdf</v>
+<v>vga-000\vga\mux_v1_10.pdf</v>
+<v>vga-000\vga\or_v1_0.pdf</v>
+<v>vga-000\vga\PWM_v3_0</v>
+<v>vga-000\vga\PWM_v3_0\PWM_v3_0.pdf</v>
+<v>vga-000\vga\UART_v2_30.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>vga-000</v>
+<v>vga-000\vga</v>
+<v>vga-000\vga\PSoC 5 Architecture TRM</v>
+<v>vga-000\vga\CY8C52LP Family Datasheet</v>
+<v>vga-000\vga\System Reference Guides</v>
+<v>vga-000\vga\System Reference Guides\cy_boot_v4_0</v>
+<v>vga-000\vga\cy_clock_v2_10.pdf</v>
+<v>vga-000\vga\cy_constant_v1_0.pdf</v>
+<v>vga-000\vga\cy_dma_v1_70.pdf</v>
+<v>vga-000\vga\cy_isr_v1_70.pdf</v>
+<v>vga-000\vga\cy_pins_v1_90</v>
+<v>vga-000\vga\cy_pins_v1_90\cy_pins_v1_90.pdf</v>
+<v>vga-000\vga\CyControlReg_v1_70.pdf</v>
+<v>vga-000\vga\cydff_v1_30.pdf</v>
+<v>vga-000\vga\mux_v1_10.pdf</v>
+<v>vga-000\vga\or_v1_0.pdf</v>
+<v>vga-000\vga\PWM_v3_0</v>
+<v>vga-000\vga\PWM_v3_0\PWM_v3_0.pdf</v>
+<v>vga-000\vga\UART_v2_30.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\vga.cydwr" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\main.c" />
+<name v=".\device.h" />
+</OpenDocs>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
