@@ -1,0 +1,10 @@
+Last Modified Date & Time: 04/26/2016 15:00:06
+
+LAB2: TopDesign.cysch
+	LCD_Char_1 [v2.20] to [v2.20]
+	Pin_1 [v2.20] to [v2.20]
+
+LAB2: LAB2.cydwr
+	cy_boot [v4.0] to [v5.30]
+
+

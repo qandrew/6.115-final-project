@@ -17,7 +17,7 @@ class ai_tic(tic_tac_toe):
 		self.board['superdiag'] = [0 for i in xrange(4)]
 
 		self.grid_eval = [0 for i in xrange(self.size**3)]
-		self.grid_eval_cause = [[] for i in xrange(self.size**3)]
+		# self.grid_eval_cause = [[] for i in xrange(self.size**3)]
 
 	def get_grid_eval(self,z,x,y):
 		return self.grid_eval[z*16+x*4+y]
