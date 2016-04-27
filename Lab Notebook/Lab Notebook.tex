@@ -197,13 +197,37 @@ The cumulative sum of the scores after checking all potential connect 4 paths wi
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
 \item Connect PSoC to VGA display % {\bf done}
-\item Code 3D Tic Tac Toe onto PSoC
+\item Port 3D Tic Tac Toe to C {\bf done}
 \item Buy capacitance based sensing chips
 \end{tight_itemize}
 
 \subsection{Connect PSoC to VGA display}
 I got a PSoC module from Prof. Leeb today that will allow me to connect my PSoC to the module using a Serial Port, and the module will convert the serial port data to something displayable on the monitor display through a VGA display port. 
-\\ I am missing a male to male serial port connector. 
+\\ I acquired a null modem cable and a male-to-female serial cable, which will allow me to connect my R31JP to the PSoC-based VGA board. See \href{http://web.mit.edu/6.115/www/document/psoc_vga_manual.pdf}{this document} for more help.
+
+\subsection{Port 3D Tic Tac Toe to C}
+I also spent time at home and booted into my Ubuntu and ported my python Tic Tac Toe code to C. I now have a working two player version that can run on terminal, and I plan to write the AI maybe the next day and get it running on my PSoC soon. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{April 27 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{tight_itemize}
+\item Connect 8051 to VGA display {\bf done}
+\item Connect PSoC to VGA display {\bf done}
+\item Port 3D Tic Tac Toe code to PSoC
+\end{tight_itemize}
+
+\subsection{Connect 8051 to VGA display}
+Following the instructions from \href{http://web.mit.edu/6.115/www/document/psoc_vga_manual.pdf}{this document}, I wrote a simple \texttt{vga.asm} file to display red and green stripes on a VGA display. Consult the image below
+\\ INSERT IMAGE HERE!!!
+
+\subsection{Connect PSoC to VGA display}
+Using the PSoC on a board, I was also able to connect my PSoC 5 to the VGA display. I am using the \textsc{UART\_PutChar()} function to write to serial. I am also powering the 5V PSoC on a board using a phone charger that I took apart. 
+\\
+\\ Eventually, I will construct a simple circuit to connect my PSoC to my VGA display board using a 74LS245 chip. The 74LS245 datasheet can be found \href{../Datasheets/74LS245.pdf}{here} or \href{http://www.futurlec.com/74LS/74LS245.shtml}{here}. Below is a schematic of the desired circuit:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
