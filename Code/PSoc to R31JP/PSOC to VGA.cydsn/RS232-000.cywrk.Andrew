@@ -290,8 +290,15 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\RS232.cydwr" />
+<name v=".\PSOC to VGA.cydwr" />
 <name v=".\main.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\Generated_Source\PSoC5\LCD.c" />
+<name v=".\Generated_Source\PSoC5\rx_int.c" />
+<name v=".\Generated_Source\PSoC5\TX.c" />
+<name v=".\Generated_Source\PSoC5\project.h" />
+<name v=".\device.h" />
+<name v=".\Generated_Source\PSoC5\UART.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

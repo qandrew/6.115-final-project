@@ -18,9 +18,10 @@ struct tic_tac_toe{
 	// grid = {'A','B','A'}; // make this an array of length 64
 	int player; // 1 is player A, -1 is player B
 	int turn;
-	bool game_not_won;
+	int game_not_won;
 	// int grid_eval[]; //this keeps track of scores of all diagonals
-	int grid[]; // a usually size 64 grid containing our board
+	int grid[64]; // a usually size 64 grid containing our board
+	// if don't specify grid size, could get memory overlap
 };
 
 void ttc_init(struct tic_tac_toe* t, int size, int dimension){
@@ -34,7 +35,7 @@ void ttc_init(struct tic_tac_toe* t, int size, int dimension){
 		}
 	}
 	t->player = 1; // default to player 1
-	t->game_not_won = true;
+	t->game_not_won = 0;
 	t->turn = 1;
 };
 
@@ -107,8 +108,11 @@ void ttc_print_grid(struct tic_tac_toe* t){
 			printf("\n");
 		}
 		printf("%i ",t->grid[i]);
+		if (t->grid[i] != -1){
+			printf(" ");
+		}
 	}
-	printf("\n\n");
+	printf("\nAfter turn %i player %i\n",t->turn,t->player);
 }
 
 int ttc_step(struct tic_tac_toe* t,int x, int y, int z){
@@ -134,11 +138,10 @@ int ttc_play(struct tic_tac_toe* t){
 }
 
 int ttc_play_game(struct tic_tac_toe* t){
-	while (t->game_not_won == true){
+	while (t->game_not_won == 0){
 		ttc_play(t);
 	}
-	ttc_change_player(t);
-	printf("Player %i has won", t->player);
+	printf("Player %i has won", t->game_not_won);
 	return 0;
 }
 
@@ -153,7 +156,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 				connected += ttc_get_grid(t,x,y,z);
 			}
 			if (connected == t->player*t->size){
-				t->game_not_won = false;
+				t->game_not_won = t->player; //when win, set to player id
 				return 1; //there is a win
 			}
 		}
@@ -163,7 +166,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 				connected += ttc_get_grid(t,x,y,z);
 			}
 			if (connected == t->player*t->size){
-				t->game_not_won = false;
+				t->game_not_won = t->player; //when win, set to player id
 				return 1; //there is a win
 			}
 		}
@@ -173,7 +176,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 				connected += ttc_get_grid(t,x,z,zp);
 			}
 			if (connected == t->player*t->size){
-				t->game_not_won = false;
+				t->game_not_won = t->player; //when win, set to player id
 				return 1; //there is a win
 			}
 		}
@@ -182,7 +185,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,z,zp,zp);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 		connected = 0; //planar
@@ -190,7 +193,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,z,3-zp,zp);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 		connected = 0; //frontal
@@ -198,7 +201,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,zp,z,zp);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 		connected = 0; //frontal
@@ -206,7 +209,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,3-z,z,zp);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 		connected = 0; //sidal
@@ -214,7 +217,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,zp,zp,z);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 		connected = 0; //sidal
@@ -222,7 +225,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 			connected += ttc_get_grid(t,zp,3-zp,z);
 		}
 		if (connected == t->player*t->size){
-			t->game_not_won = false;
+			t->game_not_won = t->player; //when win, set to player id
 			return 1; //there is a win
 		}
 	}
@@ -231,7 +234,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 		connected += ttc_get_grid(t,zp,zp,zp);
 	}
 	if (connected == t->player*t->size){
-		t->game_not_won = false;
+		t->game_not_won = t->player; //when win, set to player id
 		return 1; //there is a win
 	}
 	connected = 0; //superdiag 2
@@ -239,7 +242,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 		connected += ttc_get_grid(t,zp,3-zp,zp);
 	}
 	if (connected == t->player*t->size){
-		t->game_not_won = false;
+		t->game_not_won = t->player; //when win, set to player id
 		return 1; //there is a win
 	}
 	connected = 0; //superdiag 3
@@ -247,7 +250,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 		connected += ttc_get_grid(t,zp,zp,3-zp);
 	}
 	if (connected == t->player*t->size){
-		t->game_not_won = false;
+		t->game_not_won = t->player; //when win, set to player id
 		return 1; //there is a win
 	}
 	connected = 0; //superdiag 4
@@ -255,7 +258,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 		connected += ttc_get_grid(t,zp,3-zp,3-zp);
 	}
 	if (connected == t->player*t->size){
-		t->game_not_won = false;
+		t->game_not_won = t->player; //when win, set to player id
 		return 1; //there is a win
 	}
 	return 0; //no win
