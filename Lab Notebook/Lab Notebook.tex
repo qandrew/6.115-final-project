@@ -245,7 +245,7 @@ Goals I have for today / {\bf done} if task completed
 
 \subsection{Display Tic Tac Toe Board on PSoC}
 I am running some problems while trying to program my PSoC. I have been getting \texttt{Build error: The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.} multiple times, even when I remodify the code to the original state the message does not dissappear. I will need to debug this.
-\\ Apparently the solution to this is to not \texttt{\#include<disp.c>} or whatever file that I need to include; it seems as if the files are included implicitly. However, I need to declare structures in the \texttt{main.c} file; see my April $29^{\text{th}}$ 3am commit to see where my code is. I'll ask a TA and see what's up. 
+\\ Apparently the solution to this is to not \texttt{\#include<disp.c>} or whatever file that I need to include; it seems as if the files are included implicitly. However, I need to declare structures in the \texttt{main.c} file; see my April $29^{\text{th}}$ \texttt{tic tac toe board displays on VGA} commit to see where my code is. I'll ask a TA and see what's up. 
 
 \subsection{Port Tic Tac Toe Code to PSoC}
 Having written my c files, ion which I can play 3D tic tac toe on my linux terminal, I will now try to run my code on the PSoC. I managed to port the two player code over, although I seem to be having some trouble with the \texttt{\#include} dependencies of my \texttt{tic\_tac\_toe\_ai.c} file that requires \texttt{tic\_tac\_toe.c}. I was, however, able to get the Tic Tac Toe board to display on my VGA. The late night was worth it. See the images below for what I got to display after each player moved once (left) and my visual layout design (right). (The Chinese character Xia is a homonym for my last name.)
@@ -261,6 +261,23 @@ Here are some further palces for improvement:
 \end{tight_itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{April 29 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{tight_itemize}
+\item Connect 8051 to PSoC via Databus {\bf done}
+\item Get AI working on PSoC
+\end{tight_itemize}
+
+\subsection{Connect 8051 to PSoC via Databus}
+Today, I want to connect my 8051 to PSoC via databus. First, I configured my PSoC jumpers to take 5V instead of 3.3V. 
+\\ I will use port a of my 8255 on the microcontroller to send databits to Port 3 of the PSoC. I configured my port 3 to be input and {\em high impedance digital} with a low drive. You can see my code at \texttt{main.c} at my current commit to see the code I wrote. 
+\\ Keep in mind that the PSoC has to be at the same ground as the microcontroller, otherwise I may get wacky 16v readings. Also, for some reason the PSoC can't read an input of 0, but I will try to fix that.  Below is an image of my PSoC LCD displaying the digital value fed from the 8255 port A. (Which I can generate by writing \texttt{WFE33 = 80; WFE30 = FD;}). 
+\begin{center}\includegraphics[width = 100mm]{Pics/4-29a.jpg}  \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
 
 \newpage
@@ -271,6 +288,5 @@ Goals I have for today / {\bf done} if task completed
 \item Task % {\bf done}
 \item Task 
 \end{tight_itemize}
-
 
 \end{document}

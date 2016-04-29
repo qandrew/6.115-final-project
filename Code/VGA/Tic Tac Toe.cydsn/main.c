@@ -42,45 +42,34 @@ struct tic_tac_toe{
 void main()
 {	
 	LCD_Start();					    // initialize lcd
-	LCD_ClearDisplay();
     
     //CyGlobalIntEnable;
     //rx_int_StartEx(RX_INT);             // start RX interrupt (look for CY_ISR with RX_INT address)
                                         // for code that writes received bytes to LCD.
     
-    UART_Start();                       // initialize UART
-    UART_PutChar(0x81); // init connection; set to 16x12 image 
-    struct disp_grid_81 disp; 
+    //PGA_Start();
+    uint8 Values;
     
-    struct tic_tac_toe lolz;
- 	ttc_init(&lolz,4,3);
     
-    //int i;
-    //for(i = 0; i < 10; i++){
-        disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
-        disp_grid_transmit(&disp);
         
-        disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
-        disp_grid_transmit(&disp);
+    int i;
+    for (;;){
         
-        disp_grid_init_ttc(&disp,lolz.grid); // init the board
-        disp_grid_transmit(&disp);
-        
-        ttc_step(&disp,&lolz,2,2,2); // step & print
-        disp_grid_transmit(&disp);
-        
-        ttc_step(&disp,&lolz,2,2,3); // step & print
-        disp_grid_transmit(&disp);
-        
-    //}
     
-    LCD_PrintString(" HUDING ");
-    //LCD_PrintNumber(35);
+        Values = Pin3_Read();
+        LCD_ClearDisplay();
+        LCD_PrintString("HU ");
+        LCD_PutChar(Values); //print ascii value
+        LCD_PrintNumber(Values); //print value I am getting
+        waiter(10);
+        
+    }
     
     
 
     for(;;)
-    {}
+    {
+    }
 }
 
 /* [] END OF FILE */

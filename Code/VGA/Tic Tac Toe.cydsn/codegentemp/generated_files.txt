@@ -35,6 +35,9 @@
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\TX_aliases.h" value="NONE;TX" />
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\TX.c" value="ARM_C_FILE;TX" />
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\TX.h" value="NONE;TX" />
+  <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\Pin3_aliases.h" value="NONE;Pin3" />
+  <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\Pin3.c" value="ARM_C_FILE;Pin3" />
+  <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\Pin3.h" value="NONE;Pin3" />
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="NONE;LCD_LCDPort" />
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\LCD_LCDPort.c" value="ARM_C_FILE;LCD_LCDPort" />
   <file name="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\codegentemp\LCD_LCDPort.h" value="NONE;LCD_LCDPort" />

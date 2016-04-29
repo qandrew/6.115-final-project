@@ -25,6 +25,8 @@
 #include "tx_int.h"
 #include "TX_aliases.h"
 #include "TX.h"
+#include "Pin3_aliases.h"
+#include "Pin3.h"
 #include "LCD_LCDPort_aliases.h"
 #include "LCD_LCDPort.h"
 #include "UART_IntClock.h"
