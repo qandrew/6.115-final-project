@@ -20,4 +20,7 @@
 \BOOKMARK [1][-]{section.6}{April 27 2016}{}% 20
 \BOOKMARK [2][-]{subsection.6.1}{Connect 8051 to VGA display}{section.6}% 21
 \BOOKMARK [2][-]{subsection.6.2}{Connect PSoC to VGA display}{section.6}% 22
-\BOOKMARK [1][-]{section.7}{DATE 2016}{}% 23
+\BOOKMARK [1][-]{section.7}{April 28 2016}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{Display Tic Tac Toe Board on PSoC}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.2}{Port Tic Tac Toe Code to PSoC}{section.7}% 25
+\BOOKMARK [1][-]{section.8}{DATE 2016}{}% 26
