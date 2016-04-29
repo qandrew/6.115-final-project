@@ -26,6 +26,18 @@ struct disp_grid_81{ //for 32x24 grid
     uint8 matrix[32][24]; 
 };
 
+struct tic_tac_toe{
+	int size;
+	int dimension;
+	// grid = {'A','B','A'}; // make this an array of length 64
+	int player; // 1 is player A, -1 is player B
+	int turn;
+	int game_not_won;
+	// int grid_eval[]; //this keeps track of scores of all diagonals
+	int grid[64]; // a usually size 64 grid containing our board
+	// if don't specify grid size, could get memory overlap
+};
+
 
 void main()
 {	
@@ -37,34 +49,33 @@ void main()
                                         // for code that writes received bytes to LCD.
     
     UART_Start();                       // initialize UART
-    //UART_ClearRxBuffer();
-    
-    LCD_PutChar(0x35); //print a 5
-   
-    
     UART_PutChar(0x81); // init connection; set to 16x12 image 
+    struct disp_grid_81 disp; 
     
-    struct disp_grid_81 disp;
+    struct tic_tac_toe lolz;
+ 	ttc_init(&lolz,4,3);
     
-    disp_grid_init(&disp,0x3F);
-    disp_grid_draw_square(&disp,5,5,2,10,0x00);
-    disp_grid_draw_square(&disp,10,5,2,10,0x00);
-    disp_grid_draw_square(&disp,7,10,3,2,0x00);
+    //int i;
+    //for(i = 0; i < 10; i++){
+        disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
+        disp_grid_transmit(&disp);
+        
+        disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
+        disp_grid_transmit(&disp);
+        
+        disp_grid_init_ttc(&disp,lolz.grid); // init the board
+        disp_grid_transmit(&disp);
+        
+        ttc_step(&disp,&lolz,2,2,2); // step & print
+        disp_grid_transmit(&disp);
+        
+        ttc_step(&disp,&lolz,2,2,3); // step & print
+        disp_grid_transmit(&disp);
+        
+    //}
     
-    disp_grid_draw_square(&disp,14,5,2,10,0x00);
-    disp_grid_draw_square(&disp,19,5,2,10,0x00);
-    disp_grid_draw_square(&disp,16,13,3,2,0x00);
-    
-    //disp_grid_draw_square(&disp,23,5,6,2,0x00);
-    //disp_grid_draw_square(&disp,25,7,2,8,0x00);
-    
-    disp_grid_transmit(&disp);
-    
-
-    
-    LCD_PrintString(" HUDING "); //print a 5
-    
-    LCD_PrintNumber(35); //print a 5
+    LCD_PrintString(" HUDING ");
+    //LCD_PrintNumber(35);
     
     
 

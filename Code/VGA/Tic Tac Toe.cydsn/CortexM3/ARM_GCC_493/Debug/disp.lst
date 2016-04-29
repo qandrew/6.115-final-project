@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
   29              		@ args = 0, pretend = 0, frame = 16
   30              		@ frame_needed = 1, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 2
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 2
 
 
   32 0000 80B4     		push	{r7}
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
   78              		.loc 1 28 0 is_stmt 0 discriminator 1
   79 0040 FB68     		ldr	r3, [r7, #12]
   80 0042 1F2B     		cmp	r3, #31
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 3
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 3
 
 
   81 0044 E5DD     		ble	.L5
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
  126 0016 3B61     		str	r3, [r7, #16]
  127 0018 0EE0     		b	.L8
  128              	.L9:
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 4
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 4
 
 
   40:.\disp.c      ****             disp->matrix[x][y] = color;
@@ -238,19 +238,19 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
  175              		.cfi_endproc
  176              	.LFE64:
  177              		.size	disp_grid_draw_square, .-disp_grid_draw_square
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 5
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 5
 
 
- 178              		.section	.text.disp_grid_transmit,"ax",%progbits
+ 178              		.section	.text.disp_grid_draw_xia,"ax",%progbits
  179              		.align	2
- 180              		.global	disp_grid_transmit
+ 180              		.global	disp_grid_draw_xia
  181              		.thumb
  182              		.thumb_func
- 183              		.type	disp_grid_transmit, %function
- 184              	disp_grid_transmit:
+ 183              		.type	disp_grid_draw_xia, %function
+ 184              	disp_grid_draw_xia:
  185              	.LFB65:
   44:.\disp.c      **** 
-  45:.\disp.c      **** void disp_grid_transmit (struct disp_grid_81 * disp){ // this function displays the screen
+  45:.\disp.c      **** void disp_grid_draw_xia(struct disp_grid_81* disp, int x_start, int y_start, uint8 color){ // displ
  186              		.loc 1 45 0
  187              		.cfi_startproc
  188              		@ args = 0, pretend = 0, frame = 16
@@ -259,1083 +259,1768 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 1
  191              		.cfi_def_cfa_offset 8
  192              		.cfi_offset 7, -8
  193              		.cfi_offset 14, -4
- 194 0002 84B0     		sub	sp, sp, #16
- 195              		.cfi_def_cfa_offset 24
- 196 0004 00AF     		add	r7, sp, #0
- 197              		.cfi_def_cfa_register 7
- 198 0006 7860     		str	r0, [r7, #4]
-  46:.\disp.c      ****     int row,col;
-  47:.\disp.c      ****     for (col = 0; col < 24; col++){
- 199              		.loc 1 47 0
- 200 0008 0023     		movs	r3, #0
- 201 000a BB60     		str	r3, [r7, #8]
- 202 000c 18E0     		b	.L12
- 203              	.L15:
-  48:.\disp.c      ****         for (row = 0; row < 32; row++){
- 204              		.loc 1 48 0
- 205 000e 0023     		movs	r3, #0
- 206 0010 FB60     		str	r3, [r7, #12]
- 207 0012 0FE0     		b	.L13
- 208              	.L14:
-  49:.\disp.c      ****             UART_PutChar(disp->matrix[row][col]); 
- 209              		.loc 1 49 0 discriminator 3
- 210 0014 7968     		ldr	r1, [r7, #4]
- 211 0016 FA68     		ldr	r2, [r7, #12]
- 212 0018 1346     		mov	r3, r2
- 213 001a 5B00     		lsls	r3, r3, #1
- 214 001c 1344     		add	r3, r3, r2
- 215 001e DB00     		lsls	r3, r3, #3
- 216 0020 BA68     		ldr	r2, [r7, #8]
- 217 0022 1344     		add	r3, r3, r2
- 218 0024 0B44     		add	r3, r3, r1
- 219 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 220 0028 1846     		mov	r0, r3
- 221 002a FFF7FEFF 		bl	UART_PutChar
-  48:.\disp.c      ****         for (row = 0; row < 32; row++){
- 222              		.loc 1 48 0 discriminator 3
- 223 002e FB68     		ldr	r3, [r7, #12]
- 224 0030 0133     		adds	r3, r3, #1
- 225 0032 FB60     		str	r3, [r7, #12]
- 226              	.L13:
-  48:.\disp.c      ****         for (row = 0; row < 32; row++){
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 6
+ 194 0002 86B0     		sub	sp, sp, #24
+ 195              		.cfi_def_cfa_offset 32
+ 196 0004 02AF     		add	r7, sp, #8
+ 197              		.cfi_def_cfa 7, 24
+ 198 0006 F860     		str	r0, [r7, #12]
+ 199 0008 B960     		str	r1, [r7, #8]
+ 200 000a 7A60     		str	r2, [r7, #4]
+ 201 000c FB70     		strb	r3, [r7, #3]
+  46:.\disp.c      ****     disp_grid_draw_square(disp,x_start,y_start,5,1,color);
+ 202              		.loc 1 46 0
+ 203 000e 0123     		movs	r3, #1
+ 204 0010 0093     		str	r3, [sp]
+ 205 0012 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 206 0014 0193     		str	r3, [sp, #4]
+ 207 0016 F868     		ldr	r0, [r7, #12]
+ 208 0018 B968     		ldr	r1, [r7, #8]
+ 209 001a 7A68     		ldr	r2, [r7, #4]
+ 210 001c 0523     		movs	r3, #5
+ 211 001e FFF7FEFF 		bl	disp_grid_draw_square
+  47:.\disp.c      ****     disp_grid_draw_square(disp,x_start+2,y_start+1,1,6,color);
+ 212              		.loc 1 47 0
+ 213 0022 BB68     		ldr	r3, [r7, #8]
+ 214 0024 991C     		adds	r1, r3, #2
+ 215 0026 7B68     		ldr	r3, [r7, #4]
+ 216 0028 5A1C     		adds	r2, r3, #1
+ 217 002a 0623     		movs	r3, #6
+ 218 002c 0093     		str	r3, [sp]
+ 219 002e FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 220 0030 0193     		str	r3, [sp, #4]
+ 221 0032 F868     		ldr	r0, [r7, #12]
+ 222 0034 0123     		movs	r3, #1
+ 223 0036 FFF7FEFF 		bl	disp_grid_draw_square
+  48:.\disp.c      ****     disp_grid_draw_square(disp,x_start+3,y_start+3,2,1,color);
+ 224              		.loc 1 48 0
+ 225 003a BB68     		ldr	r3, [r7, #8]
+ 226 003c D91C     		adds	r1, r3, #3
+ 227 003e 7B68     		ldr	r3, [r7, #4]
+ 228 0040 DA1C     		adds	r2, r3, #3
+ 229 0042 0123     		movs	r3, #1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 6
 
 
- 227              		.loc 1 48 0 is_stmt 0 discriminator 1
- 228 0034 FB68     		ldr	r3, [r7, #12]
- 229 0036 1F2B     		cmp	r3, #31
- 230 0038 ECDD     		ble	.L14
-  47:.\disp.c      ****         for (row = 0; row < 32; row++){
- 231              		.loc 1 47 0 is_stmt 1 discriminator 2
- 232 003a BB68     		ldr	r3, [r7, #8]
- 233 003c 0133     		adds	r3, r3, #1
- 234 003e BB60     		str	r3, [r7, #8]
- 235              	.L12:
-  47:.\disp.c      ****         for (row = 0; row < 32; row++){
- 236              		.loc 1 47 0 is_stmt 0 discriminator 1
- 237 0040 BB68     		ldr	r3, [r7, #8]
- 238 0042 172B     		cmp	r3, #23
- 239 0044 E3DD     		ble	.L15
-  50:.\disp.c      ****             //UART_PutChar(20); // blue
-  51:.\disp.c      ****         }
-  52:.\disp.c      ****     }     
-  53:.\disp.c      **** }
- 240              		.loc 1 53 0 is_stmt 1
- 241 0046 1037     		adds	r7, r7, #16
- 242              		.cfi_def_cfa_offset 8
- 243 0048 BD46     		mov	sp, r7
- 244              		.cfi_def_cfa_register 13
- 245              		@ sp needed
- 246 004a 80BD     		pop	{r7, pc}
- 247              		.cfi_endproc
- 248              	.LFE65:
- 249              		.size	disp_grid_transmit, .-disp_grid_transmit
- 250              		.section	.text.waiter,"ax",%progbits
- 251              		.align	2
- 252              		.global	waiter
- 253              		.thumb
- 254              		.thumb_func
- 255              		.type	waiter, %function
- 256              	waiter:
- 257              	.LFB66:
-  54:.\disp.c      **** 
-  55:.\disp.c      **** 
-  56:.\disp.c      **** void waiter( int seconds )
-  57:.\disp.c      **** {   // dumb wait
- 258              		.loc 1 57 0
- 259              		.cfi_startproc
- 260              		@ args = 0, pretend = 0, frame = 16
- 261              		@ frame_needed = 1, uses_anonymous_args = 0
- 262              		@ link register save eliminated.
- 263 0000 80B4     		push	{r7}
- 264              		.cfi_def_cfa_offset 4
- 265              		.cfi_offset 7, -4
- 266 0002 85B0     		sub	sp, sp, #20
- 267              		.cfi_def_cfa_offset 24
- 268 0004 00AF     		add	r7, sp, #0
- 269              		.cfi_def_cfa_register 7
- 270 0006 7860     		str	r0, [r7, #4]
-  58:.\disp.c      ****     int i,j;
-  59:.\disp.c      ****     for (i = 0; i < seconds*10; i++){
- 271              		.loc 1 59 0
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 7
+ 230 0044 0093     		str	r3, [sp]
+ 231 0046 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 232 0048 0193     		str	r3, [sp, #4]
+ 233 004a F868     		ldr	r0, [r7, #12]
+ 234 004c 0223     		movs	r3, #2
+ 235 004e FFF7FEFF 		bl	disp_grid_draw_square
+  49:.\disp.c      ****     disp->matrix[x_start+4][y_start+4] = color;
+ 236              		.loc 1 49 0
+ 237 0052 BB68     		ldr	r3, [r7, #8]
+ 238 0054 1A1D     		adds	r2, r3, #4
+ 239 0056 7B68     		ldr	r3, [r7, #4]
+ 240 0058 181D     		adds	r0, r3, #4
+ 241 005a F968     		ldr	r1, [r7, #12]
+ 242 005c 1346     		mov	r3, r2
+ 243 005e 5B00     		lsls	r3, r3, #1
+ 244 0060 1344     		add	r3, r3, r2
+ 245 0062 DB00     		lsls	r3, r3, #3
+ 246 0064 0344     		add	r3, r3, r0
+ 247 0066 0B44     		add	r3, r3, r1
+ 248 0068 FA78     		ldrb	r2, [r7, #3]
+ 249 006a 1A70     		strb	r2, [r3]
+  50:.\disp.c      **** }
+ 250              		.loc 1 50 0
+ 251 006c 1037     		adds	r7, r7, #16
+ 252              		.cfi_def_cfa_offset 8
+ 253 006e BD46     		mov	sp, r7
+ 254              		.cfi_def_cfa_register 13
+ 255              		@ sp needed
+ 256 0070 80BD     		pop	{r7, pc}
+ 257              		.cfi_endproc
+ 258              	.LFE65:
+ 259              		.size	disp_grid_draw_xia, .-disp_grid_draw_xia
+ 260 0072 00BF     		.section	.text.disp_grid_draw_hu,"ax",%progbits
+ 261              		.align	2
+ 262              		.global	disp_grid_draw_hu
+ 263              		.thumb
+ 264              		.thumb_func
+ 265              		.type	disp_grid_draw_hu, %function
+ 266              	disp_grid_draw_hu:
+ 267              	.LFB66:
+  51:.\disp.c      **** 
+  52:.\disp.c      **** void disp_grid_draw_hu(struct disp_grid_81* disp){ // draws black H U on board
+ 268              		.loc 1 52 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 8
+ 271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 272 0000 80B5     		push	{r7, lr}
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 84B0     		sub	sp, sp, #16
+ 277              		.cfi_def_cfa_offset 24
+ 278 0004 02AF     		add	r7, sp, #8
+ 279              		.cfi_def_cfa 7, 16
+ 280 0006 7860     		str	r0, [r7, #4]
+  53:.\disp.c      ****     disp_grid_draw_square(disp,5,5,2,10,0x00); //H
+ 281              		.loc 1 53 0
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 7
 
 
- 272 0008 0023     		movs	r3, #0
- 273 000a FB60     		str	r3, [r7, #12]
- 274 000c 0FE0     		b	.L17
- 275              	.L20:
-  60:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
- 276              		.loc 1 60 0
- 277 000e 0023     		movs	r3, #0
- 278 0010 BB60     		str	r3, [r7, #8]
- 279 0012 02E0     		b	.L18
- 280              	.L19:
- 281              		.loc 1 60 0 is_stmt 0 discriminator 3
- 282 0014 BB68     		ldr	r3, [r7, #8]
- 283 0016 0133     		adds	r3, r3, #1
- 284 0018 BB60     		str	r3, [r7, #8]
- 285              	.L18:
- 286              		.loc 1 60 0 discriminator 1
- 287 001a 7B68     		ldr	r3, [r7, #4]
- 288 001c 6422     		movs	r2, #100
- 289 001e 02FB03F2 		mul	r2, r2, r3
- 290 0022 BB68     		ldr	r3, [r7, #8]
- 291 0024 9A42     		cmp	r2, r3
- 292 0026 F5DC     		bgt	.L19
-  59:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
- 293              		.loc 1 59 0 is_stmt 1 discriminator 2
- 294 0028 FB68     		ldr	r3, [r7, #12]
- 295 002a 0133     		adds	r3, r3, #1
- 296 002c FB60     		str	r3, [r7, #12]
- 297              	.L17:
-  59:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
- 298              		.loc 1 59 0 is_stmt 0 discriminator 1
- 299 002e 7A68     		ldr	r2, [r7, #4]
- 300 0030 1346     		mov	r3, r2
- 301 0032 9B00     		lsls	r3, r3, #2
- 302 0034 1344     		add	r3, r3, r2
- 303 0036 5B00     		lsls	r3, r3, #1
- 304 0038 1A46     		mov	r2, r3
- 305 003a FB68     		ldr	r3, [r7, #12]
- 306 003c 9A42     		cmp	r2, r3
- 307 003e E6DC     		bgt	.L20
-  61:.\disp.c      ****         }
-  62:.\disp.c      ****     }
-  63:.\disp.c      **** }
- 308              		.loc 1 63 0 is_stmt 1
- 309 0040 1437     		adds	r7, r7, #20
- 310              		.cfi_def_cfa_offset 4
- 311 0042 BD46     		mov	sp, r7
- 312              		.cfi_def_cfa_register 13
- 313              		@ sp needed
- 314 0044 5DF8047B 		ldr	r7, [sp], #4
- 315              		.cfi_restore 7
- 316              		.cfi_def_cfa_offset 0
- 317 0048 7047     		bx	lr
- 318              		.cfi_endproc
- 319              	.LFE66:
- 320              		.size	waiter, .-waiter
- 321 004a 00BF     		.section	.text.disper,"ax",%progbits
- 322              		.align	2
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 8
+ 282 0008 0A23     		movs	r3, #10
+ 283 000a 0093     		str	r3, [sp]
+ 284 000c 0023     		movs	r3, #0
+ 285 000e 0193     		str	r3, [sp, #4]
+ 286 0010 7868     		ldr	r0, [r7, #4]
+ 287 0012 0521     		movs	r1, #5
+ 288 0014 0522     		movs	r2, #5
+ 289 0016 0223     		movs	r3, #2
+ 290 0018 FFF7FEFF 		bl	disp_grid_draw_square
+  54:.\disp.c      ****     disp_grid_draw_square(disp,10,5,2,10,0x00);
+ 291              		.loc 1 54 0
+ 292 001c 0A23     		movs	r3, #10
+ 293 001e 0093     		str	r3, [sp]
+ 294 0020 0023     		movs	r3, #0
+ 295 0022 0193     		str	r3, [sp, #4]
+ 296 0024 7868     		ldr	r0, [r7, #4]
+ 297 0026 0A21     		movs	r1, #10
+ 298 0028 0522     		movs	r2, #5
+ 299 002a 0223     		movs	r3, #2
+ 300 002c FFF7FEFF 		bl	disp_grid_draw_square
+  55:.\disp.c      ****     disp_grid_draw_square(disp,7,10,3,2,0x00);
+ 301              		.loc 1 55 0
+ 302 0030 0223     		movs	r3, #2
+ 303 0032 0093     		str	r3, [sp]
+ 304 0034 0023     		movs	r3, #0
+ 305 0036 0193     		str	r3, [sp, #4]
+ 306 0038 7868     		ldr	r0, [r7, #4]
+ 307 003a 0721     		movs	r1, #7
+ 308 003c 0A22     		movs	r2, #10
+ 309 003e 0323     		movs	r3, #3
+ 310 0040 FFF7FEFF 		bl	disp_grid_draw_square
+  56:.\disp.c      ****     disp_grid_draw_square(disp,14,5,2,10,0x00); //U
+ 311              		.loc 1 56 0
+ 312 0044 0A23     		movs	r3, #10
+ 313 0046 0093     		str	r3, [sp]
+ 314 0048 0023     		movs	r3, #0
+ 315 004a 0193     		str	r3, [sp, #4]
+ 316 004c 7868     		ldr	r0, [r7, #4]
+ 317 004e 0E21     		movs	r1, #14
+ 318 0050 0522     		movs	r2, #5
+ 319 0052 0223     		movs	r3, #2
+ 320 0054 FFF7FEFF 		bl	disp_grid_draw_square
+  57:.\disp.c      ****     disp_grid_draw_square(disp,19,5,2,10,0x00);
+ 321              		.loc 1 57 0
+ 322 0058 0A23     		movs	r3, #10
+ 323 005a 0093     		str	r3, [sp]
+ 324 005c 0023     		movs	r3, #0
+ 325 005e 0193     		str	r3, [sp, #4]
+ 326 0060 7868     		ldr	r0, [r7, #4]
+ 327 0062 1321     		movs	r1, #19
+ 328 0064 0522     		movs	r2, #5
+ 329 0066 0223     		movs	r3, #2
+ 330 0068 FFF7FEFF 		bl	disp_grid_draw_square
+  58:.\disp.c      ****     disp_grid_draw_square(disp,16,13,3,2,0x00);
+ 331              		.loc 1 58 0
+ 332 006c 0223     		movs	r3, #2
+ 333 006e 0093     		str	r3, [sp]
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 8
 
 
- 323              		.global	disper
- 324              		.thumb
- 325              		.thumb_func
- 326              		.type	disper, %function
- 327              	disper:
- 328              	.LFB67:
-  64:.\disp.c      **** 
-  65:.\disp.c      **** void disper(uint8 colorA, uint8 colorB){
- 329              		.loc 1 65 0
- 330              		.cfi_startproc
- 331              		@ args = 0, pretend = 0, frame = 16
- 332              		@ frame_needed = 1, uses_anonymous_args = 0
- 333 0000 80B5     		push	{r7, lr}
- 334              		.cfi_def_cfa_offset 8
- 335              		.cfi_offset 7, -8
- 336              		.cfi_offset 14, -4
- 337 0002 84B0     		sub	sp, sp, #16
- 338              		.cfi_def_cfa_offset 24
- 339 0004 00AF     		add	r7, sp, #0
- 340              		.cfi_def_cfa_register 7
- 341 0006 0346     		mov	r3, r0
- 342 0008 0A46     		mov	r2, r1
- 343 000a FB71     		strb	r3, [r7, #7]
- 344 000c 1346     		mov	r3, r2
- 345 000e BB71     		strb	r3, [r7, #6]
-  66:.\disp.c      ****     int row,col;
-  67:.\disp.c      ****     for (row = 0; row < 32; row++){
- 346              		.loc 1 67 0
- 347 0010 0023     		movs	r3, #0
- 348 0012 FB60     		str	r3, [r7, #12]
- 349 0014 13E0     		b	.L22
- 350              	.L25:
-  68:.\disp.c      ****         for (col = 0; col < 12; col++){
- 351              		.loc 1 68 0
- 352 0016 0023     		movs	r3, #0
- 353 0018 BB60     		str	r3, [r7, #8]
- 354 001a 0AE0     		b	.L23
- 355              	.L24:
-  69:.\disp.c      ****             UART_PutChar(colorA); // red
- 356              		.loc 1 69 0 discriminator 3
- 357 001c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 358 001e 1846     		mov	r0, r3
- 359 0020 FFF7FEFF 		bl	UART_PutChar
-  70:.\disp.c      ****             UART_PutChar(colorB); // green
- 360              		.loc 1 70 0 discriminator 3
- 361 0024 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
- 362 0026 1846     		mov	r0, r3
- 363 0028 FFF7FEFF 		bl	UART_PutChar
-  68:.\disp.c      ****         for (col = 0; col < 12; col++){
- 364              		.loc 1 68 0 discriminator 3
- 365 002c BB68     		ldr	r3, [r7, #8]
- 366 002e 0133     		adds	r3, r3, #1
- 367 0030 BB60     		str	r3, [r7, #8]
- 368              	.L23:
-  68:.\disp.c      ****         for (col = 0; col < 12; col++){
- 369              		.loc 1 68 0 is_stmt 0 discriminator 1
- 370 0032 BB68     		ldr	r3, [r7, #8]
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 9
+ 334 0070 0023     		movs	r3, #0
+ 335 0072 0193     		str	r3, [sp, #4]
+ 336 0074 7868     		ldr	r0, [r7, #4]
+ 337 0076 1021     		movs	r1, #16
+ 338 0078 0D22     		movs	r2, #13
+ 339 007a 0323     		movs	r3, #3
+ 340 007c FFF7FEFF 		bl	disp_grid_draw_square
+  59:.\disp.c      **** }
+ 341              		.loc 1 59 0
+ 342 0080 0837     		adds	r7, r7, #8
+ 343              		.cfi_def_cfa_offset 8
+ 344 0082 BD46     		mov	sp, r7
+ 345              		.cfi_def_cfa_register 13
+ 346              		@ sp needed
+ 347 0084 80BD     		pop	{r7, pc}
+ 348              		.cfi_endproc
+ 349              	.LFE66:
+ 350              		.size	disp_grid_draw_hu, .-disp_grid_draw_hu
+ 351 0086 00BF     		.section	.text.disp_grid_ttc_place,"ax",%progbits
+ 352              		.align	2
+ 353              		.global	disp_grid_ttc_place
+ 354              		.thumb
+ 355              		.thumb_func
+ 356              		.type	disp_grid_ttc_place, %function
+ 357              	disp_grid_ttc_place:
+ 358              	.LFB67:
+  60:.\disp.c      **** 
+  61:.\disp.c      **** void disp_grid_ttc_place(struct disp_grid_81* disp, int i, int value){ // place color based on 
+ 359              		.loc 1 61 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 24
+ 362              		@ frame_needed = 1, uses_anonymous_args = 0
+ 363 0000 80B5     		push	{r7, lr}
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 7, -8
+ 366              		.cfi_offset 14, -4
+ 367 0002 88B0     		sub	sp, sp, #32
+ 368              		.cfi_def_cfa_offset 40
+ 369 0004 02AF     		add	r7, sp, #8
+ 370              		.cfi_def_cfa 7, 32
+ 371 0006 F860     		str	r0, [r7, #12]
+ 372 0008 B960     		str	r1, [r7, #8]
+ 373 000a 7A60     		str	r2, [r7, #4]
+  62:.\disp.c      ****     int x,y; // first, we want to get the x,y coords
+  63:.\disp.c      ****     if (i < 16 && i >= 0){ //z = 0
+ 374              		.loc 1 63 0
+ 375 000c BB68     		ldr	r3, [r7, #8]
+ 376 000e 0F2B     		cmp	r3, #15
+ 377 0010 1DDC     		bgt	.L14
+ 378              		.loc 1 63 0 is_stmt 0 discriminator 1
+ 379 0012 BB68     		ldr	r3, [r7, #8]
+ 380 0014 002B     		cmp	r3, #0
+ 381 0016 1ADB     		blt	.L14
+  64:.\disp.c      ****         x = i%4;
+ 382              		.loc 1 64 0 is_stmt 1
+ 383 0018 BA68     		ldr	r2, [r7, #8]
+ 384 001a 594B     		ldr	r3, .L29
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 9
 
 
- 371 0034 0B2B     		cmp	r3, #11
- 372 0036 F1DD     		ble	.L24
-  67:.\disp.c      ****         for (col = 0; col < 12; col++){
- 373              		.loc 1 67 0 is_stmt 1 discriminator 2
- 374 0038 FB68     		ldr	r3, [r7, #12]
- 375 003a 0133     		adds	r3, r3, #1
- 376 003c FB60     		str	r3, [r7, #12]
- 377              	.L22:
-  67:.\disp.c      ****         for (col = 0; col < 12; col++){
- 378              		.loc 1 67 0 is_stmt 0 discriminator 1
- 379 003e FB68     		ldr	r3, [r7, #12]
- 380 0040 1F2B     		cmp	r3, #31
- 381 0042 E8DD     		ble	.L25
-  71:.\disp.c      ****         }
-  72:.\disp.c      ****     }    
-  73:.\disp.c      **** }
- 382              		.loc 1 73 0 is_stmt 1
- 383 0044 1037     		adds	r7, r7, #16
- 384              		.cfi_def_cfa_offset 8
- 385 0046 BD46     		mov	sp, r7
- 386              		.cfi_def_cfa_register 13
- 387              		@ sp needed
- 388 0048 80BD     		pop	{r7, pc}
- 389              		.cfi_endproc
- 390              	.LFE67:
- 391              		.size	disper, .-disper
- 392 004a 00BF     		.text
- 393              	.Letext0:
- 394              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 395              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 396              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 397              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 398              		.section	.debug_info,"",%progbits
- 399              	.Ldebug_info0:
- 400 0000 87020000 		.4byte	0x287
- 401 0004 0400     		.2byte	0x4
- 402 0006 00000000 		.4byte	.Ldebug_abbrev0
- 403 000a 04       		.byte	0x4
- 404 000b 01       		.uleb128 0x1
- 405 000c 85000000 		.4byte	.LASF30
- 406 0010 01       		.byte	0x1
- 407 0011 52010000 		.4byte	.LASF31
- 408 0015 00000000 		.4byte	.LASF32
- 409 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 410 001d 00000000 		.4byte	0
- 411 0021 00000000 		.4byte	.Ldebug_line0
- 412 0025 02       		.uleb128 0x2
- 413 0026 01       		.byte	0x1
- 414 0027 06       		.byte	0x6
- 415 0028 3D020000 		.4byte	.LASF0
- 416 002c 02       		.uleb128 0x2
- 417 002d 01       		.byte	0x1
- 418 002e 08       		.byte	0x8
- 419 002f 29010000 		.4byte	.LASF1
- 420 0033 02       		.uleb128 0x2
- 421 0034 02       		.byte	0x2
- 422 0035 05       		.byte	0x5
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 10
+ 385 001c 1340     		ands	r3, r3, r2
+ 386 001e 002B     		cmp	r3, #0
+ 387 0020 03DA     		bge	.L15
+ 388 0022 013B     		subs	r3, r3, #1
+ 389 0024 63F00303 		orn	r3, r3, #3
+ 390 0028 0133     		adds	r3, r3, #1
+ 391              	.L15:
+ 392 002a 7B61     		str	r3, [r7, #20]
+  65:.\disp.c      ****         y = (i-x)/4; // we want to start at 1,1
+ 393              		.loc 1 65 0
+ 394 002c BA68     		ldr	r2, [r7, #8]
+ 395 002e 7B69     		ldr	r3, [r7, #20]
+ 396 0030 D31A     		subs	r3, r2, r3
+ 397 0032 002B     		cmp	r3, #0
+ 398 0034 00DA     		bge	.L16
+ 399 0036 0333     		adds	r3, r3, #3
+ 400              	.L16:
+ 401 0038 9B10     		asrs	r3, r3, #2
+ 402 003a 3B61     		str	r3, [r7, #16]
+  66:.\disp.c      ****         x = 2*x + 1;
+ 403              		.loc 1 66 0
+ 404 003c 7B69     		ldr	r3, [r7, #20]
+ 405 003e 5B00     		lsls	r3, r3, #1
+ 406 0040 0133     		adds	r3, r3, #1
+ 407 0042 7B61     		str	r3, [r7, #20]
+  67:.\disp.c      ****         y = 2*y + 1;
+ 408              		.loc 1 67 0
+ 409 0044 3B69     		ldr	r3, [r7, #16]
+ 410 0046 5B00     		lsls	r3, r3, #1
+ 411 0048 0133     		adds	r3, r3, #1
+ 412 004a 3B61     		str	r3, [r7, #16]
+ 413 004c 61E0     		b	.L17
+ 414              	.L14:
+  68:.\disp.c      ****     }
+  69:.\disp.c      ****     else if (i < 32){ // z = 1
+ 415              		.loc 1 69 0
+ 416 004e BB68     		ldr	r3, [r7, #8]
+ 417 0050 1F2B     		cmp	r3, #31
+ 418 0052 1DDC     		bgt	.L18
+  70:.\disp.c      ****         i -= 16;
+ 419              		.loc 1 70 0
+ 420 0054 BB68     		ldr	r3, [r7, #8]
+ 421 0056 103B     		subs	r3, r3, #16
+ 422 0058 BB60     		str	r3, [r7, #8]
+  71:.\disp.c      ****         x = i%4;
+ 423              		.loc 1 71 0
+ 424 005a BA68     		ldr	r2, [r7, #8]
+ 425 005c 484B     		ldr	r3, .L29
+ 426 005e 1340     		ands	r3, r3, r2
+ 427 0060 002B     		cmp	r3, #0
+ 428 0062 03DA     		bge	.L19
+ 429 0064 013B     		subs	r3, r3, #1
+ 430 0066 63F00303 		orn	r3, r3, #3
+ 431 006a 0133     		adds	r3, r3, #1
+ 432              	.L19:
+ 433 006c 7B61     		str	r3, [r7, #20]
+  72:.\disp.c      ****         y = (i-x)/4; // we want to start at 1,11
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 10
 
 
- 423 0036 1C020000 		.4byte	.LASF2
- 424 003a 02       		.uleb128 0x2
- 425 003b 02       		.byte	0x2
- 426 003c 07       		.byte	0x7
- 427 003d 49020000 		.4byte	.LASF3
- 428 0041 03       		.uleb128 0x3
- 429 0042 7B000000 		.4byte	.LASF9
- 430 0046 02       		.byte	0x2
- 431 0047 3F       		.byte	0x3f
- 432 0048 4C000000 		.4byte	0x4c
- 433 004c 02       		.uleb128 0x2
- 434 004d 04       		.byte	0x4
- 435 004e 05       		.byte	0x5
- 436 004f 34020000 		.4byte	.LASF4
- 437 0053 02       		.uleb128 0x2
- 438 0054 04       		.byte	0x4
- 439 0055 07       		.byte	0x7
- 440 0056 37010000 		.4byte	.LASF5
- 441 005a 02       		.uleb128 0x2
- 442 005b 08       		.byte	0x8
- 443 005c 05       		.byte	0x5
- 444 005d FA010000 		.4byte	.LASF6
- 445 0061 02       		.uleb128 0x2
- 446 0062 08       		.byte	0x8
- 447 0063 07       		.byte	0x7
- 448 0064 A3010000 		.4byte	.LASF7
- 449 0068 04       		.uleb128 0x4
- 450 0069 04       		.byte	0x4
- 451 006a 05       		.byte	0x5
- 452 006b 696E7400 		.ascii	"int\000"
- 453 006f 02       		.uleb128 0x2
- 454 0070 04       		.byte	0x4
- 455 0071 07       		.byte	0x7
- 456 0072 88010000 		.4byte	.LASF8
- 457 0076 03       		.uleb128 0x3
- 458 0077 E9010000 		.4byte	.LASF10
- 459 007b 03       		.byte	0x3
- 460 007c 2C       		.byte	0x2c
- 461 007d 41000000 		.4byte	0x41
- 462 0081 05       		.uleb128 0x5
- 463 0082 2E020000 		.4byte	.LASF11
- 464 0086 04       		.byte	0x4
- 465 0087 3801     		.2byte	0x138
- 466 0089 2C000000 		.4byte	0x2c
- 467 008d 02       		.uleb128 0x2
- 468 008e 04       		.byte	0x4
- 469 008f 04       		.byte	0x4
- 470 0090 1B010000 		.4byte	.LASF12
- 471 0094 02       		.uleb128 0x2
- 472 0095 08       		.byte	0x8
- 473 0096 04       		.byte	0x4
- 474 0097 5B010000 		.4byte	.LASF13
- 475 009b 02       		.uleb128 0x2
- 476 009c 01       		.byte	0x1
- 477 009d 08       		.byte	0x8
- 478 009e 10020000 		.4byte	.LASF14
- 479 00a2 02       		.uleb128 0x2
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 11
+ 434              		.loc 1 72 0
+ 435 006e BA68     		ldr	r2, [r7, #8]
+ 436 0070 7B69     		ldr	r3, [r7, #20]
+ 437 0072 D31A     		subs	r3, r2, r3
+ 438 0074 002B     		cmp	r3, #0
+ 439 0076 00DA     		bge	.L20
+ 440 0078 0333     		adds	r3, r3, #3
+ 441              	.L20:
+ 442 007a 9B10     		asrs	r3, r3, #2
+ 443 007c 3B61     		str	r3, [r7, #16]
+  73:.\disp.c      ****         x = 2*x + 1;
+ 444              		.loc 1 73 0
+ 445 007e 7B69     		ldr	r3, [r7, #20]
+ 446 0080 5B00     		lsls	r3, r3, #1
+ 447 0082 0133     		adds	r3, r3, #1
+ 448 0084 7B61     		str	r3, [r7, #20]
+  74:.\disp.c      ****         y = 2*y + 11;
+ 449              		.loc 1 74 0
+ 450 0086 3B69     		ldr	r3, [r7, #16]
+ 451 0088 5B00     		lsls	r3, r3, #1
+ 452 008a 0B33     		adds	r3, r3, #11
+ 453 008c 3B61     		str	r3, [r7, #16]
+ 454 008e 40E0     		b	.L17
+ 455              	.L18:
+  75:.\disp.c      ****     }
+  76:.\disp.c      ****     else if (i < 48){ // z = 2
+ 456              		.loc 1 76 0
+ 457 0090 BB68     		ldr	r3, [r7, #8]
+ 458 0092 2F2B     		cmp	r3, #47
+ 459 0094 1DDC     		bgt	.L21
+  77:.\disp.c      ****         i -= 32;
+ 460              		.loc 1 77 0
+ 461 0096 BB68     		ldr	r3, [r7, #8]
+ 462 0098 203B     		subs	r3, r3, #32
+ 463 009a BB60     		str	r3, [r7, #8]
+  78:.\disp.c      ****         x = i%4;
+ 464              		.loc 1 78 0
+ 465 009c BA68     		ldr	r2, [r7, #8]
+ 466 009e 384B     		ldr	r3, .L29
+ 467 00a0 1340     		ands	r3, r3, r2
+ 468 00a2 002B     		cmp	r3, #0
+ 469 00a4 03DA     		bge	.L22
+ 470 00a6 013B     		subs	r3, r3, #1
+ 471 00a8 63F00303 		orn	r3, r3, #3
+ 472 00ac 0133     		adds	r3, r3, #1
+ 473              	.L22:
+ 474 00ae 7B61     		str	r3, [r7, #20]
+  79:.\disp.c      ****         y = (i-x)/4; // we want to start at 13,4
+ 475              		.loc 1 79 0
+ 476 00b0 BA68     		ldr	r2, [r7, #8]
+ 477 00b2 7B69     		ldr	r3, [r7, #20]
+ 478 00b4 D31A     		subs	r3, r2, r3
+ 479 00b6 002B     		cmp	r3, #0
+ 480 00b8 00DA     		bge	.L23
+ 481 00ba 0333     		adds	r3, r3, #3
+ 482              	.L23:
+ 483 00bc 9B10     		asrs	r3, r3, #2
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 11
 
 
- 480 00a3 04       		.byte	0x4
- 481 00a4 07       		.byte	0x7
- 482 00a5 F1010000 		.4byte	.LASF15
- 483 00a9 06       		.uleb128 0x6
- 484 00aa DC010000 		.4byte	.LASF33
- 485 00ae 0003     		.2byte	0x300
- 486 00b0 01       		.byte	0x1
- 487 00b1 15       		.byte	0x15
- 488 00b2 C3000000 		.4byte	0xc3
- 489 00b6 07       		.uleb128 0x7
- 490 00b7 15020000 		.4byte	.LASF34
- 491 00bb 01       		.byte	0x1
- 492 00bc 16       		.byte	0x16
- 493 00bd C3000000 		.4byte	0xc3
- 494 00c1 00       		.byte	0
- 495 00c2 00       		.byte	0
- 496 00c3 08       		.uleb128 0x8
- 497 00c4 81000000 		.4byte	0x81
- 498 00c8 D9000000 		.4byte	0xd9
- 499 00cc 09       		.uleb128 0x9
- 500 00cd A2000000 		.4byte	0xa2
- 501 00d1 1F       		.byte	0x1f
- 502 00d2 09       		.uleb128 0x9
- 503 00d3 A2000000 		.4byte	0xa2
- 504 00d7 17       		.byte	0x17
- 505 00d8 00       		.byte	0
- 506 00d9 0A       		.uleb128 0xa
- 507 00da 6C000000 		.4byte	.LASF18
- 508 00de 01       		.byte	0x1
- 509 00df 1A       		.byte	0x1a
- 510 00e0 00000000 		.4byte	.LFB63
- 511 00e4 50000000 		.4byte	.LFE63-.LFB63
- 512 00e8 01       		.uleb128 0x1
- 513 00e9 9C       		.byte	0x9c
- 514 00ea 27010000 		.4byte	0x127
- 515 00ee 0B       		.uleb128 0xb
- 516 00ef D0010000 		.4byte	.LASF16
- 517 00f3 01       		.byte	0x1
- 518 00f4 1A       		.byte	0x1a
- 519 00f5 27010000 		.4byte	0x127
- 520 00f9 02       		.uleb128 0x2
- 521 00fa 91       		.byte	0x91
- 522 00fb 6C       		.sleb128 -20
- 523 00fc 0B       		.uleb128 0xb
- 524 00fd 75010000 		.4byte	.LASF17
- 525 0101 01       		.byte	0x1
- 526 0102 1A       		.byte	0x1a
- 527 0103 81000000 		.4byte	0x81
- 528 0107 02       		.uleb128 0x2
- 529 0108 91       		.byte	0x91
- 530 0109 6B       		.sleb128 -21
- 531 010a 0C       		.uleb128 0xc
- 532 010b 726F7700 		.ascii	"row\000"
- 533 010f 01       		.byte	0x1
- 534 0110 1B       		.byte	0x1b
- 535 0111 68000000 		.4byte	0x68
- 536 0115 02       		.uleb128 0x2
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 12
+ 484 00be 3B61     		str	r3, [r7, #16]
+  80:.\disp.c      ****         x = 2*x + 13;
+ 485              		.loc 1 80 0
+ 486 00c0 7B69     		ldr	r3, [r7, #20]
+ 487 00c2 5B00     		lsls	r3, r3, #1
+ 488 00c4 0D33     		adds	r3, r3, #13
+ 489 00c6 7B61     		str	r3, [r7, #20]
+  81:.\disp.c      ****         y = 2*y + 4;
+ 490              		.loc 1 81 0
+ 491 00c8 3B69     		ldr	r3, [r7, #16]
+ 492 00ca 0233     		adds	r3, r3, #2
+ 493 00cc 5B00     		lsls	r3, r3, #1
+ 494 00ce 3B61     		str	r3, [r7, #16]
+ 495 00d0 1FE0     		b	.L17
+ 496              	.L21:
+  82:.\disp.c      ****     }
+  83:.\disp.c      ****     else if (i < 64){ // z = 3
+ 497              		.loc 1 83 0
+ 498 00d2 BB68     		ldr	r3, [r7, #8]
+ 499 00d4 3F2B     		cmp	r3, #63
+ 500 00d6 1CDC     		bgt	.L17
+  84:.\disp.c      ****         i -= 48;
+ 501              		.loc 1 84 0
+ 502 00d8 BB68     		ldr	r3, [r7, #8]
+ 503 00da 303B     		subs	r3, r3, #48
+ 504 00dc BB60     		str	r3, [r7, #8]
+  85:.\disp.c      ****         x = i%4;
+ 505              		.loc 1 85 0
+ 506 00de BA68     		ldr	r2, [r7, #8]
+ 507 00e0 274B     		ldr	r3, .L29
+ 508 00e2 1340     		ands	r3, r3, r2
+ 509 00e4 002B     		cmp	r3, #0
+ 510 00e6 03DA     		bge	.L24
+ 511 00e8 013B     		subs	r3, r3, #1
+ 512 00ea 63F00303 		orn	r3, r3, #3
+ 513 00ee 0133     		adds	r3, r3, #1
+ 514              	.L24:
+ 515 00f0 7B61     		str	r3, [r7, #20]
+  86:.\disp.c      ****         y = (i-x)/4; // we want to start at 13,14
+ 516              		.loc 1 86 0
+ 517 00f2 BA68     		ldr	r2, [r7, #8]
+ 518 00f4 7B69     		ldr	r3, [r7, #20]
+ 519 00f6 D31A     		subs	r3, r2, r3
+ 520 00f8 002B     		cmp	r3, #0
+ 521 00fa 00DA     		bge	.L25
+ 522 00fc 0333     		adds	r3, r3, #3
+ 523              	.L25:
+ 524 00fe 9B10     		asrs	r3, r3, #2
+ 525 0100 3B61     		str	r3, [r7, #16]
+  87:.\disp.c      ****         x = 2*x + 13;
+ 526              		.loc 1 87 0
+ 527 0102 7B69     		ldr	r3, [r7, #20]
+ 528 0104 5B00     		lsls	r3, r3, #1
+ 529 0106 0D33     		adds	r3, r3, #13
+ 530 0108 7B61     		str	r3, [r7, #20]
+  88:.\disp.c      ****         y = 2*y + 14;
+ 531              		.loc 1 88 0
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 12
 
 
- 537 0116 91       		.byte	0x91
- 538 0117 74       		.sleb128 -12
- 539 0118 0C       		.uleb128 0xc
- 540 0119 636F6C00 		.ascii	"col\000"
- 541 011d 01       		.byte	0x1
- 542 011e 1B       		.byte	0x1b
- 543 011f 68000000 		.4byte	0x68
- 544 0123 02       		.uleb128 0x2
- 545 0124 91       		.byte	0x91
- 546 0125 70       		.sleb128 -16
- 547 0126 00       		.byte	0
- 548 0127 0D       		.uleb128 0xd
- 549 0128 04       		.byte	0x4
- 550 0129 A9000000 		.4byte	0xa9
- 551 012d 0A       		.uleb128 0xa
- 552 012e BA010000 		.4byte	.LASF19
- 553 0132 01       		.byte	0x1
- 554 0133 24       		.byte	0x24
- 555 0134 00000000 		.4byte	.LFB64
- 556 0138 60000000 		.4byte	.LFE64-.LFB64
- 557 013c 01       		.uleb128 0x1
- 558 013d 9C       		.byte	0x9c
- 559 013e AF010000 		.4byte	0x1af
- 560 0142 0B       		.uleb128 0xb
- 561 0143 D0010000 		.4byte	.LASF16
- 562 0147 01       		.byte	0x1
- 563 0148 24       		.byte	0x24
- 564 0149 27010000 		.4byte	0x127
- 565 014d 02       		.uleb128 0x2
- 566 014e 91       		.byte	0x91
- 567 014f 6C       		.sleb128 -20
- 568 0150 0B       		.uleb128 0xb
- 569 0151 13010000 		.4byte	.LASF20
- 570 0155 01       		.byte	0x1
- 571 0156 24       		.byte	0x24
- 572 0157 68000000 		.4byte	0x68
- 573 015b 02       		.uleb128 0x2
- 574 015c 91       		.byte	0x91
- 575 015d 68       		.sleb128 -24
- 576 015e 0B       		.uleb128 0xb
- 577 015f 21010000 		.4byte	.LASF21
- 578 0163 01       		.byte	0x1
- 579 0164 24       		.byte	0x24
- 580 0165 68000000 		.4byte	0x68
- 581 0169 02       		.uleb128 0x2
- 582 016a 91       		.byte	0x91
- 583 016b 64       		.sleb128 -28
- 584 016c 0B       		.uleb128 0xb
- 585 016d 26020000 		.4byte	.LASF22
- 586 0171 01       		.byte	0x1
- 587 0172 24       		.byte	0x24
- 588 0173 68000000 		.4byte	0x68
- 589 0177 02       		.uleb128 0x2
- 590 0178 91       		.byte	0x91
- 591 0179 60       		.sleb128 -32
- 592 017a 0B       		.uleb128 0xb
- 593 017b 49010000 		.4byte	.LASF23
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 13
+ 532 010a 3B69     		ldr	r3, [r7, #16]
+ 533 010c 0733     		adds	r3, r3, #7
+ 534 010e 5B00     		lsls	r3, r3, #1
+ 535 0110 3B61     		str	r3, [r7, #16]
+ 536              	.L17:
+  89:.\disp.c      ****     }
+  90:.\disp.c      ****     if (value == 0){ //now check what color we want to change
+ 537              		.loc 1 90 0
+ 538 0112 7B68     		ldr	r3, [r7, #4]
+ 539 0114 002B     		cmp	r3, #0
+ 540 0116 14D1     		bne	.L26
+  91:.\disp.c      ****         disp_grid_draw_square(disp,x,y,2,2,(i%3)); //deviations from black
+ 541              		.loc 1 91 0
+ 542 0118 BA68     		ldr	r2, [r7, #8]
+ 543 011a 1A4B     		ldr	r3, .L29+4
+ 544 011c 83FB0231 		smull	r3, r1, r3, r2
+ 545 0120 D317     		asrs	r3, r2, #31
+ 546 0122 C91A     		subs	r1, r1, r3
+ 547 0124 0B46     		mov	r3, r1
+ 548 0126 5B00     		lsls	r3, r3, #1
+ 549 0128 0B44     		add	r3, r3, r1
+ 550 012a D11A     		subs	r1, r2, r3
+ 551 012c CBB2     		uxtb	r3, r1
+ 552 012e 0222     		movs	r2, #2
+ 553 0130 0092     		str	r2, [sp]
+ 554 0132 0193     		str	r3, [sp, #4]
+ 555 0134 F868     		ldr	r0, [r7, #12]
+ 556 0136 7969     		ldr	r1, [r7, #20]
+ 557 0138 3A69     		ldr	r2, [r7, #16]
+ 558 013a 0223     		movs	r3, #2
+ 559 013c FFF7FEFF 		bl	disp_grid_draw_square
+ 560 0140 1BE0     		b	.L13
+ 561              	.L26:
+  92:.\disp.c      ****     }
+  93:.\disp.c      ****     else if (value == 1){
+ 562              		.loc 1 93 0
+ 563 0142 7B68     		ldr	r3, [r7, #4]
+ 564 0144 012B     		cmp	r3, #1
+ 565 0146 0AD1     		bne	.L28
+  94:.\disp.c      ****         disp_grid_draw_square(disp,x,y,2,2,0x2A); //light gray
+ 566              		.loc 1 94 0
+ 567 0148 0223     		movs	r3, #2
+ 568 014a 0093     		str	r3, [sp]
+ 569 014c 2A23     		movs	r3, #42
+ 570 014e 0193     		str	r3, [sp, #4]
+ 571 0150 F868     		ldr	r0, [r7, #12]
+ 572 0152 7969     		ldr	r1, [r7, #20]
+ 573 0154 3A69     		ldr	r2, [r7, #16]
+ 574 0156 0223     		movs	r3, #2
+ 575 0158 FFF7FEFF 		bl	disp_grid_draw_square
+ 576 015c 0DE0     		b	.L13
+ 577              	.L28:
+  95:.\disp.c      ****     }
+  96:.\disp.c      ****     else if (value == -1){
+ 578              		.loc 1 96 0
+ 579 015e 7B68     		ldr	r3, [r7, #4]
+ 580 0160 B3F1FF3F 		cmp	r3, #-1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 13
 
 
- 594 017f 01       		.byte	0x1
- 595 0180 24       		.byte	0x24
- 596 0181 68000000 		.4byte	0x68
- 597 0185 02       		.uleb128 0x2
- 598 0186 91       		.byte	0x91
- 599 0187 00       		.sleb128 0
- 600 0188 0B       		.uleb128 0xb
- 601 0189 75010000 		.4byte	.LASF17
- 602 018d 01       		.byte	0x1
- 603 018e 24       		.byte	0x24
- 604 018f 81000000 		.4byte	0x81
- 605 0193 02       		.uleb128 0x2
- 606 0194 91       		.byte	0x91
- 607 0195 04       		.sleb128 4
- 608 0196 0C       		.uleb128 0xc
- 609 0197 7800     		.ascii	"x\000"
- 610 0199 01       		.byte	0x1
- 611 019a 25       		.byte	0x25
- 612 019b 68000000 		.4byte	0x68
- 613 019f 02       		.uleb128 0x2
- 614 01a0 91       		.byte	0x91
- 615 01a1 74       		.sleb128 -12
- 616 01a2 0C       		.uleb128 0xc
- 617 01a3 7900     		.ascii	"y\000"
- 618 01a5 01       		.byte	0x1
- 619 01a6 25       		.byte	0x25
- 620 01a7 68000000 		.4byte	0x68
- 621 01ab 02       		.uleb128 0x2
- 622 01ac 91       		.byte	0x91
- 623 01ad 70       		.sleb128 -16
- 624 01ae 00       		.byte	0
- 625 01af 0E       		.uleb128 0xe
- 626 01b0 62010000 		.4byte	.LASF24
- 627 01b4 01       		.byte	0x1
- 628 01b5 2D       		.byte	0x2d
- 629 01b6 00000000 		.4byte	.LFB65
- 630 01ba 4C000000 		.4byte	.LFE65-.LFB65
- 631 01be 01       		.uleb128 0x1
- 632 01bf 9C       		.byte	0x9c
- 633 01c0 EF010000 		.4byte	0x1ef
- 634 01c4 0B       		.uleb128 0xb
- 635 01c5 D0010000 		.4byte	.LASF16
- 636 01c9 01       		.byte	0x1
- 637 01ca 2D       		.byte	0x2d
- 638 01cb 27010000 		.4byte	0x127
- 639 01cf 02       		.uleb128 0x2
- 640 01d0 91       		.byte	0x91
- 641 01d1 6C       		.sleb128 -20
- 642 01d2 0C       		.uleb128 0xc
- 643 01d3 726F7700 		.ascii	"row\000"
- 644 01d7 01       		.byte	0x1
- 645 01d8 2E       		.byte	0x2e
- 646 01d9 68000000 		.4byte	0x68
- 647 01dd 02       		.uleb128 0x2
- 648 01de 91       		.byte	0x91
- 649 01df 74       		.sleb128 -12
- 650 01e0 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 14
+ 581 0164 09D1     		bne	.L13
+  97:.\disp.c      ****         disp_grid_draw_square(disp,x,y,2,2,0x15); //dark gray
+ 582              		.loc 1 97 0
+ 583 0166 0223     		movs	r3, #2
+ 584 0168 0093     		str	r3, [sp]
+ 585 016a 1523     		movs	r3, #21
+ 586 016c 0193     		str	r3, [sp, #4]
+ 587 016e F868     		ldr	r0, [r7, #12]
+ 588 0170 7969     		ldr	r1, [r7, #20]
+ 589 0172 3A69     		ldr	r2, [r7, #16]
+ 590 0174 0223     		movs	r3, #2
+ 591 0176 FFF7FEFF 		bl	disp_grid_draw_square
+ 592              	.L13:
+  98:.\disp.c      ****     }
+  99:.\disp.c      **** }
+ 593              		.loc 1 99 0
+ 594 017a 1837     		adds	r7, r7, #24
+ 595              		.cfi_def_cfa_offset 8
+ 596 017c BD46     		mov	sp, r7
+ 597              		.cfi_def_cfa_register 13
+ 598              		@ sp needed
+ 599 017e 80BD     		pop	{r7, pc}
+ 600              	.L30:
+ 601              		.align	2
+ 602              	.L29:
+ 603 0180 03000080 		.word	-2147483645
+ 604 0184 56555555 		.word	1431655766
+ 605              		.cfi_endproc
+ 606              	.LFE67:
+ 607              		.size	disp_grid_ttc_place, .-disp_grid_ttc_place
+ 608              		.section	.text.disp_grid_init_ttc,"ax",%progbits
+ 609              		.align	2
+ 610              		.global	disp_grid_init_ttc
+ 611              		.thumb
+ 612              		.thumb_func
+ 613              		.type	disp_grid_init_ttc, %function
+ 614              	disp_grid_init_ttc:
+ 615              	.LFB68:
+ 100:.\disp.c      **** 
+ 101:.\disp.c      **** void disp_grid_init_ttc(struct disp_grid_81* disp, int grid[64]){ // initialize the TTC board
+ 616              		.loc 1 101 0
+ 617              		.cfi_startproc
+ 618              		@ args = 0, pretend = 0, frame = 16
+ 619              		@ frame_needed = 1, uses_anonymous_args = 0
+ 620 0000 80B5     		push	{r7, lr}
+ 621              		.cfi_def_cfa_offset 8
+ 622              		.cfi_offset 7, -8
+ 623              		.cfi_offset 14, -4
+ 624 0002 84B0     		sub	sp, sp, #16
+ 625              		.cfi_def_cfa_offset 24
+ 626 0004 00AF     		add	r7, sp, #0
+ 627              		.cfi_def_cfa_register 7
+ 628 0006 7860     		str	r0, [r7, #4]
+ 629 0008 3960     		str	r1, [r7]
+ 102:.\disp.c      ****     int i;
+ 103:.\disp.c      ****     for (i = 0; i < 64; i++){
+ 630              		.loc 1 103 0
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 14
 
 
- 651 01e1 636F6C00 		.ascii	"col\000"
- 652 01e5 01       		.byte	0x1
- 653 01e6 2E       		.byte	0x2e
- 654 01e7 68000000 		.4byte	0x68
- 655 01eb 02       		.uleb128 0x2
- 656 01ec 91       		.byte	0x91
- 657 01ed 70       		.sleb128 -16
- 658 01ee 00       		.byte	0
- 659 01ef 0A       		.uleb128 0xa
- 660 01f0 65000000 		.4byte	.LASF25
- 661 01f4 01       		.byte	0x1
- 662 01f5 38       		.byte	0x38
- 663 01f6 00000000 		.4byte	.LFB66
- 664 01fa 4A000000 		.4byte	.LFE66-.LFB66
- 665 01fe 01       		.uleb128 0x1
- 666 01ff 9C       		.byte	0x9c
- 667 0200 2B020000 		.4byte	0x22b
- 668 0204 0B       		.uleb128 0xb
- 669 0205 08020000 		.4byte	.LASF26
- 670 0209 01       		.byte	0x1
- 671 020a 38       		.byte	0x38
- 672 020b 68000000 		.4byte	0x68
- 673 020f 02       		.uleb128 0x2
- 674 0210 91       		.byte	0x91
- 675 0211 6C       		.sleb128 -20
- 676 0212 0C       		.uleb128 0xc
- 677 0213 6900     		.ascii	"i\000"
- 678 0215 01       		.byte	0x1
- 679 0216 3A       		.byte	0x3a
- 680 0217 68000000 		.4byte	0x68
- 681 021b 02       		.uleb128 0x2
- 682 021c 91       		.byte	0x91
- 683 021d 74       		.sleb128 -12
- 684 021e 0C       		.uleb128 0xc
- 685 021f 6A00     		.ascii	"j\000"
- 686 0221 01       		.byte	0x1
- 687 0222 3A       		.byte	0x3a
- 688 0223 68000000 		.4byte	0x68
- 689 0227 02       		.uleb128 0x2
- 690 0228 91       		.byte	0x91
- 691 0229 70       		.sleb128 -16
- 692 022a 00       		.byte	0
- 693 022b 0E       		.uleb128 0xe
- 694 022c D5010000 		.4byte	.LASF27
- 695 0230 01       		.byte	0x1
- 696 0231 41       		.byte	0x41
- 697 0232 00000000 		.4byte	.LFB67
- 698 0236 4A000000 		.4byte	.LFE67-.LFB67
- 699 023a 01       		.uleb128 0x1
- 700 023b 9C       		.byte	0x9c
- 701 023c 79020000 		.4byte	0x279
- 702 0240 0B       		.uleb128 0xb
- 703 0241 95010000 		.4byte	.LASF28
- 704 0245 01       		.byte	0x1
- 705 0246 41       		.byte	0x41
- 706 0247 81000000 		.4byte	0x81
- 707 024b 02       		.uleb128 0x2
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 15
+ 631 000a 0023     		movs	r3, #0
+ 632 000c FB60     		str	r3, [r7, #12]
+ 633 000e 0CE0     		b	.L32
+ 634              	.L33:
+ 104:.\disp.c      ****         disp_grid_ttc_place(disp,i, grid[i]);
+ 635              		.loc 1 104 0 discriminator 3
+ 636 0010 FB68     		ldr	r3, [r7, #12]
+ 637 0012 9B00     		lsls	r3, r3, #2
+ 638 0014 3A68     		ldr	r2, [r7]
+ 639 0016 1344     		add	r3, r3, r2
+ 640 0018 1B68     		ldr	r3, [r3]
+ 641 001a 7868     		ldr	r0, [r7, #4]
+ 642 001c F968     		ldr	r1, [r7, #12]
+ 643 001e 1A46     		mov	r2, r3
+ 644 0020 FFF7FEFF 		bl	disp_grid_ttc_place
+ 103:.\disp.c      ****         disp_grid_ttc_place(disp,i, grid[i]);
+ 645              		.loc 1 103 0 discriminator 3
+ 646 0024 FB68     		ldr	r3, [r7, #12]
+ 647 0026 0133     		adds	r3, r3, #1
+ 648 0028 FB60     		str	r3, [r7, #12]
+ 649              	.L32:
+ 103:.\disp.c      ****         disp_grid_ttc_place(disp,i, grid[i]);
+ 650              		.loc 1 103 0 is_stmt 0 discriminator 1
+ 651 002a FB68     		ldr	r3, [r7, #12]
+ 652 002c 3F2B     		cmp	r3, #63
+ 653 002e EFDD     		ble	.L33
+ 105:.\disp.c      ****     }
+ 106:.\disp.c      **** }
+ 654              		.loc 1 106 0 is_stmt 1
+ 655 0030 1037     		adds	r7, r7, #16
+ 656              		.cfi_def_cfa_offset 8
+ 657 0032 BD46     		mov	sp, r7
+ 658              		.cfi_def_cfa_register 13
+ 659              		@ sp needed
+ 660 0034 80BD     		pop	{r7, pc}
+ 661              		.cfi_endproc
+ 662              	.LFE68:
+ 663              		.size	disp_grid_init_ttc, .-disp_grid_init_ttc
+ 664 0036 00BF     		.section	.text.disp_grid_transmit,"ax",%progbits
+ 665              		.align	2
+ 666              		.global	disp_grid_transmit
+ 667              		.thumb
+ 668              		.thumb_func
+ 669              		.type	disp_grid_transmit, %function
+ 670              	disp_grid_transmit:
+ 671              	.LFB69:
+ 107:.\disp.c      **** 
+ 108:.\disp.c      **** void disp_grid_transmit (struct disp_grid_81 * disp){ // this function displays the screen
+ 672              		.loc 1 108 0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 16
+ 675              		@ frame_needed = 1, uses_anonymous_args = 0
+ 676 0000 80B5     		push	{r7, lr}
+ 677              		.cfi_def_cfa_offset 8
+ 678              		.cfi_offset 7, -8
+ 679              		.cfi_offset 14, -4
+ 680 0002 84B0     		sub	sp, sp, #16
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 15
 
 
- 708 024c 91       		.byte	0x91
- 709 024d 6F       		.sleb128 -17
- 710 024e 0B       		.uleb128 0xb
- 711 024f 9C010000 		.4byte	.LASF29
- 712 0253 01       		.byte	0x1
- 713 0254 41       		.byte	0x41
- 714 0255 81000000 		.4byte	0x81
- 715 0259 02       		.uleb128 0x2
- 716 025a 91       		.byte	0x91
- 717 025b 6E       		.sleb128 -18
- 718 025c 0C       		.uleb128 0xc
- 719 025d 726F7700 		.ascii	"row\000"
- 720 0261 01       		.byte	0x1
- 721 0262 42       		.byte	0x42
- 722 0263 68000000 		.4byte	0x68
- 723 0267 02       		.uleb128 0x2
- 724 0268 91       		.byte	0x91
- 725 0269 74       		.sleb128 -12
- 726 026a 0C       		.uleb128 0xc
- 727 026b 636F6C00 		.ascii	"col\000"
- 728 026f 01       		.byte	0x1
- 729 0270 42       		.byte	0x42
- 730 0271 68000000 		.4byte	0x68
- 731 0275 02       		.uleb128 0x2
- 732 0276 91       		.byte	0x91
- 733 0277 70       		.sleb128 -16
- 734 0278 00       		.byte	0
- 735 0279 0F       		.uleb128 0xf
- 736 027a 7B010000 		.4byte	.LASF35
- 737 027e 05       		.byte	0x5
- 738 027f 5506     		.2byte	0x655
- 739 0281 85020000 		.4byte	0x285
- 740 0285 10       		.uleb128 0x10
- 741 0286 76000000 		.4byte	0x76
- 742 028a 00       		.byte	0
- 743              		.section	.debug_abbrev,"",%progbits
- 744              	.Ldebug_abbrev0:
- 745 0000 01       		.uleb128 0x1
- 746 0001 11       		.uleb128 0x11
- 747 0002 01       		.byte	0x1
- 748 0003 25       		.uleb128 0x25
- 749 0004 0E       		.uleb128 0xe
- 750 0005 13       		.uleb128 0x13
- 751 0006 0B       		.uleb128 0xb
- 752 0007 03       		.uleb128 0x3
- 753 0008 0E       		.uleb128 0xe
- 754 0009 1B       		.uleb128 0x1b
- 755 000a 0E       		.uleb128 0xe
- 756 000b 55       		.uleb128 0x55
- 757 000c 17       		.uleb128 0x17
- 758 000d 11       		.uleb128 0x11
- 759 000e 01       		.uleb128 0x1
- 760 000f 10       		.uleb128 0x10
- 761 0010 17       		.uleb128 0x17
- 762 0011 00       		.byte	0
- 763 0012 00       		.byte	0
- 764 0013 02       		.uleb128 0x2
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 16
+ 681              		.cfi_def_cfa_offset 24
+ 682 0004 00AF     		add	r7, sp, #0
+ 683              		.cfi_def_cfa_register 7
+ 684 0006 7860     		str	r0, [r7, #4]
+ 109:.\disp.c      ****     int row,col;
+ 110:.\disp.c      ****     for (col = 0; col < 24; col++){
+ 685              		.loc 1 110 0
+ 686 0008 0023     		movs	r3, #0
+ 687 000a BB60     		str	r3, [r7, #8]
+ 688 000c 18E0     		b	.L35
+ 689              	.L38:
+ 111:.\disp.c      ****         for (row = 0; row < 32; row++){
+ 690              		.loc 1 111 0
+ 691 000e 0023     		movs	r3, #0
+ 692 0010 FB60     		str	r3, [r7, #12]
+ 693 0012 0FE0     		b	.L36
+ 694              	.L37:
+ 112:.\disp.c      ****             UART_PutChar(disp->matrix[row][col]); 
+ 695              		.loc 1 112 0 discriminator 3
+ 696 0014 7968     		ldr	r1, [r7, #4]
+ 697 0016 FA68     		ldr	r2, [r7, #12]
+ 698 0018 1346     		mov	r3, r2
+ 699 001a 5B00     		lsls	r3, r3, #1
+ 700 001c 1344     		add	r3, r3, r2
+ 701 001e DB00     		lsls	r3, r3, #3
+ 702 0020 BA68     		ldr	r2, [r7, #8]
+ 703 0022 1344     		add	r3, r3, r2
+ 704 0024 0B44     		add	r3, r3, r1
+ 705 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 706 0028 1846     		mov	r0, r3
+ 707 002a FFF7FEFF 		bl	UART_PutChar
+ 111:.\disp.c      ****         for (row = 0; row < 32; row++){
+ 708              		.loc 1 111 0 discriminator 3
+ 709 002e FB68     		ldr	r3, [r7, #12]
+ 710 0030 0133     		adds	r3, r3, #1
+ 711 0032 FB60     		str	r3, [r7, #12]
+ 712              	.L36:
+ 111:.\disp.c      ****         for (row = 0; row < 32; row++){
+ 713              		.loc 1 111 0 is_stmt 0 discriminator 1
+ 714 0034 FB68     		ldr	r3, [r7, #12]
+ 715 0036 1F2B     		cmp	r3, #31
+ 716 0038 ECDD     		ble	.L37
+ 110:.\disp.c      ****         for (row = 0; row < 32; row++){
+ 717              		.loc 1 110 0 is_stmt 1 discriminator 2
+ 718 003a BB68     		ldr	r3, [r7, #8]
+ 719 003c 0133     		adds	r3, r3, #1
+ 720 003e BB60     		str	r3, [r7, #8]
+ 721              	.L35:
+ 110:.\disp.c      ****         for (row = 0; row < 32; row++){
+ 722              		.loc 1 110 0 is_stmt 0 discriminator 1
+ 723 0040 BB68     		ldr	r3, [r7, #8]
+ 724 0042 172B     		cmp	r3, #23
+ 725 0044 E3DD     		ble	.L38
+ 113:.\disp.c      ****             //UART_PutChar(20); // blue
+ 114:.\disp.c      ****         }
+ 115:.\disp.c      ****     }
+ 116:.\disp.c      ****     waiter(7);
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 16
 
 
- 765 0014 24       		.uleb128 0x24
- 766 0015 00       		.byte	0
- 767 0016 0B       		.uleb128 0xb
- 768 0017 0B       		.uleb128 0xb
- 769 0018 3E       		.uleb128 0x3e
- 770 0019 0B       		.uleb128 0xb
- 771 001a 03       		.uleb128 0x3
- 772 001b 0E       		.uleb128 0xe
- 773 001c 00       		.byte	0
- 774 001d 00       		.byte	0
- 775 001e 03       		.uleb128 0x3
- 776 001f 16       		.uleb128 0x16
- 777 0020 00       		.byte	0
- 778 0021 03       		.uleb128 0x3
- 779 0022 0E       		.uleb128 0xe
- 780 0023 3A       		.uleb128 0x3a
- 781 0024 0B       		.uleb128 0xb
- 782 0025 3B       		.uleb128 0x3b
- 783 0026 0B       		.uleb128 0xb
- 784 0027 49       		.uleb128 0x49
- 785 0028 13       		.uleb128 0x13
- 786 0029 00       		.byte	0
- 787 002a 00       		.byte	0
- 788 002b 04       		.uleb128 0x4
- 789 002c 24       		.uleb128 0x24
- 790 002d 00       		.byte	0
- 791 002e 0B       		.uleb128 0xb
- 792 002f 0B       		.uleb128 0xb
- 793 0030 3E       		.uleb128 0x3e
- 794 0031 0B       		.uleb128 0xb
- 795 0032 03       		.uleb128 0x3
- 796 0033 08       		.uleb128 0x8
- 797 0034 00       		.byte	0
- 798 0035 00       		.byte	0
- 799 0036 05       		.uleb128 0x5
- 800 0037 16       		.uleb128 0x16
- 801 0038 00       		.byte	0
- 802 0039 03       		.uleb128 0x3
- 803 003a 0E       		.uleb128 0xe
- 804 003b 3A       		.uleb128 0x3a
- 805 003c 0B       		.uleb128 0xb
- 806 003d 3B       		.uleb128 0x3b
- 807 003e 05       		.uleb128 0x5
- 808 003f 49       		.uleb128 0x49
- 809 0040 13       		.uleb128 0x13
- 810 0041 00       		.byte	0
- 811 0042 00       		.byte	0
- 812 0043 06       		.uleb128 0x6
- 813 0044 13       		.uleb128 0x13
- 814 0045 01       		.byte	0x1
- 815 0046 03       		.uleb128 0x3
- 816 0047 0E       		.uleb128 0xe
- 817 0048 0B       		.uleb128 0xb
- 818 0049 05       		.uleb128 0x5
- 819 004a 3A       		.uleb128 0x3a
- 820 004b 0B       		.uleb128 0xb
- 821 004c 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 17
+ 726              		.loc 1 116 0 is_stmt 1
+ 727 0046 0720     		movs	r0, #7
+ 728 0048 FFF7FEFF 		bl	waiter
+ 117:.\disp.c      **** }
+ 729              		.loc 1 117 0
+ 730 004c 1037     		adds	r7, r7, #16
+ 731              		.cfi_def_cfa_offset 8
+ 732 004e BD46     		mov	sp, r7
+ 733              		.cfi_def_cfa_register 13
+ 734              		@ sp needed
+ 735 0050 80BD     		pop	{r7, pc}
+ 736              		.cfi_endproc
+ 737              	.LFE69:
+ 738              		.size	disp_grid_transmit, .-disp_grid_transmit
+ 739 0052 00BF     		.section	.text.waiter,"ax",%progbits
+ 740              		.align	2
+ 741              		.global	waiter
+ 742              		.thumb
+ 743              		.thumb_func
+ 744              		.type	waiter, %function
+ 745              	waiter:
+ 746              	.LFB70:
+ 118:.\disp.c      **** 
+ 119:.\disp.c      **** 
+ 120:.\disp.c      **** void waiter( int seconds )
+ 121:.\disp.c      **** {   // dumb wait
+ 747              		.loc 1 121 0
+ 748              		.cfi_startproc
+ 749              		@ args = 0, pretend = 0, frame = 16
+ 750              		@ frame_needed = 1, uses_anonymous_args = 0
+ 751              		@ link register save eliminated.
+ 752 0000 80B4     		push	{r7}
+ 753              		.cfi_def_cfa_offset 4
+ 754              		.cfi_offset 7, -4
+ 755 0002 85B0     		sub	sp, sp, #20
+ 756              		.cfi_def_cfa_offset 24
+ 757 0004 00AF     		add	r7, sp, #0
+ 758              		.cfi_def_cfa_register 7
+ 759 0006 7860     		str	r0, [r7, #4]
+ 122:.\disp.c      ****     int i,j;
+ 123:.\disp.c      ****     for (i = 0; i < seconds*10; i++){
+ 760              		.loc 1 123 0
+ 761 0008 0023     		movs	r3, #0
+ 762 000a FB60     		str	r3, [r7, #12]
+ 763 000c 0FE0     		b	.L40
+ 764              	.L43:
+ 124:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
+ 765              		.loc 1 124 0
+ 766 000e 0023     		movs	r3, #0
+ 767 0010 BB60     		str	r3, [r7, #8]
+ 768 0012 02E0     		b	.L41
+ 769              	.L42:
+ 770              		.loc 1 124 0 is_stmt 0 discriminator 3
+ 771 0014 BB68     		ldr	r3, [r7, #8]
+ 772 0016 0133     		adds	r3, r3, #1
+ 773 0018 BB60     		str	r3, [r7, #8]
+ 774              	.L41:
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 17
 
 
- 822 004d 0B       		.uleb128 0xb
- 823 004e 01       		.uleb128 0x1
- 824 004f 13       		.uleb128 0x13
- 825 0050 00       		.byte	0
- 826 0051 00       		.byte	0
- 827 0052 07       		.uleb128 0x7
- 828 0053 0D       		.uleb128 0xd
- 829 0054 00       		.byte	0
- 830 0055 03       		.uleb128 0x3
- 831 0056 0E       		.uleb128 0xe
- 832 0057 3A       		.uleb128 0x3a
- 833 0058 0B       		.uleb128 0xb
- 834 0059 3B       		.uleb128 0x3b
- 835 005a 0B       		.uleb128 0xb
- 836 005b 49       		.uleb128 0x49
- 837 005c 13       		.uleb128 0x13
- 838 005d 38       		.uleb128 0x38
- 839 005e 0B       		.uleb128 0xb
- 840 005f 00       		.byte	0
- 841 0060 00       		.byte	0
- 842 0061 08       		.uleb128 0x8
- 843 0062 01       		.uleb128 0x1
- 844 0063 01       		.byte	0x1
- 845 0064 49       		.uleb128 0x49
- 846 0065 13       		.uleb128 0x13
- 847 0066 01       		.uleb128 0x1
- 848 0067 13       		.uleb128 0x13
- 849 0068 00       		.byte	0
- 850 0069 00       		.byte	0
- 851 006a 09       		.uleb128 0x9
- 852 006b 21       		.uleb128 0x21
- 853 006c 00       		.byte	0
- 854 006d 49       		.uleb128 0x49
- 855 006e 13       		.uleb128 0x13
- 856 006f 2F       		.uleb128 0x2f
- 857 0070 0B       		.uleb128 0xb
- 858 0071 00       		.byte	0
- 859 0072 00       		.byte	0
- 860 0073 0A       		.uleb128 0xa
- 861 0074 2E       		.uleb128 0x2e
- 862 0075 01       		.byte	0x1
- 863 0076 3F       		.uleb128 0x3f
- 864 0077 19       		.uleb128 0x19
- 865 0078 03       		.uleb128 0x3
- 866 0079 0E       		.uleb128 0xe
- 867 007a 3A       		.uleb128 0x3a
- 868 007b 0B       		.uleb128 0xb
- 869 007c 3B       		.uleb128 0x3b
- 870 007d 0B       		.uleb128 0xb
- 871 007e 27       		.uleb128 0x27
- 872 007f 19       		.uleb128 0x19
- 873 0080 11       		.uleb128 0x11
- 874 0081 01       		.uleb128 0x1
- 875 0082 12       		.uleb128 0x12
- 876 0083 06       		.uleb128 0x6
- 877 0084 40       		.uleb128 0x40
- 878 0085 18       		.uleb128 0x18
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 18
+ 775              		.loc 1 124 0 discriminator 1
+ 776 001a 7B68     		ldr	r3, [r7, #4]
+ 777 001c 6422     		movs	r2, #100
+ 778 001e 02FB03F2 		mul	r2, r2, r3
+ 779 0022 BB68     		ldr	r3, [r7, #8]
+ 780 0024 9A42     		cmp	r2, r3
+ 781 0026 F5DC     		bgt	.L42
+ 123:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
+ 782              		.loc 1 123 0 is_stmt 1 discriminator 2
+ 783 0028 FB68     		ldr	r3, [r7, #12]
+ 784 002a 0133     		adds	r3, r3, #1
+ 785 002c FB60     		str	r3, [r7, #12]
+ 786              	.L40:
+ 123:.\disp.c      ****         for (j = 0; j < seconds*100; j++){
+ 787              		.loc 1 123 0 is_stmt 0 discriminator 1
+ 788 002e 7A68     		ldr	r2, [r7, #4]
+ 789 0030 1346     		mov	r3, r2
+ 790 0032 9B00     		lsls	r3, r3, #2
+ 791 0034 1344     		add	r3, r3, r2
+ 792 0036 5B00     		lsls	r3, r3, #1
+ 793 0038 1A46     		mov	r2, r3
+ 794 003a FB68     		ldr	r3, [r7, #12]
+ 795 003c 9A42     		cmp	r2, r3
+ 796 003e E6DC     		bgt	.L43
+ 125:.\disp.c      ****         }
+ 126:.\disp.c      ****     }
+ 127:.\disp.c      **** }
+ 797              		.loc 1 127 0 is_stmt 1
+ 798 0040 1437     		adds	r7, r7, #20
+ 799              		.cfi_def_cfa_offset 4
+ 800 0042 BD46     		mov	sp, r7
+ 801              		.cfi_def_cfa_register 13
+ 802              		@ sp needed
+ 803 0044 5DF8047B 		ldr	r7, [sp], #4
+ 804              		.cfi_restore 7
+ 805              		.cfi_def_cfa_offset 0
+ 806 0048 7047     		bx	lr
+ 807              		.cfi_endproc
+ 808              	.LFE70:
+ 809              		.size	waiter, .-waiter
+ 810 004a 00BF     		.text
+ 811              	.Letext0:
+ 812              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 813              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 814              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 815              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 816              		.section	.debug_info,"",%progbits
+ 817              	.Ldebug_info0:
+ 818 0000 52030000 		.4byte	0x352
+ 819 0004 0400     		.2byte	0x4
+ 820 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 821 000a 04       		.byte	0x4
+ 822 000b 01       		.uleb128 0x1
+ 823 000c A3000000 		.4byte	.LASF33
+ 824 0010 01       		.byte	0x1
+ 825 0011 83010000 		.4byte	.LASF34
+ 826 0015 18000000 		.4byte	.LASF35
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 18
 
 
- 879 0086 9742     		.uleb128 0x2117
- 880 0088 19       		.uleb128 0x19
- 881 0089 01       		.uleb128 0x1
- 882 008a 13       		.uleb128 0x13
- 883 008b 00       		.byte	0
- 884 008c 00       		.byte	0
- 885 008d 0B       		.uleb128 0xb
- 886 008e 05       		.uleb128 0x5
- 887 008f 00       		.byte	0
- 888 0090 03       		.uleb128 0x3
- 889 0091 0E       		.uleb128 0xe
- 890 0092 3A       		.uleb128 0x3a
- 891 0093 0B       		.uleb128 0xb
- 892 0094 3B       		.uleb128 0x3b
- 893 0095 0B       		.uleb128 0xb
- 894 0096 49       		.uleb128 0x49
- 895 0097 13       		.uleb128 0x13
- 896 0098 02       		.uleb128 0x2
- 897 0099 18       		.uleb128 0x18
- 898 009a 00       		.byte	0
- 899 009b 00       		.byte	0
- 900 009c 0C       		.uleb128 0xc
- 901 009d 34       		.uleb128 0x34
- 902 009e 00       		.byte	0
- 903 009f 03       		.uleb128 0x3
- 904 00a0 08       		.uleb128 0x8
- 905 00a1 3A       		.uleb128 0x3a
- 906 00a2 0B       		.uleb128 0xb
- 907 00a3 3B       		.uleb128 0x3b
- 908 00a4 0B       		.uleb128 0xb
- 909 00a5 49       		.uleb128 0x49
- 910 00a6 13       		.uleb128 0x13
- 911 00a7 02       		.uleb128 0x2
- 912 00a8 18       		.uleb128 0x18
- 913 00a9 00       		.byte	0
- 914 00aa 00       		.byte	0
- 915 00ab 0D       		.uleb128 0xd
- 916 00ac 0F       		.uleb128 0xf
- 917 00ad 00       		.byte	0
- 918 00ae 0B       		.uleb128 0xb
- 919 00af 0B       		.uleb128 0xb
- 920 00b0 49       		.uleb128 0x49
- 921 00b1 13       		.uleb128 0x13
- 922 00b2 00       		.byte	0
- 923 00b3 00       		.byte	0
- 924 00b4 0E       		.uleb128 0xe
- 925 00b5 2E       		.uleb128 0x2e
- 926 00b6 01       		.byte	0x1
- 927 00b7 3F       		.uleb128 0x3f
- 928 00b8 19       		.uleb128 0x19
- 929 00b9 03       		.uleb128 0x3
- 930 00ba 0E       		.uleb128 0xe
- 931 00bb 3A       		.uleb128 0x3a
- 932 00bc 0B       		.uleb128 0xb
- 933 00bd 3B       		.uleb128 0x3b
- 934 00be 0B       		.uleb128 0xb
- 935 00bf 27       		.uleb128 0x27
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 19
+ 827 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 828 001d 00000000 		.4byte	0
+ 829 0021 00000000 		.4byte	.Ldebug_line0
+ 830 0025 02       		.uleb128 0x2
+ 831 0026 01       		.byte	0x1
+ 832 0027 06       		.byte	0x6
+ 833 0028 6D020000 		.4byte	.LASF0
+ 834 002c 02       		.uleb128 0x2
+ 835 002d 01       		.byte	0x1
+ 836 002e 08       		.byte	0x8
+ 837 002f 47010000 		.4byte	.LASF1
+ 838 0033 02       		.uleb128 0x2
+ 839 0034 02       		.byte	0x2
+ 840 0035 05       		.byte	0x5
+ 841 0036 4C020000 		.4byte	.LASF2
+ 842 003a 02       		.uleb128 0x2
+ 843 003b 02       		.byte	0x2
+ 844 003c 07       		.byte	0x7
+ 845 003d 79020000 		.4byte	.LASF3
+ 846 0041 03       		.uleb128 0x3
+ 847 0042 99000000 		.4byte	.LASF9
+ 848 0046 02       		.byte	0x2
+ 849 0047 3F       		.byte	0x3f
+ 850 0048 4C000000 		.4byte	0x4c
+ 851 004c 02       		.uleb128 0x2
+ 852 004d 04       		.byte	0x4
+ 853 004e 05       		.byte	0x5
+ 854 004f 64020000 		.4byte	.LASF4
+ 855 0053 02       		.uleb128 0x2
+ 856 0054 04       		.byte	0x4
+ 857 0055 07       		.byte	0x7
+ 858 0056 68010000 		.4byte	.LASF5
+ 859 005a 02       		.uleb128 0x2
+ 860 005b 08       		.byte	0x8
+ 861 005c 05       		.byte	0x5
+ 862 005d 2A020000 		.4byte	.LASF6
+ 863 0061 02       		.uleb128 0x2
+ 864 0062 08       		.byte	0x8
+ 865 0063 07       		.byte	0x7
+ 866 0064 C6010000 		.4byte	.LASF7
+ 867 0068 04       		.uleb128 0x4
+ 868 0069 04       		.byte	0x4
+ 869 006a 05       		.byte	0x5
+ 870 006b 696E7400 		.ascii	"int\000"
+ 871 006f 02       		.uleb128 0x2
+ 872 0070 04       		.byte	0x4
+ 873 0071 07       		.byte	0x7
+ 874 0072 B9010000 		.4byte	.LASF8
+ 875 0076 03       		.uleb128 0x3
+ 876 0077 05020000 		.4byte	.LASF10
+ 877 007b 03       		.byte	0x3
+ 878 007c 2C       		.byte	0x2c
+ 879 007d 41000000 		.4byte	0x41
+ 880 0081 05       		.uleb128 0x5
+ 881 0082 5E020000 		.4byte	.LASF11
+ 882 0086 04       		.byte	0x4
+ 883 0087 3801     		.2byte	0x138
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 19
 
 
- 936 00c0 19       		.uleb128 0x19
- 937 00c1 11       		.uleb128 0x11
- 938 00c2 01       		.uleb128 0x1
- 939 00c3 12       		.uleb128 0x12
- 940 00c4 06       		.uleb128 0x6
- 941 00c5 40       		.uleb128 0x40
- 942 00c6 18       		.uleb128 0x18
- 943 00c7 9642     		.uleb128 0x2116
- 944 00c9 19       		.uleb128 0x19
- 945 00ca 01       		.uleb128 0x1
- 946 00cb 13       		.uleb128 0x13
- 947 00cc 00       		.byte	0
- 948 00cd 00       		.byte	0
- 949 00ce 0F       		.uleb128 0xf
- 950 00cf 34       		.uleb128 0x34
- 951 00d0 00       		.byte	0
- 952 00d1 03       		.uleb128 0x3
- 953 00d2 0E       		.uleb128 0xe
- 954 00d3 3A       		.uleb128 0x3a
- 955 00d4 0B       		.uleb128 0xb
- 956 00d5 3B       		.uleb128 0x3b
- 957 00d6 05       		.uleb128 0x5
- 958 00d7 49       		.uleb128 0x49
- 959 00d8 13       		.uleb128 0x13
- 960 00d9 3F       		.uleb128 0x3f
- 961 00da 19       		.uleb128 0x19
- 962 00db 3C       		.uleb128 0x3c
- 963 00dc 19       		.uleb128 0x19
- 964 00dd 00       		.byte	0
- 965 00de 00       		.byte	0
- 966 00df 10       		.uleb128 0x10
- 967 00e0 35       		.uleb128 0x35
- 968 00e1 00       		.byte	0
- 969 00e2 49       		.uleb128 0x49
- 970 00e3 13       		.uleb128 0x13
- 971 00e4 00       		.byte	0
- 972 00e5 00       		.byte	0
- 973 00e6 00       		.byte	0
- 974              		.section	.debug_aranges,"",%progbits
- 975 0000 3C000000 		.4byte	0x3c
- 976 0004 0200     		.2byte	0x2
- 977 0006 00000000 		.4byte	.Ldebug_info0
- 978 000a 04       		.byte	0x4
- 979 000b 00       		.byte	0
- 980 000c 0000     		.2byte	0
- 981 000e 0000     		.2byte	0
- 982 0010 00000000 		.4byte	.LFB63
- 983 0014 50000000 		.4byte	.LFE63-.LFB63
- 984 0018 00000000 		.4byte	.LFB64
- 985 001c 60000000 		.4byte	.LFE64-.LFB64
- 986 0020 00000000 		.4byte	.LFB65
- 987 0024 4C000000 		.4byte	.LFE65-.LFB65
- 988 0028 00000000 		.4byte	.LFB66
- 989 002c 4A000000 		.4byte	.LFE66-.LFB66
- 990 0030 00000000 		.4byte	.LFB67
- 991 0034 4A000000 		.4byte	.LFE67-.LFB67
- 992 0038 00000000 		.4byte	0
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 20
+ 884 0089 2C000000 		.4byte	0x2c
+ 885 008d 02       		.uleb128 0x2
+ 886 008e 04       		.byte	0x4
+ 887 008f 04       		.byte	0x4
+ 888 0090 39010000 		.4byte	.LASF12
+ 889 0094 02       		.uleb128 0x2
+ 890 0095 08       		.byte	0x8
+ 891 0096 04       		.byte	0x4
+ 892 0097 8C010000 		.4byte	.LASF13
+ 893 009b 02       		.uleb128 0x2
+ 894 009c 01       		.byte	0x1
+ 895 009d 08       		.byte	0x8
+ 896 009e 40020000 		.4byte	.LASF14
+ 897 00a2 02       		.uleb128 0x2
+ 898 00a3 04       		.byte	0x4
+ 899 00a4 07       		.byte	0x7
+ 900 00a5 0D020000 		.4byte	.LASF15
+ 901 00a9 06       		.uleb128 0x6
+ 902 00aa F8010000 		.4byte	.LASF36
+ 903 00ae 0003     		.2byte	0x300
+ 904 00b0 01       		.byte	0x1
+ 905 00b1 15       		.byte	0x15
+ 906 00b2 C3000000 		.4byte	0xc3
+ 907 00b6 07       		.uleb128 0x7
+ 908 00b7 45020000 		.4byte	.LASF37
+ 909 00bb 01       		.byte	0x1
+ 910 00bc 16       		.byte	0x16
+ 911 00bd C3000000 		.4byte	0xc3
+ 912 00c1 00       		.byte	0
+ 913 00c2 00       		.byte	0
+ 914 00c3 08       		.uleb128 0x8
+ 915 00c4 81000000 		.4byte	0x81
+ 916 00c8 D9000000 		.4byte	0xd9
+ 917 00cc 09       		.uleb128 0x9
+ 918 00cd A2000000 		.4byte	0xa2
+ 919 00d1 1F       		.byte	0x1f
+ 920 00d2 09       		.uleb128 0x9
+ 921 00d3 A2000000 		.4byte	0xa2
+ 922 00d7 17       		.byte	0x17
+ 923 00d8 00       		.byte	0
+ 924 00d9 0A       		.uleb128 0xa
+ 925 00da 8A000000 		.4byte	.LASF18
+ 926 00de 01       		.byte	0x1
+ 927 00df 1A       		.byte	0x1a
+ 928 00e0 00000000 		.4byte	.LFB63
+ 929 00e4 50000000 		.4byte	.LFE63-.LFB63
+ 930 00e8 01       		.uleb128 0x1
+ 931 00e9 9C       		.byte	0x9c
+ 932 00ea 27010000 		.4byte	0x127
+ 933 00ee 0B       		.uleb128 0xb
+ 934 00ef F3010000 		.4byte	.LASF16
+ 935 00f3 01       		.byte	0x1
+ 936 00f4 1A       		.byte	0x1a
+ 937 00f5 27010000 		.4byte	0x127
+ 938 00f9 02       		.uleb128 0x2
+ 939 00fa 91       		.byte	0x91
+ 940 00fb 6C       		.sleb128 -20
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 20
 
 
- 993 003c 00000000 		.4byte	0
- 994              		.section	.debug_ranges,"",%progbits
- 995              	.Ldebug_ranges0:
- 996 0000 00000000 		.4byte	.LFB63
- 997 0004 50000000 		.4byte	.LFE63
- 998 0008 00000000 		.4byte	.LFB64
- 999 000c 60000000 		.4byte	.LFE64
- 1000 0010 00000000 		.4byte	.LFB65
- 1001 0014 4C000000 		.4byte	.LFE65
- 1002 0018 00000000 		.4byte	.LFB66
- 1003 001c 4A000000 		.4byte	.LFE66
- 1004 0020 00000000 		.4byte	.LFB67
- 1005 0024 4A000000 		.4byte	.LFE67
- 1006 0028 00000000 		.4byte	0
- 1007 002c 00000000 		.4byte	0
- 1008              		.section	.debug_line,"",%progbits
- 1009              	.Ldebug_line0:
- 1010 0000 3B020000 		.section	.debug_str,"MS",%progbits,1
- 1010      02004901 
- 1010      00000201 
- 1010      FB0E0D00 
- 1010      01010101 
- 1011              	.LASF32:
- 1012 0000 433A5C55 		.ascii	"C:\\Users\\Andrew\\Dropbox (Personal)\\MIT\\MIT 201"
- 1012      73657273 
- 1012      5C416E64 
- 1012      7265775C 
- 1012      44726F70 
- 1013 002e 36205370 		.ascii	"6 Spring\\6115\\Final Project\\Code\\VGA\\Tic Tac T"
- 1013      72696E67 
- 1013      5C363131 
- 1013      355C4669 
- 1013      6E616C20 
- 1014 005c 6F652E63 		.ascii	"oe.cydsn\000"
- 1014      7964736E 
- 1014      00
- 1015              	.LASF25:
- 1016 0065 77616974 		.ascii	"waiter\000"
- 1016      657200
- 1017              	.LASF18:
- 1018 006c 64697370 		.ascii	"disp_grid_init\000"
- 1018      5F677269 
- 1018      645F696E 
- 1018      697400
- 1019              	.LASF9:
- 1020 007b 5F5F696E 		.ascii	"__int32_t\000"
- 1020      7433325F 
- 1020      7400
- 1021              	.LASF30:
- 1022 0085 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1022      4320342E 
- 1022      392E3320 
- 1022      32303135 
- 1022      30333033 
- 1023 00b8 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1023      20726576 
- 1023      6973696F 
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 21
+ 941 00fc 0B       		.uleb128 0xb
+ 942 00fd A6010000 		.4byte	.LASF17
+ 943 0101 01       		.byte	0x1
+ 944 0102 1A       		.byte	0x1a
+ 945 0103 81000000 		.4byte	0x81
+ 946 0107 02       		.uleb128 0x2
+ 947 0108 91       		.byte	0x91
+ 948 0109 6B       		.sleb128 -21
+ 949 010a 0C       		.uleb128 0xc
+ 950 010b 726F7700 		.ascii	"row\000"
+ 951 010f 01       		.byte	0x1
+ 952 0110 1B       		.byte	0x1b
+ 953 0111 68000000 		.4byte	0x68
+ 954 0115 02       		.uleb128 0x2
+ 955 0116 91       		.byte	0x91
+ 956 0117 74       		.sleb128 -12
+ 957 0118 0C       		.uleb128 0xc
+ 958 0119 636F6C00 		.ascii	"col\000"
+ 959 011d 01       		.byte	0x1
+ 960 011e 1B       		.byte	0x1b
+ 961 011f 68000000 		.4byte	0x68
+ 962 0123 02       		.uleb128 0x2
+ 963 0124 91       		.byte	0x91
+ 964 0125 70       		.sleb128 -16
+ 965 0126 00       		.byte	0
+ 966 0127 0D       		.uleb128 0xd
+ 967 0128 04       		.byte	0x4
+ 968 0129 A9000000 		.4byte	0xa9
+ 969 012d 0A       		.uleb128 0xa
+ 970 012e DD010000 		.4byte	.LASF19
+ 971 0132 01       		.byte	0x1
+ 972 0133 24       		.byte	0x24
+ 973 0134 00000000 		.4byte	.LFB64
+ 974 0138 60000000 		.4byte	.LFE64-.LFB64
+ 975 013c 01       		.uleb128 0x1
+ 976 013d 9C       		.byte	0x9c
+ 977 013e AF010000 		.4byte	0x1af
+ 978 0142 0B       		.uleb128 0xb
+ 979 0143 F3010000 		.4byte	.LASF16
+ 980 0147 01       		.byte	0x1
+ 981 0148 24       		.byte	0x24
+ 982 0149 27010000 		.4byte	0x127
+ 983 014d 02       		.uleb128 0x2
+ 984 014e 91       		.byte	0x91
+ 985 014f 6C       		.sleb128 -20
+ 986 0150 0B       		.uleb128 0xb
+ 987 0151 31010000 		.4byte	.LASF20
+ 988 0155 01       		.byte	0x1
+ 989 0156 24       		.byte	0x24
+ 990 0157 68000000 		.4byte	0x68
+ 991 015b 02       		.uleb128 0x2
+ 992 015c 91       		.byte	0x91
+ 993 015d 68       		.sleb128 -24
+ 994 015e 0B       		.uleb128 0xb
+ 995 015f 3F010000 		.4byte	.LASF21
+ 996 0163 01       		.byte	0x1
+ 997 0164 24       		.byte	0x24
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 21
 
 
- 1023      6E203232 
- 1023      31323230 
- 1024 00eb 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1024      66756E63 
- 1024      74696F6E 
- 1024      2D736563 
- 1024      74696F6E 
- 1025              	.LASF20:
- 1026 0113 785F7374 		.ascii	"x_start\000"
- 1026      61727400 
- 1027              	.LASF12:
- 1028 011b 666C6F61 		.ascii	"float\000"
- 1028      7400
- 1029              	.LASF21:
- 1030 0121 795F7374 		.ascii	"y_start\000"
- 1030      61727400 
- 1031              	.LASF1:
- 1032 0129 756E7369 		.ascii	"unsigned char\000"
- 1032      676E6564 
- 1032      20636861 
- 1032      7200
- 1033              	.LASF5:
- 1034 0137 6C6F6E67 		.ascii	"long unsigned int\000"
- 1034      20756E73 
- 1034      69676E65 
- 1034      6420696E 
- 1034      7400
- 1035              	.LASF23:
- 1036 0149 795F6865 		.ascii	"y_height\000"
- 1036      69676874 
- 1036      00
- 1037              	.LASF31:
- 1038 0152 2E5C6469 		.ascii	".\\disp.c\000"
- 1038      73702E63 
- 1038      00
- 1039              	.LASF13:
- 1040 015b 646F7562 		.ascii	"double\000"
- 1040      6C6500
- 1041              	.LASF24:
- 1042 0162 64697370 		.ascii	"disp_grid_transmit\000"
- 1042      5F677269 
- 1042      645F7472 
- 1042      616E736D 
- 1042      697400
- 1043              	.LASF17:
- 1044 0175 636F6C6F 		.ascii	"color\000"
- 1044      7200
- 1045              	.LASF35:
- 1046 017b 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1046      52784275 
- 1046      66666572 
- 1046      00
- 1047              	.LASF8:
- 1048 0188 756E7369 		.ascii	"unsigned int\000"
- 1048      676E6564 
- 1048      20696E74 
- 1048      00
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 22
+ 998 0165 68000000 		.4byte	0x68
+ 999 0169 02       		.uleb128 0x2
+ 1000 016a 91       		.byte	0x91
+ 1001 016b 64       		.sleb128 -28
+ 1002 016c 0B       		.uleb128 0xb
+ 1003 016d 56020000 		.4byte	.LASF22
+ 1004 0171 01       		.byte	0x1
+ 1005 0172 24       		.byte	0x24
+ 1006 0173 68000000 		.4byte	0x68
+ 1007 0177 02       		.uleb128 0x2
+ 1008 0178 91       		.byte	0x91
+ 1009 0179 60       		.sleb128 -32
+ 1010 017a 0B       		.uleb128 0xb
+ 1011 017b 7A010000 		.4byte	.LASF23
+ 1012 017f 01       		.byte	0x1
+ 1013 0180 24       		.byte	0x24
+ 1014 0181 68000000 		.4byte	0x68
+ 1015 0185 02       		.uleb128 0x2
+ 1016 0186 91       		.byte	0x91
+ 1017 0187 00       		.sleb128 0
+ 1018 0188 0B       		.uleb128 0xb
+ 1019 0189 A6010000 		.4byte	.LASF17
+ 1020 018d 01       		.byte	0x1
+ 1021 018e 24       		.byte	0x24
+ 1022 018f 81000000 		.4byte	0x81
+ 1023 0193 02       		.uleb128 0x2
+ 1024 0194 91       		.byte	0x91
+ 1025 0195 04       		.sleb128 4
+ 1026 0196 0C       		.uleb128 0xc
+ 1027 0197 7800     		.ascii	"x\000"
+ 1028 0199 01       		.byte	0x1
+ 1029 019a 25       		.byte	0x25
+ 1030 019b 68000000 		.4byte	0x68
+ 1031 019f 02       		.uleb128 0x2
+ 1032 01a0 91       		.byte	0x91
+ 1033 01a1 74       		.sleb128 -12
+ 1034 01a2 0C       		.uleb128 0xc
+ 1035 01a3 7900     		.ascii	"y\000"
+ 1036 01a5 01       		.byte	0x1
+ 1037 01a6 25       		.byte	0x25
+ 1038 01a7 68000000 		.4byte	0x68
+ 1039 01ab 02       		.uleb128 0x2
+ 1040 01ac 91       		.byte	0x91
+ 1041 01ad 70       		.sleb128 -16
+ 1042 01ae 00       		.byte	0
+ 1043 01af 0E       		.uleb128 0xe
+ 1044 01b0 55010000 		.4byte	.LASF24
+ 1045 01b4 01       		.byte	0x1
+ 1046 01b5 2D       		.byte	0x2d
+ 1047 01b6 00000000 		.4byte	.LFB65
+ 1048 01ba 72000000 		.4byte	.LFE65-.LFB65
+ 1049 01be 01       		.uleb128 0x1
+ 1050 01bf 9C       		.byte	0x9c
+ 1051 01c0 FD010000 		.4byte	0x1fd
+ 1052 01c4 0B       		.uleb128 0xb
+ 1053 01c5 F3010000 		.4byte	.LASF16
+ 1054 01c9 01       		.byte	0x1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 22
 
 
- 1049              	.LASF28:
- 1050 0195 636F6C6F 		.ascii	"colorA\000"
- 1050      724100
- 1051              	.LASF29:
- 1052 019c 636F6C6F 		.ascii	"colorB\000"
- 1052      724200
- 1053              	.LASF7:
- 1054 01a3 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1054      206C6F6E 
- 1054      6720756E 
- 1054      7369676E 
- 1054      65642069 
- 1055              	.LASF19:
- 1056 01ba 64697370 		.ascii	"disp_grid_draw_square\000"
- 1056      5F677269 
- 1056      645F6472 
- 1056      61775F73 
- 1056      71756172 
- 1057              	.LASF16:
- 1058 01d0 64697370 		.ascii	"disp\000"
- 1058      00
- 1059              	.LASF27:
- 1060 01d5 64697370 		.ascii	"disper\000"
- 1060      657200
- 1061              	.LASF33:
- 1062 01dc 64697370 		.ascii	"disp_grid_81\000"
- 1062      5F677269 
- 1062      645F3831 
- 1062      00
- 1063              	.LASF10:
- 1064 01e9 696E7433 		.ascii	"int32_t\000"
- 1064      325F7400 
- 1065              	.LASF15:
- 1066 01f1 73697A65 		.ascii	"sizetype\000"
- 1066      74797065 
- 1066      00
- 1067              	.LASF6:
- 1068 01fa 6C6F6E67 		.ascii	"long long int\000"
- 1068      206C6F6E 
- 1068      6720696E 
- 1068      7400
- 1069              	.LASF26:
- 1070 0208 7365636F 		.ascii	"seconds\000"
- 1070      6E647300 
- 1071              	.LASF14:
- 1072 0210 63686172 		.ascii	"char\000"
- 1072      00
- 1073              	.LASF34:
- 1074 0215 6D617472 		.ascii	"matrix\000"
- 1074      697800
- 1075              	.LASF2:
- 1076 021c 73686F72 		.ascii	"short int\000"
- 1076      7420696E 
- 1076      7400
- 1077              	.LASF22:
- 1078 0226 785F7769 		.ascii	"x_width\000"
- 1078      64746800 
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVpMRiv.s 			page 23
+ 1055 01ca 2D       		.byte	0x2d
+ 1056 01cb 27010000 		.4byte	0x127
+ 1057 01cf 02       		.uleb128 0x2
+ 1058 01d0 91       		.byte	0x91
+ 1059 01d1 74       		.sleb128 -12
+ 1060 01d2 0B       		.uleb128 0xb
+ 1061 01d3 31010000 		.4byte	.LASF20
+ 1062 01d7 01       		.byte	0x1
+ 1063 01d8 2D       		.byte	0x2d
+ 1064 01d9 68000000 		.4byte	0x68
+ 1065 01dd 02       		.uleb128 0x2
+ 1066 01de 91       		.byte	0x91
+ 1067 01df 70       		.sleb128 -16
+ 1068 01e0 0B       		.uleb128 0xb
+ 1069 01e1 3F010000 		.4byte	.LASF21
+ 1070 01e5 01       		.byte	0x1
+ 1071 01e6 2D       		.byte	0x2d
+ 1072 01e7 68000000 		.4byte	0x68
+ 1073 01eb 02       		.uleb128 0x2
+ 1074 01ec 91       		.byte	0x91
+ 1075 01ed 6C       		.sleb128 -20
+ 1076 01ee 0B       		.uleb128 0xb
+ 1077 01ef A6010000 		.4byte	.LASF17
+ 1078 01f3 01       		.byte	0x1
+ 1079 01f4 2D       		.byte	0x2d
+ 1080 01f5 81000000 		.4byte	0x81
+ 1081 01f9 02       		.uleb128 0x2
+ 1082 01fa 91       		.byte	0x91
+ 1083 01fb 6B       		.sleb128 -21
+ 1084 01fc 00       		.byte	0
+ 1085 01fd 0E       		.uleb128 0xe
+ 1086 01fe 8C020000 		.4byte	.LASF25
+ 1087 0202 01       		.byte	0x1
+ 1088 0203 34       		.byte	0x34
+ 1089 0204 00000000 		.4byte	.LFB66
+ 1090 0208 86000000 		.4byte	.LFE66-.LFB66
+ 1091 020c 01       		.uleb128 0x1
+ 1092 020d 9C       		.byte	0x9c
+ 1093 020e 21020000 		.4byte	0x221
+ 1094 0212 0B       		.uleb128 0xb
+ 1095 0213 F3010000 		.4byte	.LASF16
+ 1096 0217 01       		.byte	0x1
+ 1097 0218 34       		.byte	0x34
+ 1098 0219 27010000 		.4byte	0x127
+ 1099 021d 02       		.uleb128 0x2
+ 1100 021e 91       		.byte	0x91
+ 1101 021f 74       		.sleb128 -12
+ 1102 0220 00       		.byte	0
+ 1103 0221 0E       		.uleb128 0xe
+ 1104 0222 16020000 		.4byte	.LASF26
+ 1105 0226 01       		.byte	0x1
+ 1106 0227 3D       		.byte	0x3d
+ 1107 0228 00000000 		.4byte	.LFB67
+ 1108 022c 88010000 		.4byte	.LFE67-.LFB67
+ 1109 0230 01       		.uleb128 0x1
+ 1110 0231 9C       		.byte	0x9c
+ 1111 0232 77020000 		.4byte	0x277
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 23
 
 
- 1079              	.LASF11:
- 1080 022e 75696E74 		.ascii	"uint8\000"
- 1080      3800
- 1081              	.LASF4:
- 1082 0234 6C6F6E67 		.ascii	"long int\000"
- 1082      20696E74 
- 1082      00
- 1083              	.LASF0:
- 1084 023d 7369676E 		.ascii	"signed char\000"
- 1084      65642063 
- 1084      68617200 
- 1085              	.LASF3:
- 1086 0249 73686F72 		.ascii	"short unsigned int\000"
- 1086      7420756E 
- 1086      7369676E 
- 1086      65642069 
- 1086      6E7400
- 1087              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1112 0236 0B       		.uleb128 0xb
+ 1113 0237 F3010000 		.4byte	.LASF16
+ 1114 023b 01       		.byte	0x1
+ 1115 023c 3D       		.byte	0x3d
+ 1116 023d 27010000 		.4byte	0x127
+ 1117 0241 02       		.uleb128 0x2
+ 1118 0242 91       		.byte	0x91
+ 1119 0243 6C       		.sleb128 -20
+ 1120 0244 0F       		.uleb128 0xf
+ 1121 0245 6900     		.ascii	"i\000"
+ 1122 0247 01       		.byte	0x1
+ 1123 0248 3D       		.byte	0x3d
+ 1124 0249 68000000 		.4byte	0x68
+ 1125 024d 02       		.uleb128 0x2
+ 1126 024e 91       		.byte	0x91
+ 1127 024f 68       		.sleb128 -24
+ 1128 0250 0B       		.uleb128 0xb
+ 1129 0251 7D000000 		.4byte	.LASF27
+ 1130 0255 01       		.byte	0x1
+ 1131 0256 3D       		.byte	0x3d
+ 1132 0257 68000000 		.4byte	0x68
+ 1133 025b 02       		.uleb128 0x2
+ 1134 025c 91       		.byte	0x91
+ 1135 025d 64       		.sleb128 -28
+ 1136 025e 0C       		.uleb128 0xc
+ 1137 025f 7800     		.ascii	"x\000"
+ 1138 0261 01       		.byte	0x1
+ 1139 0262 3E       		.byte	0x3e
+ 1140 0263 68000000 		.4byte	0x68
+ 1141 0267 02       		.uleb128 0x2
+ 1142 0268 91       		.byte	0x91
+ 1143 0269 74       		.sleb128 -12
+ 1144 026a 0C       		.uleb128 0xc
+ 1145 026b 7900     		.ascii	"y\000"
+ 1146 026d 01       		.byte	0x1
+ 1147 026e 3E       		.byte	0x3e
+ 1148 026f 68000000 		.4byte	0x68
+ 1149 0273 02       		.uleb128 0x2
+ 1150 0274 91       		.byte	0x91
+ 1151 0275 70       		.sleb128 -16
+ 1152 0276 00       		.byte	0
+ 1153 0277 0E       		.uleb128 0xe
+ 1154 0278 00000000 		.4byte	.LASF28
+ 1155 027c 01       		.byte	0x1
+ 1156 027d 65       		.byte	0x65
+ 1157 027e 00000000 		.4byte	.LFB68
+ 1158 0282 36000000 		.4byte	.LFE68-.LFB68
+ 1159 0286 01       		.uleb128 0x1
+ 1160 0287 9C       		.byte	0x9c
+ 1161 0288 B5020000 		.4byte	0x2b5
+ 1162 028c 0B       		.uleb128 0xb
+ 1163 028d F3010000 		.4byte	.LASF16
+ 1164 0291 01       		.byte	0x1
+ 1165 0292 65       		.byte	0x65
+ 1166 0293 27010000 		.4byte	0x127
+ 1167 0297 02       		.uleb128 0x2
+ 1168 0298 91       		.byte	0x91
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 24
+
+
+ 1169 0299 6C       		.sleb128 -20
+ 1170 029a 0B       		.uleb128 0xb
+ 1171 029b 13000000 		.4byte	.LASF29
+ 1172 029f 01       		.byte	0x1
+ 1173 02a0 65       		.byte	0x65
+ 1174 02a1 B5020000 		.4byte	0x2b5
+ 1175 02a5 02       		.uleb128 0x2
+ 1176 02a6 91       		.byte	0x91
+ 1177 02a7 68       		.sleb128 -24
+ 1178 02a8 0C       		.uleb128 0xc
+ 1179 02a9 6900     		.ascii	"i\000"
+ 1180 02ab 01       		.byte	0x1
+ 1181 02ac 66       		.byte	0x66
+ 1182 02ad 68000000 		.4byte	0x68
+ 1183 02b1 02       		.uleb128 0x2
+ 1184 02b2 91       		.byte	0x91
+ 1185 02b3 74       		.sleb128 -12
+ 1186 02b4 00       		.byte	0
+ 1187 02b5 0D       		.uleb128 0xd
+ 1188 02b6 04       		.byte	0x4
+ 1189 02b7 68000000 		.4byte	0x68
+ 1190 02bb 0E       		.uleb128 0xe
+ 1191 02bc 93010000 		.4byte	.LASF30
+ 1192 02c0 01       		.byte	0x1
+ 1193 02c1 6C       		.byte	0x6c
+ 1194 02c2 00000000 		.4byte	.LFB69
+ 1195 02c6 52000000 		.4byte	.LFE69-.LFB69
+ 1196 02ca 01       		.uleb128 0x1
+ 1197 02cb 9C       		.byte	0x9c
+ 1198 02cc 08030000 		.4byte	0x308
+ 1199 02d0 0B       		.uleb128 0xb
+ 1200 02d1 F3010000 		.4byte	.LASF16
+ 1201 02d5 01       		.byte	0x1
+ 1202 02d6 6C       		.byte	0x6c
+ 1203 02d7 27010000 		.4byte	0x127
+ 1204 02db 02       		.uleb128 0x2
+ 1205 02dc 91       		.byte	0x91
+ 1206 02dd 6C       		.sleb128 -20
+ 1207 02de 0C       		.uleb128 0xc
+ 1208 02df 726F7700 		.ascii	"row\000"
+ 1209 02e3 01       		.byte	0x1
+ 1210 02e4 6D       		.byte	0x6d
+ 1211 02e5 68000000 		.4byte	0x68
+ 1212 02e9 02       		.uleb128 0x2
+ 1213 02ea 91       		.byte	0x91
+ 1214 02eb 74       		.sleb128 -12
+ 1215 02ec 0C       		.uleb128 0xc
+ 1216 02ed 636F6C00 		.ascii	"col\000"
+ 1217 02f1 01       		.byte	0x1
+ 1218 02f2 6D       		.byte	0x6d
+ 1219 02f3 68000000 		.4byte	0x68
+ 1220 02f7 02       		.uleb128 0x2
+ 1221 02f8 91       		.byte	0x91
+ 1222 02f9 70       		.sleb128 -16
+ 1223 02fa 10       		.uleb128 0x10
+ 1224 02fb 83000000 		.4byte	.LASF31
+ 1225 02ff 01       		.byte	0x1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 25
+
+
+ 1226 0300 74       		.byte	0x74
+ 1227 0301 68000000 		.4byte	0x68
+ 1228 0305 11       		.uleb128 0x11
+ 1229 0306 00       		.byte	0
+ 1230 0307 00       		.byte	0
+ 1231 0308 0A       		.uleb128 0xa
+ 1232 0309 83000000 		.4byte	.LASF31
+ 1233 030d 01       		.byte	0x1
+ 1234 030e 78       		.byte	0x78
+ 1235 030f 00000000 		.4byte	.LFB70
+ 1236 0313 4A000000 		.4byte	.LFE70-.LFB70
+ 1237 0317 01       		.uleb128 0x1
+ 1238 0318 9C       		.byte	0x9c
+ 1239 0319 44030000 		.4byte	0x344
+ 1240 031d 0B       		.uleb128 0xb
+ 1241 031e 38020000 		.4byte	.LASF32
+ 1242 0322 01       		.byte	0x1
+ 1243 0323 78       		.byte	0x78
+ 1244 0324 68000000 		.4byte	0x68
+ 1245 0328 02       		.uleb128 0x2
+ 1246 0329 91       		.byte	0x91
+ 1247 032a 6C       		.sleb128 -20
+ 1248 032b 0C       		.uleb128 0xc
+ 1249 032c 6900     		.ascii	"i\000"
+ 1250 032e 01       		.byte	0x1
+ 1251 032f 7A       		.byte	0x7a
+ 1252 0330 68000000 		.4byte	0x68
+ 1253 0334 02       		.uleb128 0x2
+ 1254 0335 91       		.byte	0x91
+ 1255 0336 74       		.sleb128 -12
+ 1256 0337 0C       		.uleb128 0xc
+ 1257 0338 6A00     		.ascii	"j\000"
+ 1258 033a 01       		.byte	0x1
+ 1259 033b 7A       		.byte	0x7a
+ 1260 033c 68000000 		.4byte	0x68
+ 1261 0340 02       		.uleb128 0x2
+ 1262 0341 91       		.byte	0x91
+ 1263 0342 70       		.sleb128 -16
+ 1264 0343 00       		.byte	0
+ 1265 0344 12       		.uleb128 0x12
+ 1266 0345 AC010000 		.4byte	.LASF38
+ 1267 0349 05       		.byte	0x5
+ 1268 034a 5506     		.2byte	0x655
+ 1269 034c 50030000 		.4byte	0x350
+ 1270 0350 13       		.uleb128 0x13
+ 1271 0351 76000000 		.4byte	0x76
+ 1272 0355 00       		.byte	0
+ 1273              		.section	.debug_abbrev,"",%progbits
+ 1274              	.Ldebug_abbrev0:
+ 1275 0000 01       		.uleb128 0x1
+ 1276 0001 11       		.uleb128 0x11
+ 1277 0002 01       		.byte	0x1
+ 1278 0003 25       		.uleb128 0x25
+ 1279 0004 0E       		.uleb128 0xe
+ 1280 0005 13       		.uleb128 0x13
+ 1281 0006 0B       		.uleb128 0xb
+ 1282 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 26
+
+
+ 1283 0008 0E       		.uleb128 0xe
+ 1284 0009 1B       		.uleb128 0x1b
+ 1285 000a 0E       		.uleb128 0xe
+ 1286 000b 55       		.uleb128 0x55
+ 1287 000c 17       		.uleb128 0x17
+ 1288 000d 11       		.uleb128 0x11
+ 1289 000e 01       		.uleb128 0x1
+ 1290 000f 10       		.uleb128 0x10
+ 1291 0010 17       		.uleb128 0x17
+ 1292 0011 00       		.byte	0
+ 1293 0012 00       		.byte	0
+ 1294 0013 02       		.uleb128 0x2
+ 1295 0014 24       		.uleb128 0x24
+ 1296 0015 00       		.byte	0
+ 1297 0016 0B       		.uleb128 0xb
+ 1298 0017 0B       		.uleb128 0xb
+ 1299 0018 3E       		.uleb128 0x3e
+ 1300 0019 0B       		.uleb128 0xb
+ 1301 001a 03       		.uleb128 0x3
+ 1302 001b 0E       		.uleb128 0xe
+ 1303 001c 00       		.byte	0
+ 1304 001d 00       		.byte	0
+ 1305 001e 03       		.uleb128 0x3
+ 1306 001f 16       		.uleb128 0x16
+ 1307 0020 00       		.byte	0
+ 1308 0021 03       		.uleb128 0x3
+ 1309 0022 0E       		.uleb128 0xe
+ 1310 0023 3A       		.uleb128 0x3a
+ 1311 0024 0B       		.uleb128 0xb
+ 1312 0025 3B       		.uleb128 0x3b
+ 1313 0026 0B       		.uleb128 0xb
+ 1314 0027 49       		.uleb128 0x49
+ 1315 0028 13       		.uleb128 0x13
+ 1316 0029 00       		.byte	0
+ 1317 002a 00       		.byte	0
+ 1318 002b 04       		.uleb128 0x4
+ 1319 002c 24       		.uleb128 0x24
+ 1320 002d 00       		.byte	0
+ 1321 002e 0B       		.uleb128 0xb
+ 1322 002f 0B       		.uleb128 0xb
+ 1323 0030 3E       		.uleb128 0x3e
+ 1324 0031 0B       		.uleb128 0xb
+ 1325 0032 03       		.uleb128 0x3
+ 1326 0033 08       		.uleb128 0x8
+ 1327 0034 00       		.byte	0
+ 1328 0035 00       		.byte	0
+ 1329 0036 05       		.uleb128 0x5
+ 1330 0037 16       		.uleb128 0x16
+ 1331 0038 00       		.byte	0
+ 1332 0039 03       		.uleb128 0x3
+ 1333 003a 0E       		.uleb128 0xe
+ 1334 003b 3A       		.uleb128 0x3a
+ 1335 003c 0B       		.uleb128 0xb
+ 1336 003d 3B       		.uleb128 0x3b
+ 1337 003e 05       		.uleb128 0x5
+ 1338 003f 49       		.uleb128 0x49
+ 1339 0040 13       		.uleb128 0x13
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 27
+
+
+ 1340 0041 00       		.byte	0
+ 1341 0042 00       		.byte	0
+ 1342 0043 06       		.uleb128 0x6
+ 1343 0044 13       		.uleb128 0x13
+ 1344 0045 01       		.byte	0x1
+ 1345 0046 03       		.uleb128 0x3
+ 1346 0047 0E       		.uleb128 0xe
+ 1347 0048 0B       		.uleb128 0xb
+ 1348 0049 05       		.uleb128 0x5
+ 1349 004a 3A       		.uleb128 0x3a
+ 1350 004b 0B       		.uleb128 0xb
+ 1351 004c 3B       		.uleb128 0x3b
+ 1352 004d 0B       		.uleb128 0xb
+ 1353 004e 01       		.uleb128 0x1
+ 1354 004f 13       		.uleb128 0x13
+ 1355 0050 00       		.byte	0
+ 1356 0051 00       		.byte	0
+ 1357 0052 07       		.uleb128 0x7
+ 1358 0053 0D       		.uleb128 0xd
+ 1359 0054 00       		.byte	0
+ 1360 0055 03       		.uleb128 0x3
+ 1361 0056 0E       		.uleb128 0xe
+ 1362 0057 3A       		.uleb128 0x3a
+ 1363 0058 0B       		.uleb128 0xb
+ 1364 0059 3B       		.uleb128 0x3b
+ 1365 005a 0B       		.uleb128 0xb
+ 1366 005b 49       		.uleb128 0x49
+ 1367 005c 13       		.uleb128 0x13
+ 1368 005d 38       		.uleb128 0x38
+ 1369 005e 0B       		.uleb128 0xb
+ 1370 005f 00       		.byte	0
+ 1371 0060 00       		.byte	0
+ 1372 0061 08       		.uleb128 0x8
+ 1373 0062 01       		.uleb128 0x1
+ 1374 0063 01       		.byte	0x1
+ 1375 0064 49       		.uleb128 0x49
+ 1376 0065 13       		.uleb128 0x13
+ 1377 0066 01       		.uleb128 0x1
+ 1378 0067 13       		.uleb128 0x13
+ 1379 0068 00       		.byte	0
+ 1380 0069 00       		.byte	0
+ 1381 006a 09       		.uleb128 0x9
+ 1382 006b 21       		.uleb128 0x21
+ 1383 006c 00       		.byte	0
+ 1384 006d 49       		.uleb128 0x49
+ 1385 006e 13       		.uleb128 0x13
+ 1386 006f 2F       		.uleb128 0x2f
+ 1387 0070 0B       		.uleb128 0xb
+ 1388 0071 00       		.byte	0
+ 1389 0072 00       		.byte	0
+ 1390 0073 0A       		.uleb128 0xa
+ 1391 0074 2E       		.uleb128 0x2e
+ 1392 0075 01       		.byte	0x1
+ 1393 0076 3F       		.uleb128 0x3f
+ 1394 0077 19       		.uleb128 0x19
+ 1395 0078 03       		.uleb128 0x3
+ 1396 0079 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 28
+
+
+ 1397 007a 3A       		.uleb128 0x3a
+ 1398 007b 0B       		.uleb128 0xb
+ 1399 007c 3B       		.uleb128 0x3b
+ 1400 007d 0B       		.uleb128 0xb
+ 1401 007e 27       		.uleb128 0x27
+ 1402 007f 19       		.uleb128 0x19
+ 1403 0080 11       		.uleb128 0x11
+ 1404 0081 01       		.uleb128 0x1
+ 1405 0082 12       		.uleb128 0x12
+ 1406 0083 06       		.uleb128 0x6
+ 1407 0084 40       		.uleb128 0x40
+ 1408 0085 18       		.uleb128 0x18
+ 1409 0086 9742     		.uleb128 0x2117
+ 1410 0088 19       		.uleb128 0x19
+ 1411 0089 01       		.uleb128 0x1
+ 1412 008a 13       		.uleb128 0x13
+ 1413 008b 00       		.byte	0
+ 1414 008c 00       		.byte	0
+ 1415 008d 0B       		.uleb128 0xb
+ 1416 008e 05       		.uleb128 0x5
+ 1417 008f 00       		.byte	0
+ 1418 0090 03       		.uleb128 0x3
+ 1419 0091 0E       		.uleb128 0xe
+ 1420 0092 3A       		.uleb128 0x3a
+ 1421 0093 0B       		.uleb128 0xb
+ 1422 0094 3B       		.uleb128 0x3b
+ 1423 0095 0B       		.uleb128 0xb
+ 1424 0096 49       		.uleb128 0x49
+ 1425 0097 13       		.uleb128 0x13
+ 1426 0098 02       		.uleb128 0x2
+ 1427 0099 18       		.uleb128 0x18
+ 1428 009a 00       		.byte	0
+ 1429 009b 00       		.byte	0
+ 1430 009c 0C       		.uleb128 0xc
+ 1431 009d 34       		.uleb128 0x34
+ 1432 009e 00       		.byte	0
+ 1433 009f 03       		.uleb128 0x3
+ 1434 00a0 08       		.uleb128 0x8
+ 1435 00a1 3A       		.uleb128 0x3a
+ 1436 00a2 0B       		.uleb128 0xb
+ 1437 00a3 3B       		.uleb128 0x3b
+ 1438 00a4 0B       		.uleb128 0xb
+ 1439 00a5 49       		.uleb128 0x49
+ 1440 00a6 13       		.uleb128 0x13
+ 1441 00a7 02       		.uleb128 0x2
+ 1442 00a8 18       		.uleb128 0x18
+ 1443 00a9 00       		.byte	0
+ 1444 00aa 00       		.byte	0
+ 1445 00ab 0D       		.uleb128 0xd
+ 1446 00ac 0F       		.uleb128 0xf
+ 1447 00ad 00       		.byte	0
+ 1448 00ae 0B       		.uleb128 0xb
+ 1449 00af 0B       		.uleb128 0xb
+ 1450 00b0 49       		.uleb128 0x49
+ 1451 00b1 13       		.uleb128 0x13
+ 1452 00b2 00       		.byte	0
+ 1453 00b3 00       		.byte	0
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 29
+
+
+ 1454 00b4 0E       		.uleb128 0xe
+ 1455 00b5 2E       		.uleb128 0x2e
+ 1456 00b6 01       		.byte	0x1
+ 1457 00b7 3F       		.uleb128 0x3f
+ 1458 00b8 19       		.uleb128 0x19
+ 1459 00b9 03       		.uleb128 0x3
+ 1460 00ba 0E       		.uleb128 0xe
+ 1461 00bb 3A       		.uleb128 0x3a
+ 1462 00bc 0B       		.uleb128 0xb
+ 1463 00bd 3B       		.uleb128 0x3b
+ 1464 00be 0B       		.uleb128 0xb
+ 1465 00bf 27       		.uleb128 0x27
+ 1466 00c0 19       		.uleb128 0x19
+ 1467 00c1 11       		.uleb128 0x11
+ 1468 00c2 01       		.uleb128 0x1
+ 1469 00c3 12       		.uleb128 0x12
+ 1470 00c4 06       		.uleb128 0x6
+ 1471 00c5 40       		.uleb128 0x40
+ 1472 00c6 18       		.uleb128 0x18
+ 1473 00c7 9642     		.uleb128 0x2116
+ 1474 00c9 19       		.uleb128 0x19
+ 1475 00ca 01       		.uleb128 0x1
+ 1476 00cb 13       		.uleb128 0x13
+ 1477 00cc 00       		.byte	0
+ 1478 00cd 00       		.byte	0
+ 1479 00ce 0F       		.uleb128 0xf
+ 1480 00cf 05       		.uleb128 0x5
+ 1481 00d0 00       		.byte	0
+ 1482 00d1 03       		.uleb128 0x3
+ 1483 00d2 08       		.uleb128 0x8
+ 1484 00d3 3A       		.uleb128 0x3a
+ 1485 00d4 0B       		.uleb128 0xb
+ 1486 00d5 3B       		.uleb128 0x3b
+ 1487 00d6 0B       		.uleb128 0xb
+ 1488 00d7 49       		.uleb128 0x49
+ 1489 00d8 13       		.uleb128 0x13
+ 1490 00d9 02       		.uleb128 0x2
+ 1491 00da 18       		.uleb128 0x18
+ 1492 00db 00       		.byte	0
+ 1493 00dc 00       		.byte	0
+ 1494 00dd 10       		.uleb128 0x10
+ 1495 00de 2E       		.uleb128 0x2e
+ 1496 00df 01       		.byte	0x1
+ 1497 00e0 3F       		.uleb128 0x3f
+ 1498 00e1 19       		.uleb128 0x19
+ 1499 00e2 03       		.uleb128 0x3
+ 1500 00e3 0E       		.uleb128 0xe
+ 1501 00e4 3A       		.uleb128 0x3a
+ 1502 00e5 0B       		.uleb128 0xb
+ 1503 00e6 3B       		.uleb128 0x3b
+ 1504 00e7 0B       		.uleb128 0xb
+ 1505 00e8 49       		.uleb128 0x49
+ 1506 00e9 13       		.uleb128 0x13
+ 1507 00ea 3C       		.uleb128 0x3c
+ 1508 00eb 19       		.uleb128 0x19
+ 1509 00ec 00       		.byte	0
+ 1510 00ed 00       		.byte	0
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 30
+
+
+ 1511 00ee 11       		.uleb128 0x11
+ 1512 00ef 18       		.uleb128 0x18
+ 1513 00f0 00       		.byte	0
+ 1514 00f1 00       		.byte	0
+ 1515 00f2 00       		.byte	0
+ 1516 00f3 12       		.uleb128 0x12
+ 1517 00f4 34       		.uleb128 0x34
+ 1518 00f5 00       		.byte	0
+ 1519 00f6 03       		.uleb128 0x3
+ 1520 00f7 0E       		.uleb128 0xe
+ 1521 00f8 3A       		.uleb128 0x3a
+ 1522 00f9 0B       		.uleb128 0xb
+ 1523 00fa 3B       		.uleb128 0x3b
+ 1524 00fb 05       		.uleb128 0x5
+ 1525 00fc 49       		.uleb128 0x49
+ 1526 00fd 13       		.uleb128 0x13
+ 1527 00fe 3F       		.uleb128 0x3f
+ 1528 00ff 19       		.uleb128 0x19
+ 1529 0100 3C       		.uleb128 0x3c
+ 1530 0101 19       		.uleb128 0x19
+ 1531 0102 00       		.byte	0
+ 1532 0103 00       		.byte	0
+ 1533 0104 13       		.uleb128 0x13
+ 1534 0105 35       		.uleb128 0x35
+ 1535 0106 00       		.byte	0
+ 1536 0107 49       		.uleb128 0x49
+ 1537 0108 13       		.uleb128 0x13
+ 1538 0109 00       		.byte	0
+ 1539 010a 00       		.byte	0
+ 1540 010b 00       		.byte	0
+ 1541              		.section	.debug_aranges,"",%progbits
+ 1542 0000 54000000 		.4byte	0x54
+ 1543 0004 0200     		.2byte	0x2
+ 1544 0006 00000000 		.4byte	.Ldebug_info0
+ 1545 000a 04       		.byte	0x4
+ 1546 000b 00       		.byte	0
+ 1547 000c 0000     		.2byte	0
+ 1548 000e 0000     		.2byte	0
+ 1549 0010 00000000 		.4byte	.LFB63
+ 1550 0014 50000000 		.4byte	.LFE63-.LFB63
+ 1551 0018 00000000 		.4byte	.LFB64
+ 1552 001c 60000000 		.4byte	.LFE64-.LFB64
+ 1553 0020 00000000 		.4byte	.LFB65
+ 1554 0024 72000000 		.4byte	.LFE65-.LFB65
+ 1555 0028 00000000 		.4byte	.LFB66
+ 1556 002c 86000000 		.4byte	.LFE66-.LFB66
+ 1557 0030 00000000 		.4byte	.LFB67
+ 1558 0034 88010000 		.4byte	.LFE67-.LFB67
+ 1559 0038 00000000 		.4byte	.LFB68
+ 1560 003c 36000000 		.4byte	.LFE68-.LFB68
+ 1561 0040 00000000 		.4byte	.LFB69
+ 1562 0044 52000000 		.4byte	.LFE69-.LFB69
+ 1563 0048 00000000 		.4byte	.LFB70
+ 1564 004c 4A000000 		.4byte	.LFE70-.LFB70
+ 1565 0050 00000000 		.4byte	0
+ 1566 0054 00000000 		.4byte	0
+ 1567              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 31
+
+
+ 1568              	.Ldebug_ranges0:
+ 1569 0000 00000000 		.4byte	.LFB63
+ 1570 0004 50000000 		.4byte	.LFE63
+ 1571 0008 00000000 		.4byte	.LFB64
+ 1572 000c 60000000 		.4byte	.LFE64
+ 1573 0010 00000000 		.4byte	.LFB65
+ 1574 0014 72000000 		.4byte	.LFE65
+ 1575 0018 00000000 		.4byte	.LFB66
+ 1576 001c 86000000 		.4byte	.LFE66
+ 1577 0020 00000000 		.4byte	.LFB67
+ 1578 0024 88010000 		.4byte	.LFE67
+ 1579 0028 00000000 		.4byte	.LFB68
+ 1580 002c 36000000 		.4byte	.LFE68
+ 1581 0030 00000000 		.4byte	.LFB69
+ 1582 0034 52000000 		.4byte	.LFE69
+ 1583 0038 00000000 		.4byte	.LFB70
+ 1584 003c 4A000000 		.4byte	.LFE70
+ 1585 0040 00000000 		.4byte	0
+ 1586 0044 00000000 		.4byte	0
+ 1587              		.section	.debug_line,"",%progbits
+ 1588              	.Ldebug_line0:
+ 1589 0000 8B020000 		.section	.debug_str,"MS",%progbits,1
+ 1589      02004901 
+ 1589      00000201 
+ 1589      FB0E0D00 
+ 1589      01010101 
+ 1590              	.LASF28:
+ 1591 0000 64697370 		.ascii	"disp_grid_init_ttc\000"
+ 1591      5F677269 
+ 1591      645F696E 
+ 1591      69745F74 
+ 1591      746300
+ 1592              	.LASF29:
+ 1593 0013 67726964 		.ascii	"grid\000"
+ 1593      00
+ 1594              	.LASF35:
+ 1595 0018 433A5C55 		.ascii	"C:\\Users\\Andrew\\Dropbox (Personal)\\MIT\\MIT 201"
+ 1595      73657273 
+ 1595      5C416E64 
+ 1595      7265775C 
+ 1595      44726F70 
+ 1596 0046 36205370 		.ascii	"6 Spring\\6115\\Final Project\\Code\\VGA\\Tic Tac T"
+ 1596      72696E67 
+ 1596      5C363131 
+ 1596      355C4669 
+ 1596      6E616C20 
+ 1597 0074 6F652E63 		.ascii	"oe.cydsn\000"
+ 1597      7964736E 
+ 1597      00
+ 1598              	.LASF27:
+ 1599 007d 76616C75 		.ascii	"value\000"
+ 1599      6500
+ 1600              	.LASF31:
+ 1601 0083 77616974 		.ascii	"waiter\000"
+ 1601      657200
+ 1602              	.LASF18:
+ 1603 008a 64697370 		.ascii	"disp_grid_init\000"
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 32
+
+
+ 1603      5F677269 
+ 1603      645F696E 
+ 1603      697400
+ 1604              	.LASF9:
+ 1605 0099 5F5F696E 		.ascii	"__int32_t\000"
+ 1605      7433325F 
+ 1605      7400
+ 1606              	.LASF33:
+ 1607 00a3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1607      4320342E 
+ 1607      392E3320 
+ 1607      32303135 
+ 1607      30333033 
+ 1608 00d6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1608      20726576 
+ 1608      6973696F 
+ 1608      6E203232 
+ 1608      31323230 
+ 1609 0109 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1609      66756E63 
+ 1609      74696F6E 
+ 1609      2D736563 
+ 1609      74696F6E 
+ 1610              	.LASF20:
+ 1611 0131 785F7374 		.ascii	"x_start\000"
+ 1611      61727400 
+ 1612              	.LASF12:
+ 1613 0139 666C6F61 		.ascii	"float\000"
+ 1613      7400
+ 1614              	.LASF21:
+ 1615 013f 795F7374 		.ascii	"y_start\000"
+ 1615      61727400 
+ 1616              	.LASF1:
+ 1617 0147 756E7369 		.ascii	"unsigned char\000"
+ 1617      676E6564 
+ 1617      20636861 
+ 1617      7200
+ 1618              	.LASF24:
+ 1619 0155 64697370 		.ascii	"disp_grid_draw_xia\000"
+ 1619      5F677269 
+ 1619      645F6472 
+ 1619      61775F78 
+ 1619      696100
+ 1620              	.LASF5:
+ 1621 0168 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1621      20756E73 
+ 1621      69676E65 
+ 1621      6420696E 
+ 1621      7400
+ 1622              	.LASF23:
+ 1623 017a 795F6865 		.ascii	"y_height\000"
+ 1623      69676874 
+ 1623      00
+ 1624              	.LASF34:
+ 1625 0183 2E5C6469 		.ascii	".\\disp.c\000"
+ 1625      73702E63 
+ 1625      00
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 33
+
+
+ 1626              	.LASF13:
+ 1627 018c 646F7562 		.ascii	"double\000"
+ 1627      6C6500
+ 1628              	.LASF30:
+ 1629 0193 64697370 		.ascii	"disp_grid_transmit\000"
+ 1629      5F677269 
+ 1629      645F7472 
+ 1629      616E736D 
+ 1629      697400
+ 1630              	.LASF17:
+ 1631 01a6 636F6C6F 		.ascii	"color\000"
+ 1631      7200
+ 1632              	.LASF38:
+ 1633 01ac 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1633      52784275 
+ 1633      66666572 
+ 1633      00
+ 1634              	.LASF8:
+ 1635 01b9 756E7369 		.ascii	"unsigned int\000"
+ 1635      676E6564 
+ 1635      20696E74 
+ 1635      00
+ 1636              	.LASF7:
+ 1637 01c6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1637      206C6F6E 
+ 1637      6720756E 
+ 1637      7369676E 
+ 1637      65642069 
+ 1638              	.LASF19:
+ 1639 01dd 64697370 		.ascii	"disp_grid_draw_square\000"
+ 1639      5F677269 
+ 1639      645F6472 
+ 1639      61775F73 
+ 1639      71756172 
+ 1640              	.LASF16:
+ 1641 01f3 64697370 		.ascii	"disp\000"
+ 1641      00
+ 1642              	.LASF36:
+ 1643 01f8 64697370 		.ascii	"disp_grid_81\000"
+ 1643      5F677269 
+ 1643      645F3831 
+ 1643      00
+ 1644              	.LASF10:
+ 1645 0205 696E7433 		.ascii	"int32_t\000"
+ 1645      325F7400 
+ 1646              	.LASF15:
+ 1647 020d 73697A65 		.ascii	"sizetype\000"
+ 1647      74797065 
+ 1647      00
+ 1648              	.LASF26:
+ 1649 0216 64697370 		.ascii	"disp_grid_ttc_place\000"
+ 1649      5F677269 
+ 1649      645F7474 
+ 1649      635F706C 
+ 1649      61636500 
+ 1650              	.LASF6:
+ 1651 022a 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccVwJdD5.s 			page 34
+
+
+ 1651      206C6F6E 
+ 1651      6720696E 
+ 1651      7400
+ 1652              	.LASF32:
+ 1653 0238 7365636F 		.ascii	"seconds\000"
+ 1653      6E647300 
+ 1654              	.LASF14:
+ 1655 0240 63686172 		.ascii	"char\000"
+ 1655      00
+ 1656              	.LASF37:
+ 1657 0245 6D617472 		.ascii	"matrix\000"
+ 1657      697800
+ 1658              	.LASF2:
+ 1659 024c 73686F72 		.ascii	"short int\000"
+ 1659      7420696E 
+ 1659      7400
+ 1660              	.LASF22:
+ 1661 0256 785F7769 		.ascii	"x_width\000"
+ 1661      64746800 
+ 1662              	.LASF11:
+ 1663 025e 75696E74 		.ascii	"uint8\000"
+ 1663      3800
+ 1664              	.LASF4:
+ 1665 0264 6C6F6E67 		.ascii	"long int\000"
+ 1665      20696E74 
+ 1665      00
+ 1666              	.LASF0:
+ 1667 026d 7369676E 		.ascii	"signed char\000"
+ 1667      65642063 
+ 1667      68617200 
+ 1668              	.LASF3:
+ 1669 0279 73686F72 		.ascii	"short unsigned int\000"
+ 1669      7420756E 
+ 1669      7369676E 
+ 1669      65642069 
+ 1669      6E7400
+ 1670              	.LASF25:
+ 1671 028c 64697370 		.ascii	"disp_grid_draw_hu\000"
+ 1671      5F677269 
+ 1671      645F6472 
+ 1671      61775F68 
+ 1671      7500
+ 1672              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

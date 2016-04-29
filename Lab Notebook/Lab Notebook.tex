@@ -4,7 +4,8 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{amssymb}
-\usepackage{wrapfig}
+\usepackage{wrapfig} %wrap images in text
+%\usepackage[UTF8]{ctex} %display chinese
 \usepackage[colorlinks=true, linkcolor=red, urlcolor=blue, citecolor=blue]{hyperref}
 
 \newenvironment{tight_enumerate}{
@@ -238,19 +239,25 @@ I will first try to get my game running using the PSoC on a board before creatin
 
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
-\item Display Tic Tac Toe Board on PSoC
-\item Port Tic Tac Toe Code to PSoC
+\item Display Tic Tac Toe Board on PSoC {\bf done}
+\item Port Tic Tac Toe Code to PSoC {\bf done}
 \end{tight_itemize}
 
 \subsection{Display Tic Tac Toe Board on PSoC}
-I am running some problems while trying to program my PSoC. I have been getting \texttt{Build error: The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.} multiple times, even when I remodify the code to the original state the message does not dissappear. I will need to degub this.
+I am running some problems while trying to program my PSoC. I have been getting \texttt{Build error: The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.} multiple times, even when I remodify the code to the original state the message does not dissappear. I will need to debug this.
+\\ Apparently the solution to this is to not \texttt{\#include<disp.c>} or whatever file that I need to include; it seems as if the files are included implicitly. However, I need to declare structures in the \texttt{main.c} file; see my April $29^{\text{th}}$ 3am commit to see where my code is. I'll ask a TA and see what's up. 
 
 \subsection{Port Tic Tac Toe Code to PSoC}
-Having written my c files, in which I can play 3D tic tac toe on my linux terminal, I will now try to run my code on the PSoC.
-\\
-\\ Here are some further palces for improvement:
+Having written my c files, ion which I can play 3D tic tac toe on my linux terminal, I will now try to run my code on the PSoC. I managed to port the two player code over, although I seem to be having some trouble with the \texttt{\#include} dependencies of my \texttt{tic\_tac\_toe\_ai.c} file that requires \texttt{tic\_tac\_toe.c}. I was, however, able to get the Tic Tac Toe board to display on my VGA. The late night was worth it. See the images below for what I got to display after each player moved once (left) and my visual layout design (right). (The Chinese character Xia is a homonym for my last name.)
+\begin{center} \includegraphics[width = 80mm]{Pics/4-28a.jpg}
+\includegraphics[width = 70mm]{Pics/4-28b.jpg}  \end{center}
+
+Here are some further palces for improvement:
 \begin{tight_itemize}
 \item Learn more about C memory allocation/freeing so I do not have memory leakage
+\item Think about the visual VGA display; how can I improve the aesthetics
+\item Get AI working on PSoC
+\item Think about my user input interface and how I want to link up the 8051
 \end{tight_itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

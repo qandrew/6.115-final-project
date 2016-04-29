@@ -24,6 +24,18 @@ typedef int bool;
 #define true 1
 #define false 0
 
+#ifndef DEVICE_H
+#define DEVICE_H
+#include <project.h>
+
+#endif
+
+//#ifndef DISP_C
+//#define DISP_C
+//#include <disp.c>
+//
+//#endif
+
 struct tic_tac_toe{
 	int size;
 	int dimension;
@@ -248,7 +260,7 @@ int ttc_check_win(struct tic_tac_toe* t){
 }
 
 
-int ttc_step(struct tic_tac_toe* t,int x, int y, int z){
+int ttc_step(struct disp_grid_81* disp, struct tic_tac_toe* t,int x, int y, int z){
 	// generic take input to allow for both terminal and psoc
 	if (ttc_check_valid(t,x,y,z) == 1){
 		ttc_set_grid(t,x,y,z,t->player);
@@ -256,7 +268,8 @@ int ttc_step(struct tic_tac_toe* t,int x, int y, int z){
 		// printf("\nGot here"); 
 		ttc_check_win(t);
 		ttc_change_player(t);
-		ttc_print_grid(t);
+		//ttc_print_grid(t); // on terminal
+        disp_grid_ttc_place(disp,z*16+y*4+x, ttc_get_grid(t,x,y,z)); // for PSoC
 		return 1;
 	}
 	else{
@@ -264,15 +277,10 @@ int ttc_step(struct tic_tac_toe* t,int x, int y, int z){
 	}
 }
 
-void ttc_play(struct tic_tac_toe* t){
-	int *coords;
-	coords = ttc_take_input(); //take input
-	ttc_step(t,coords[0],coords[1],coords[2]); //play
-}
-
 int ttc_play_game(struct tic_tac_toe* t){
 	while (t->game_not_won == 0){
-		ttc_play(t);
+		//ttc_play(t);
+        // IMPLEMENT FOR PSOC
 	}
 	printf("Player %i has won", t->game_not_won);
 	return 0;
