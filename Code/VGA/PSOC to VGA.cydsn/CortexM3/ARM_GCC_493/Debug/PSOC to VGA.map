@@ -50,9 +50,9 @@ Discarded input sections
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main.o
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
- .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .data          0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
@@ -457,7 +457,7 @@ LOAD c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm
 LOAD c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m/crt0.o
 START GROUP
 LOAD .\CortexM3\ARM_GCC_493\Debug\main.o
-LOAD .\CortexM3\ARM_GCC_493\Debug\main_backup.o
+LOAD .\CortexM3\ARM_GCC_493\Debug\untitled01.o
 LOAD .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
 LOAD .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
 LOAD .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a
@@ -522,12 +522,12 @@ END GROUP
                 0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
  *(.text .text.* .gnu.linkonce.t.*)
  .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .text.wait     0x00000084       0x4c .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x00000084                wait
- .text.disp     0x000000d0       0x4c .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x000000d0                disp
- .text.main     0x0000011c       0x58 .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x0000011c                main
+ .text.main     0x00000084       0x58 .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x00000084                main
+ .text.waiter   0x000000dc       0x4c .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+                0x000000dc                waiter
+ .text.disper   0x00000128       0x4c .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+                0x00000128                disper
  .text.IntDefaultHandler
                 0x00000174        0x8 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
                 0x00000174                IntDefaultHandler
@@ -819,125 +819,130 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x730
+.debug_aranges  0x00000000      0x748
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x30 .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x00000000       0x20 .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_aranges
-                0x00000030       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00000020       0x28 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
  .debug_aranges
-                0x00000078       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+                0x00000048       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .debug_aranges
-                0x00000090       0x60 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+                0x00000090       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .debug_aranges
-                0x000000f0       0x20 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
+                0x000000a8       0x60 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
  .debug_aranges
-                0x00000110      0x298 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+                0x00000108       0x20 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
  .debug_aranges
-                0x000003a8       0x98 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+                0x00000128      0x298 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
  .debug_aranges
-                0x00000440       0x98 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+                0x000003c0       0x98 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
  .debug_aranges
-                0x000004d8       0xf0 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+                0x00000458       0x98 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
  .debug_aranges
-                0x000005c8       0x70 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+                0x000004f0       0xf0 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
  .debug_aranges
-                0x00000638       0x80 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+                0x000005e0       0x70 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
  .debug_aranges
-                0x000006b8       0x78 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+                0x00000650       0x80 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_aranges
+                0x000006d0       0x78 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3140
+.debug_info     0x00000000     0x3217
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x167 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_info    0x00000167      0x319 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_info    0x00000480      0x13b .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_info    0x000005bb      0x44b .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
- .debug_info    0x00000a06       0xb5 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
- .debug_info    0x00000abb      0xe36 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
- .debug_info    0x000018f1      0x562 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
- .debug_info    0x00001e53      0x3c8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
- .debug_info    0x0000221b      0x503 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
- .debug_info    0x0000271e      0x25d .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
- .debug_info    0x0000297b      0x36c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
- .debug_info    0x00002ce7      0x459 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_info    0x00000000       0xf9 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_info    0x000000f9      0x145 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .debug_info    0x0000023e      0x319 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_info    0x00000557      0x13b .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00000692      0x44b .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_info    0x00000add       0xb5 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
+ .debug_info    0x00000b92      0xe36 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_info    0x000019c8      0x562 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_info    0x00001f2a      0x3c8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_info    0x000022f2      0x503 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_info    0x000027f5      0x25d .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_info    0x00002a52      0x36c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_info    0x00002dbe      0x459 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
 
-.debug_abbrev   0x00000000      0xe51
+.debug_abbrev   0x00000000      0xee1
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xc6 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_abbrev  0x000000c6      0x1b6 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_abbrev  0x0000027c       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_abbrev  0x000002e2      0x1b7 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
- .debug_abbrev  0x00000499       0x14 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
- .debug_abbrev  0x000004ad      0x217 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
- .debug_abbrev  0x000006c4      0x161 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
- .debug_abbrev  0x00000825      0x120 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
- .debug_abbrev  0x00000945      0x163 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
- .debug_abbrev  0x00000aa8      0x11d .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
- .debug_abbrev  0x00000bc5      0x120 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
- .debug_abbrev  0x00000ce5      0x16c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_abbrev  0x00000000       0xa8 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_abbrev  0x000000a8       0xae .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .debug_abbrev  0x00000156      0x1b6 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_abbrev  0x0000030c       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_abbrev  0x00000372      0x1b7 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_abbrev  0x00000529       0x14 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x0000053d      0x217 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_abbrev  0x00000754      0x161 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_abbrev  0x000008b5      0x120 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_abbrev  0x000009d5      0x163 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_abbrev  0x00000b38      0x11d .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_abbrev  0x00000c55      0x120 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_abbrev  0x00000d75      0x16c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
 
-.debug_line     0x00000000     0x1d2f
+.debug_line     0x00000000     0x1e7b
  *(.debug_line)
- .debug_line    0x00000000      0x1ec .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_line    0x000001ec        0x0 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
- .debug_line    0x000001ec      0x1d6 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x000003c2       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x00000415      0x219 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
- .debug_line    0x0000062e       0x68 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
- .debug_line    0x00000696      0x872 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
- .debug_line    0x00000f08      0x381 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
- .debug_line    0x00001289      0x1e3 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
- .debug_line    0x0000146c      0x2e4 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
- .debug_line    0x00001750      0x1c1 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
- .debug_line    0x00001911      0x207 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
- .debug_line    0x00001b18      0x217 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_line    0x00000000      0x181 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_line    0x00000181      0x1b7 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .debug_line    0x00000338      0x1d6 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x0000050e       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x00000561      0x219 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_line    0x0000077a       0x68 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyBootAsmGnu.o)
+ .debug_line    0x000007e2      0x872 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_line    0x00001054      0x381 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_line    0x000013d5      0x1e3 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_line    0x000015b8      0x2e4 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_line    0x0000189c      0x1c1 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_line    0x00001a5d      0x207 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_line    0x00001c64      0x217 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
 
-.debug_frame    0x00000000     0x1de4
+.debug_frame    0x00000000     0x1df4
  *(.debug_frame)
- .debug_frame   0x00000000       0x80 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_frame   0x00000080       0xd8 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_frame   0x00000158      0x16c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
- .debug_frame   0x000002c4      0xbe8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
- .debug_frame   0x00000eac      0x234 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
- .debug_frame   0x000010e0      0x260 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
- .debug_frame   0x00001340      0x42c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
- .debug_frame   0x0000176c      0x1b4 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
- .debug_frame   0x00001920      0x210 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
- .debug_frame   0x00001b30      0x1f8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
- .debug_frame   0x00001d28       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00001d48       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x00001d70       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00001d9c       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x00001dc4       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000       0x30 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_frame   0x00000030       0x60 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .debug_frame   0x00000090       0xd8 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_frame   0x00000168      0x16c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_frame   0x000002d4      0xbe8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_frame   0x00000ebc      0x234 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_frame   0x000010f0      0x260 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_frame   0x00001350      0x42c .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_frame   0x0000177c      0x1b4 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_frame   0x00001930      0x210 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_frame   0x00001b40      0x1f8 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_frame   0x00001d38       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00001d58       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00001d80       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00001dac       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00001dd4       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x183f
+.debug_str      0x00000000     0x1847
  *(.debug_str)
- .debug_str     0x00000000      0x19c .\CortexM3\ARM_GCC_493\Debug\main.o
-                                0x1e5 (size before relaxing)
- .debug_str     0x0000019c       0x10 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
-                                0x103 (size before relaxing)
- .debug_str     0x000001ac      0x13e .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_str     0x00000000      0x18c .\CortexM3\ARM_GCC_493\Debug\main.o
+                                0x1cd (size before relaxing)
+ .debug_str     0x0000018c       0x23 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+                                0x1ea (size before relaxing)
+ .debug_str     0x000001af      0x13e .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
                                 0x2f0 (size before relaxing)
- .debug_str     0x000002ea       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_str     0x000002ed       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                                 0x20f (size before relaxing)
- .debug_str     0x00000361      0x193 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_str     0x00000364      0x193 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
                                 0x351 (size before relaxing)
- .debug_str     0x000004f4      0x7f1 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_str     0x000004f7      0x7f6 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
                                 0x9eb (size before relaxing)
- .debug_str     0x00000ce5      0x367 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_str     0x00000ced      0x367 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
                                 0x550 (size before relaxing)
- .debug_str     0x0000104c      0x16a .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_str     0x00001054      0x16a .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
                                 0x332 (size before relaxing)
- .debug_str     0x000011b6      0x275 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_str     0x000011be      0x275 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
                                 0x43a (size before relaxing)
- .debug_str     0x0000142b      0x1ac .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_str     0x00001433      0x1ac .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
                                 0x35b (size before relaxing)
- .debug_str     0x000015d7      0x147 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_str     0x000015df      0x147 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
                                 0x30f (size before relaxing)
- .debug_str     0x0000171e      0x121 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_str     0x00001726      0x121 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
                                 0x30c (size before relaxing)
 
 .debug_loc
@@ -946,23 +951,24 @@ END GROUP
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0x658
+.debug_ranges   0x00000000      0x660
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x20 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_ranges  0x00000020       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_ranges  0x00000058       0x50 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
- .debug_ranges  0x000000a8      0x288 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
- .debug_ranges  0x00000330       0x88 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
- .debug_ranges  0x000003b8       0x88 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
- .debug_ranges  0x00000440       0xe0 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
- .debug_ranges  0x00000520       0x60 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
- .debug_ranges  0x00000580       0x70 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
- .debug_ranges  0x000005f0       0x68 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
+ .debug_ranges  0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_ranges  0x00000010       0x18 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
+ .debug_ranges  0x00000028       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_ranges  0x00000060       0x50 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
+ .debug_ranges  0x000000b0      0x288 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyLib.o)
+ .debug_ranges  0x00000338       0x88 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyPm.o)
+ .debug_ranges  0x000003c0       0x88 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(LCD.o)
+ .debug_ranges  0x00000448       0xe0 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART.o)
+ .debug_ranges  0x00000528       0x60 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(UART_IntClock.o)
+ .debug_ranges  0x00000588       0x70 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CyFlash.o)
+ .debug_ranges  0x000005f8       0x68 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(CySpc.o)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 .\CortexM3\ARM_GCC_493\Debug\main.o
                                  0x71 (size before relaxing)
- .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
+ .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.a(cyfitter_cfg.o)
@@ -1001,7 +1007,7 @@ END GROUP
  .ARM.attributes
                 0x00000065       0x33 .\CortexM3\ARM_GCC_493\Debug\main.o
  .ARM.attributes
-                0x00000098       0x33 .\CortexM3\ARM_GCC_493\Debug\main_backup.o
+                0x00000098       0x33 .\CortexM3\ARM_GCC_493\Debug\untitled01.o
  .ARM.attributes
                 0x000000cb       0x33 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .ARM.attributes

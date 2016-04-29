@@ -22,25 +22,6 @@
 
 #include <unistd.h>
 
-void wait( int seconds )
-{   // Pretty crossplatform, both ALL POSIX compliant systems AND Windows
-    int i,j;
-    for (i = 0; i < seconds*1000; i++){
-        for (j = 0; j < seconds*1000; j++){
-        }
-    }
-}
-
-void disp(uint8 colorA, uint8 colorB){
-    int row,col;
-    for (row = 0; row < 32; row++){
-        for (col = 0; col < 12; col++){
-            UART_PutChar(colorA); // red
-            UART_PutChar(colorB); // green
-        }
-    }    
-}
-
 void main()
 {	
 	LCD_Start();					    // initialize lcd
@@ -59,10 +40,10 @@ void main()
     int i;
     UART_PutChar(0x81); // init connection; set to 16x12 image 
     for (i = 0; i < 5; i++){
-        disp(0x30,0x00); //red black
-        wait(1);
-        disp(0x30,0x0c); //red green
-        wait(1);
+        disper(0x30,0x00); //red black
+        waiter(1);
+        disper(0x30,0x0c); //red green
+        waiter(1);
     }
     
     LCD_PutChar(0x35); //print a 5

@@ -2,7 +2,7 @@
 --	Conversion of PSOC to VGA.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Apr 28 23:13:01 2016
+--	Thu Apr 28 23:21:43 2016
 --
 
 USE cypress.cypress.all;

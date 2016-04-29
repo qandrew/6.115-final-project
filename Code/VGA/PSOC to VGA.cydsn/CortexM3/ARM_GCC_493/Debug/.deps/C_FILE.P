@@ -56,7 +56,3 @@ C:/Users/Andrew/Dropbox\ (Personal)/MIT/MIT\ 2016\ Spring/6115/Final\ Project/Co
 
 C:/Users/Andrew/Dropbox\ (Personal)/MIT/MIT\ 2016\ Spring/6115/Final\ Project/Code/VGA/PSOC\ to\ VGA.cydsn/main.c : 
 
-C:/Users/Andrew/Dropbox\ (Personal)/MIT/MIT\ 2016\ Spring/6115/Final\ Project/Code/VGA/PSOC\ to\ VGA.cydsn/CortexM3/ARM_GCC_493/Debug/main_backup.o : C:/Users/Andrew/Dropbox\ (Personal)/MIT/MIT\ 2016\ Spring/6115/Final\ Project/Code/VGA/PSOC\ to\ VGA.cydsn/main_backup.c 
-
-C:/Users/Andrew/Dropbox\ (Personal)/MIT/MIT\ 2016\ Spring/6115/Final\ Project/Code/VGA/PSOC\ to\ VGA.cydsn/main_backup.c : 
-

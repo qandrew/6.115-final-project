@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\PSOC to VGA">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\PSOC to VGA\Header Files\untitled01.c">
 <ExpandedNodeIds>
 <v>RS232-000</v>
 <v>RS232-000\PSOC to VGA</v>
@@ -21,11 +21,12 @@
 <v>RS232-000\PSOC to VGA\PSOC to VGA.cydwr</v>
 <v>RS232-000\PSOC to VGA\Header Files</v>
 <v>RS232-000\PSOC to VGA\Header Files\device.h</v>
+<v>RS232-000\PSOC to VGA\Header Files\untitled01.c</v>
 <v>RS232-000\PSOC to VGA\Source Files</v>
 <v>RS232-000\PSOC to VGA\Source Files\main.c</v>
-<v>RS232-000\PSOC to VGA\Source Files\main_backup.c</v>
 <v>RS232-000\PSOC to VGA\Generated_Source</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
@@ -105,12 +106,36 @@
 <v>RS232-000\PSOC to VGA\PSOC to VGA.cydwr</v>
 <v>RS232-000\PSOC to VGA\Header Files</v>
 <v>RS232-000\PSOC to VGA\Header Files\device.h</v>
+<v>RS232-000\PSOC to VGA\Header Files\untitled01.c</v>
 <v>RS232-000\PSOC to VGA\Source Files</v>
 <v>RS232-000\PSOC to VGA\Source Files\main.c</v>
-<v>RS232-000\PSOC to VGA\Source Files\main_backup.c</v>
 <v>RS232-000\PSOC to VGA\Generated_Source</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\LCD</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\LCD\LCD.c</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\LCD\LCD.h</v>
@@ -125,30 +150,6 @@
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\TX</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\TX\TX.c</v>
 <v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\TX\TX.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\TX\TX_aliases.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\tx_int</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\tx_int\tx_int.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\tx_int\tx_int.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART\UART.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART\UART.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART\UART_BOOT.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART\UART_INT.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART\UART_PM.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART_IntClock</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART_IntClock\UART_IntClock.c</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\UART_IntClock\UART_IntClock.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cycodeshareimport.ld</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cycodeshareimport.scat</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevice.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevice_trm.h</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevicegnu.inc</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydeviceiar.inc</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevicerv.inc</v>
-<v>RS232-000\PSOC to VGA\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -187,7 +188,6 @@
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\main_backup.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\rx_int.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\TX.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\tx_int.lst</v>
@@ -196,6 +196,7 @@
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_IntClock.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\untitled01.lst</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.elf</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.hex</v>
 <v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.map</v>
@@ -206,37 +207,6 @@
 <VisibleNodeIds>
 <v>RS232-000</v>
 <v>RS232-000\PSOC to VGA</v>
-<v>RS232-000\PSOC to VGA\CortexM3</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\main_backup.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\rx_int.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\TX.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\tx_int.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_IntClock.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.elf</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.hex</v>
-<v>RS232-000\PSOC to VGA\CortexM3\ARM_GCC_493\Debug\PSOC to VGA.map</v>
-<v>RS232-000\PSOC to VGA\PSOC to VGA.gpdsc</v>
 <v>RS232-000\PSOC to VGA\PSOC to VGA.rpt</v>
 <v>RS232-000\PSOC to VGA\PSOC to VGA_timing.html</v>
 </VisibleNodeIds>
