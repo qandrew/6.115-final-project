@@ -58,8 +58,9 @@ void main()
     
         Values = Pin3_Read();
         LCD_ClearDisplay();
-        LCD_PrintString("HU ");
+        LCD_PrintString("ASC: ");
         LCD_PutChar(Values); //print ascii value
+        LCD_PrintString(" HEX: ");
         LCD_PrintNumber(Values); //print value I am getting
         waiter(10);
         

@@ -273,9 +273,13 @@ Goals I have for today / {\bf done} if task completed
 
 \subsection{Connect 8051 to PSoC via Databus}
 Today, I want to connect my 8051 to PSoC via databus. First, I configured my PSoC jumpers to take 5V instead of 3.3V. 
-\\ I will use port a of my 8255 on the microcontroller to send databits to Port 3 of the PSoC. I configured my port 3 to be input and {\em high impedance digital} with a low drive. You can see my code at \texttt{main.c} at my current commit to see the code I wrote. 
+\\ I will use port a of my 8255 on the microcontroller to send databits to Port 3 of the PSoC. I configured my port 3 to be input and {\em high impedance digital} with a low drive. You can see my code at \texttt{main.c} at my current commit \texttt{connected 8051 to PSoC via 8255 databus} to see the code I wrote. 
 \\ Keep in mind that the PSoC has to be at the same ground as the microcontroller, otherwise I may get wacky 16v readings. Also, for some reason the PSoC can't read an input of 0, but I will try to fix that.  Below is an image of my PSoC LCD displaying the digital value fed from the 8255 port A. (Which I can generate by writing \texttt{WFE33 = 80; WFE30 = FD;}). 
 \begin{center}\includegraphics[width = 100mm]{Pics/4-29a.jpg}  \end{center}
+
+\subsection{Writing software to connect 8051 to PSoC via Databus}
+Now that I have the basic connection completed, I should also develop a protocol of how I want to write my code on the 8051 and PSoC side to determine when the PSoC should be reading a signal from the 8051 and when it should not be reading. (For example, if the 8255 is set at \texttt{80} all the time, I should not continuously print \texttt{80}.)
+\\ I wrote \texttt{keypad\_to\_8255.asm} so now when I press a keypad, I can send the corresponding ascii value to the 8255 (and to the PSoC). However, my 8255 seems broken in the sense that PA0 is always high. I might get a new 8255. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%

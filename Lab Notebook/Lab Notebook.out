@@ -25,4 +25,5 @@
 \BOOKMARK [2][-]{subsection.7.2}{Port Tic Tac Toe Code to PSoC}{section.7}% 25
 \BOOKMARK [1][-]{section.8}{April 29 2016}{}% 26
 \BOOKMARK [2][-]{subsection.8.1}{Connect 8051 to PSoC via Databus}{section.8}% 27
-\BOOKMARK [1][-]{section.9}{DATE 2016}{}% 28
+\BOOKMARK [2][-]{subsection.8.2}{Writing software to connect 8051 to PSoC via Databus}{section.8}% 28
+\BOOKMARK [1][-]{section.9}{DATE 2016}{}% 29
