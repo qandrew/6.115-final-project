@@ -285,6 +285,27 @@ Now that I have the basic connection completed, I should also develop a protocol
 %TEMPLATE%
 
 \newpage
+\section{May 4 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{tight_itemize}
+\item Program 8051 to be able to send Tic Tac Toe game signals to PSoC % {\bf done}
+\item Get AI working on PSoC 
+\end{tight_itemize}
+
+\subsection{Program 8051 to be able to send Tic Tac Toe game signals to PSoC}
+For some reason, my 8255 is not completely reliable (or maybe my PSoC port 3 isn't completely reliable). Sometimes, PA0 is unresponsively high (which means that I am only able to generate even numbers) or sometimes PA6 is unresponsively high (which pushes all ASCII values up by 64). 
+\\ 
+\\ With that said, here is a general overview of my program flow. In my 8051 code, when I press a keypad button, the 8255 sets PA the corresponding ascii symbol for $80\times256\times2$ machine cycles (this value can change; see \texttt{keypad\_to\_8255\_1.asm}, and then resets the value to 0. 
+\\ The PSoC reads the values from the 8255 continuously; displaying the current read (which most of the time is 0) and the most recent nonzero read. When we get an integer input; we think of it as that the user has inputted a value, and we `play' a move on the 3D tic tac toe board. Below is a picture: 
+
+\subsection{Get AI working on PSoC }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TEMPLATE%
+
+\newpage
 \section{DATE 2016}
 
 Goals I have for today / {\bf done} if task completed

@@ -1,18 +1,36 @@
---------------- Build Started: 04/29/2016 15:30:17 Project: Tic Tac Toe, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 05/04/2016 17:15:36 Project: Tic Tac Toe, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
 .\main.c: In function 'main':
-.\main.c:65:9: warning: implicit declaration of function 'waiter' [-Wimplicit-function-declaration]
-         waiter(10);
+.\main.c:39:5: warning: implicit declaration of function 'disp_grid_init' [-Wimplicit-function-declaration]
+     disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
+     ^
+.\main.c:42:3: warning: implicit declaration of function 'ttc_init' [-Wimplicit-function-declaration]
+   ttc_init(&lolz,4,3);    
+   ^
+.\main.c:43:5: warning: implicit declaration of function 'disp_grid_init_ttc' [-Wimplicit-function-declaration]
+     disp_grid_init_ttc(&disp,lolz.grid); // init the board
+     ^
+.\main.c:44:5: warning: implicit declaration of function 'disp_grid_draw_xia' [-Wimplicit-function-declaration]
+     disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
+     ^
+.\main.c:45:5: warning: implicit declaration of function 'disp_grid_transmit' [-Wimplicit-function-declaration]
+     disp_grid_transmit(&disp);
+     ^
+.\main.c:53:9: warning: implicit declaration of function 'read_from_8255' [-Wimplicit-function-declaration]
+         Values = read_from_8255(Values);
          ^
-.\main.c:55:9: warning: unused variable 'i' [-Wunused-variable]
-     int i;
+.\main.c:59:9: warning: implicit declaration of function 'ttc_get_grid' [-Wimplicit-function-declaration]
+         if (ttc_get_grid(&lolz,x,y,0) == 0){ // has not been accessed
          ^
+.\main.c:60:13: warning: implicit declaration of function 'ttc_step' [-Wimplicit-function-declaration]
+             ttc_step(&disp,&lolz,x,y,0); // step & print
+             ^
 arm-none-eabi-ar.exe -rs ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\LCD.o .\CortexM3\ARM_GCC_493\Debug\LCD_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\UART.o .\CortexM3\ARM_GCC_493\Debug\UART_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\tx_int.o .\CortexM3\ARM_GCC_493\Debug\rx_int.o .\CortexM3\ARM_GCC_493\Debug\TX.o .\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_493\Debug\Pin3.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\disp.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_toe.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_ai.o .\CortexM3\ARM_GCC_493\Debug\backup_code.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Tic Tac Toe.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\disp.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_toe.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_ai.o .\CortexM3\ARM_GCC_493\Debug\8051_read.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Tic Tac Toe.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S "C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf"
-Flash used: 3072 of 262144 bytes (1,2 %).
-SRAM used: 20797 of 65536 bytes (31,7 %). Stack: 16384 bytes. Heap: 4096 bytes.
---------------- Build Succeeded: 04/29/2016 15:30:18 ---------------
+Flash used: 10496 of 262144 bytes (4,0 %).
+SRAM used: 20917 of 65536 bytes (31,9 %). Stack: 16384 bytes. Heap: 4096 bytes.
+--------------- Build Succeeded: 05/04/2016 17:15:38 ---------------

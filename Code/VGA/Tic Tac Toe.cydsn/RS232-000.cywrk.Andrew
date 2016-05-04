@@ -13,14 +13,14 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\Tic Tac Toe\Tic Tac Toe.cydwr">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\Tic Tac Toe\Andrew\tic_tac_ai.c">
 <ExpandedNodeIds>
 <v>RS232-000</v>
 <v>RS232-000\Tic Tac Toe</v>
 <v>RS232-000\Tic Tac Toe\TopDesign</v>
 <v>RS232-000\Tic Tac Toe\Tic Tac Toe.cydwr</v>
 <v>RS232-000\Tic Tac Toe\Andrew</v>
-<v>RS232-000\Tic Tac Toe\Andrew\backup_code.c</v>
+<v>RS232-000\Tic Tac Toe\Andrew\8051_read.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\disp.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\tic_tac_ai.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\tic_tac_toe.c</v>
@@ -113,7 +113,7 @@
 <v>RS232-000\Tic Tac Toe\TopDesign</v>
 <v>RS232-000\Tic Tac Toe\Tic Tac Toe.cydwr</v>
 <v>RS232-000\Tic Tac Toe\Andrew</v>
-<v>RS232-000\Tic Tac Toe\Andrew\backup_code.c</v>
+<v>RS232-000\Tic Tac Toe\Andrew\8051_read.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\disp.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\tic_tac_ai.c</v>
 <v>RS232-000\Tic Tac Toe\Andrew\tic_tac_toe.c</v>
@@ -182,7 +182,7 @@
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493</v>
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug</v>
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files\backup_code.lst</v>
+<v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files\8051_read.lst</v>
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
 <v>RS232-000\Tic Tac Toe\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
@@ -274,9 +274,14 @@
 <OpenDocs>
 <name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\Tic Tac Toe.cydwr" />
 <name v=".\disp.c" />
 <name v=".\tic_tac_toe.c" />
 <name v=".\device.h" />
+<name v=".\Generated_Source\PSoC5\project.h" />
+<name v=".\Generated_Source\PSoC5\LCD.h" />
+<name v=".\Generated_Source\PSoC5\LCD.c" />
+<name v=".\backup_code.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />
