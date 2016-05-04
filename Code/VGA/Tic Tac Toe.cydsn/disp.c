@@ -113,7 +113,7 @@ void disp_grid_transmit (struct disp_grid_81 * disp){ // this function displays 
             //UART_PutChar(20); // blue
         }
     }
-    waiter(7);
+    waiter(7); //minimum waiting time for 32x24
 }
 
 

@@ -1,36 +1,66 @@
---------------- Build Started: 05/04/2016 17:15:36 Project: Tic Tac Toe, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 05/04/2016 19:17:31 Project: Tic Tac Toe, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-.\main.c: In function 'main':
-.\main.c:39:5: warning: implicit declaration of function 'disp_grid_init' [-Wimplicit-function-declaration]
-     disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
-     ^
-.\main.c:42:3: warning: implicit declaration of function 'ttc_init' [-Wimplicit-function-declaration]
-   ttc_init(&lolz,4,3);    
-   ^
-.\main.c:43:5: warning: implicit declaration of function 'disp_grid_init_ttc' [-Wimplicit-function-declaration]
-     disp_grid_init_ttc(&disp,lolz.grid); // init the board
-     ^
-.\main.c:44:5: warning: implicit declaration of function 'disp_grid_draw_xia' [-Wimplicit-function-declaration]
-     disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
-     ^
-.\main.c:45:5: warning: implicit declaration of function 'disp_grid_transmit' [-Wimplicit-function-declaration]
-     disp_grid_transmit(&disp);
-     ^
-.\main.c:53:9: warning: implicit declaration of function 'read_from_8255' [-Wimplicit-function-declaration]
-         Values = read_from_8255(Values);
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/tic_tac_all.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c .\tic_tac_all.c -o .\CortexM3\ARM_GCC_493\Debug\tic_tac_all.o
+.\tic_tac_all.c:252:48: warning: 'struct disp_grid_81' declared inside parameter list
+ int ttc_step(struct disp_grid_81* disp, struct tic_tac_toe* t,int x, int y, int z){
+                                                ^
+.\tic_tac_all.c:252:48: warning: its scope is only this definition or declaration, which is probably not what you want
+.\tic_tac_all.c: In function 'ttc_step':
+.\tic_tac_all.c:261:9: warning: implicit declaration of function 'disp_grid_ttc_place' [-Wimplicit-function-declaration]
+         disp_grid_ttc_place(disp,z*16+y*4+x, ttc_get_grid(t,x,y,z)); // for PSoC
          ^
-.\main.c:59:9: warning: implicit declaration of function 'ttc_get_grid' [-Wimplicit-function-declaration]
-         if (ttc_get_grid(&lolz,x,y,0) == 0){ // has not been accessed
-         ^
-.\main.c:60:13: warning: implicit declaration of function 'ttc_step' [-Wimplicit-function-declaration]
-             ttc_step(&disp,&lolz,x,y,0); // step & print
-             ^
+.\tic_tac_all.c: In function 'ai_evaluate_board':
+.\tic_tac_all.c:396:5: warning: implicit declaration of function 'ai_define_score' [-Wimplicit-function-declaration]
+     ai_define_score(ai,connected,empty_places);
+     ^
+.\tic_tac_all.c: At top level:
+.\tic_tac_all.c:660:69: warning: 'struct disp_grid_81' declared inside parameter list
+ void ai_play_best_move(struct tic_tac_toe* t, struct ai* ai, struct disp_grid_81* disp){
+                                                                     ^
+.\tic_tac_all.c:666:56: warning: 'struct disp_grid_81' declared inside parameter list
+ void tta_ai_algorithm(struct disp_grid_81* disp,struct tic_tac_ai* tta, int player){
+                                                        ^
+.\tic_tac_all.c: In function 'tta_ai_algorithm':
+.\tic_tac_all.c:670:43: warning: passing argument 3 of 'ai_play_best_move' from incompatible pointer type
+   ai_play_best_move(&tta->game,&tta->ai_1,disp);
+                                           ^
+.\tic_tac_all.c:660:6: note: expected 'struct disp_grid_81 *' but argument is of type 'struct disp_grid_81 *'
+ void ai_play_best_move(struct tic_tac_toe* t, struct ai* ai, struct disp_grid_81* disp){
+      ^
+.\tic_tac_all.c:675:43: warning: passing argument 3 of 'ai_play_best_move' from incompatible pointer type
+   ai_play_best_move(&tta->game,&tta->ai_2,disp);
+                                           ^
+.\tic_tac_all.c:660:6: note: expected 'struct disp_grid_81 *' but argument is of type 'struct disp_grid_81 *'
+ void ai_play_best_move(struct tic_tac_toe* t, struct ai* ai, struct disp_grid_81* disp){
+      ^
+.\tic_tac_all.c: At top level:
+.\tic_tac_all.c:680:48: warning: 'struct disp_grid_81' declared inside parameter list
+ void tta_step(struct disp_grid_81* disp,struct tic_tac_ai* tta, int x, int y, int z){
+                                                ^
+.\tic_tac_all.c: In function 'tta_step':
+.\tic_tac_all.c:685:20: warning: passing argument 1 of 'tta_ai_algorithm' from incompatible pointer type
+   tta_ai_algorithm(disp,tta,1);
+                    ^
+.\tic_tac_all.c:666:6: note: expected 'struct disp_grid_81 *' but argument is of type 'struct disp_grid_81 *'
+ void tta_ai_algorithm(struct disp_grid_81* disp,struct tic_tac_ai* tta, int player){
+      ^
+.\tic_tac_all.c:690:20: warning: passing argument 1 of 'tta_ai_algorithm' from incompatible pointer type
+   tta_ai_algorithm(disp,tta,-1);
+                    ^
+.\tic_tac_all.c:666:6: note: expected 'struct disp_grid_81 *' but argument is of type 'struct disp_grid_81 *'
+ void tta_ai_algorithm(struct disp_grid_81* disp,struct tic_tac_ai* tta, int player){
+      ^
+.\tic_tac_all.c:695:12: warning: passing argument 1 of 'ttc_step' from incompatible pointer type
+   ttc_step(disp,&tta->game,x,y,z); // human player goes
+            ^
+.\tic_tac_all.c:252:5: note: expected 'struct disp_grid_81 *' but argument is of type 'struct disp_grid_81 *'
+ int ttc_step(struct disp_grid_81* disp, struct tic_tac_toe* t,int x, int y, int z){
+     ^
 arm-none-eabi-ar.exe -rs ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\LCD.o .\CortexM3\ARM_GCC_493\Debug\LCD_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\UART.o .\CortexM3\ARM_GCC_493\Debug\UART_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\tx_int.o .\CortexM3\ARM_GCC_493\Debug\rx_int.o .\CortexM3\ARM_GCC_493\Debug\TX.o .\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_493\Debug\Pin3.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\disp.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_toe.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_ai.o .\CortexM3\ARM_GCC_493\Debug\8051_read.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Tic Tac Toe.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\disp.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_toe.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_ai.o .\CortexM3\ARM_GCC_493\Debug\8051_read.o .\CortexM3\ARM_GCC_493\Debug\tic_tac_all.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o ".\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Tic Tac Toe.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf" --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S "C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\CortexM3\ARM_GCC_493\Debug\Tic Tac Toe.elf"
-Flash used: 10496 of 262144 bytes (4,0 %).
+Flash used: 14592 of 262144 bytes (5,6 %).
 SRAM used: 20917 of 65536 bytes (31,9 %). Stack: 16384 bytes. Heap: 4096 bytes.
---------------- Build Succeeded: 05/04/2016 17:15:38 ---------------
+--------------- Build Succeeded: 05/04/2016 19:17:32 ---------------

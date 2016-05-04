@@ -42,6 +42,7 @@
           <File BuildType="BUILD" Toolchain="">.\tic_tac_toe.c</File>
           <File BuildType="BUILD" Toolchain="">.\tic_tac_ai.c</File>
           <File BuildType="BUILD" Toolchain="">.\8051_read.c</File>
+          <File BuildType="BUILD" Toolchain="">.\tic_tac_all.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Code\VGA\Tic Tac Toe.cydsn\Generated_Source\PSoC5">

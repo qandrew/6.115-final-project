@@ -289,17 +289,22 @@ Now that I have the basic connection completed, I should also develop a protocol
 
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
-\item Program 8051 to be able to send Tic Tac Toe game signals to PSoC % {\bf done}
+\item Program 8051 to be able to send Tic Tac Toe game signals to PSoC {\bf done}
 \item Get AI working on PSoC 
 \end{tight_itemize}
 
 \subsection{Program 8051 to be able to send Tic Tac Toe game signals to PSoC}
-For some reason, my 8255 is not completely reliable (or maybe my PSoC port 3 isn't completely reliable). Sometimes, PA0 is unresponsively high (which means that I am only able to generate even numbers) or sometimes PA6 is unresponsively high (which pushes all ASCII values up by 64). 
+For some reason, my 8255 is not completely reliable (or maybe my PSoC port 3 isn't completely reliable). Sometimes, PA0 is unresponsively high (which means that I am only able to generate even numbers) or sometimes PA6 is unresponsively high (which pushes all ASCII values up by 64). It could also be a software 
 \\ 
 \\ With that said, here is a general overview of my program flow. In my 8051 code, when I press a keypad button, the 8255 sets PA the corresponding ascii symbol for $80\times256\times2$ machine cycles (this value can change; see \texttt{keypad\_to\_8255\_1.asm}, and then resets the value to 0. 
-\\ The PSoC reads the values from the 8255 continuously; displaying the current read (which most of the time is 0) and the most recent nonzero read. When we get an integer input; we think of it as that the user has inputted a value, and we `play' a move on the 3D tic tac toe board. Below is a picture: 
+\\ The PSoC reads the values from the 8255 continuously; displaying the current read (which most of the time is 0) and the most recent nonzero read. When we get an integer input; we think of it as that the user has inputted a value, and we `play' a move on the 3D tic tac toe board. See the github commit \href{https://github.com/qandrew/6.115-final-project/commit/6c326fa8a2db2a654800f6be3b9bfd5749913904}{\texttt{can play 2d tic tac toe on vga via 8051 keypad}}. Below is a picture of the game so far: 
+\begin{center}
+\includegraphics[width = 80mm]{Pics/5-4b.jpg}
+\includegraphics[width = 81mm]{Pics/5-4a.jpg}
+\\ The light gray colors were fed in from the keyboard as player 1; the dark gray as player 2. From the left image to the right image, the player has placed a value at 1,2,0 \end{center}
 
 \subsection{Get AI working on PSoC }
+I'm still not exactly understanding how the implicit include in PSoC creator works, but one solution to solve this problem is to keep my AI and non-AI code in the same c file. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

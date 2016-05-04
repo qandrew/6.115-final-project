@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  4 MAY 2016 17:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.7)  4 MAY 2016 19:06
 entering extended mode
 **C:/Users/Andrew/Dropbox*(Personal)/MIT/MIT*2016*Spring/6115/Final*Project/Lab
 *Notebook/Lab*Notebook.tex
@@ -482,24 +482,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--301
 
  []
 
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
+<Pics/5-4b.jpg, id=232, 746.03719pt x 602.25pt>
+File: Pics/5-4b.jpg Graphic file (type jpg)
+ <use Pics/5-4b.jpg>
+Package pdftex.def Info: Pics/5-4b.jpg used on input line 302.
+(pdftex.def)             Requested size: 227.62204pt x 183.74571pt.
+
+<Pics/5-4a.jpg, id=233, 867.99281pt x 693.34032pt>
+File: Pics/5-4a.jpg Graphic file (type jpg)
+ <use Pics/5-4a.jpg>
+Package pdftex.def Info: Pics/5-4a.jpg used on input line 303.
+(pdftex.def)             Requested size: 230.46732pt x 184.09401pt.
+ [11 <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 Spring/6115/Final Project
+/Lab Notebook/Pics/5-4b.jpg> <C:/Users/Andrew/Dropbox (Personal)/MIT/MIT 2016 S
+pring/6115/Final Project/Lab Notebook/Pics/5-4a.jpg>] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
 
 ("C:\Users\Andrew\Dropbox (Personal)\MIT\MIT 2016 Spring\6115\Final Project\Lab
  Notebook\Lab Notebook.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 322.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
 Package rerunfilecheck Info: File `Lab*Notebook.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
  ) 
 Here is how much of TeX's memory you used:
- 6237 strings out of 493921
- 89134 string characters out of 3147280
+ 6248 strings out of 493921
+ 89299 string characters out of 3147280
  168914 words of memory out of 3000000
- 9394 multiletter control sequences out of 15000+200000
+ 9402 multiletter control sequences out of 15000+200000
  10620 words of font info for 40 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  29i,11n,43p,739b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -512,9 +525,9 @@ onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt1
 2.pfb>
-Output written on "Lab Notebook.pdf" (12 pages, 1780927 bytes).
+Output written on "Lab Notebook.pdf" (13 pages, 2041350 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 327 words of extra memory for PDF output out of 10000 (max. 10000000)
 
