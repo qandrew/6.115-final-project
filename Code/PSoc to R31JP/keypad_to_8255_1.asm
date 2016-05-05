@@ -58,6 +58,16 @@ init:
 	mov a, #30h			;print a 0 to start
 	movx @dptr, a		;move keypad press to 8255
 	
+	mov dptr, #0fe13h	;move dptr to 8254 config port
+	mov a, #36h			;configure 8254 clock 0 mode 2 ?
+	movx @dptr, a
+	mov dptr, #0fe10h	;move dptr to 8254 port 0
+	mov a, #23h			;config for 34khz random generator LOw
+	movx @dptr, a		
+	mov a, #01h			;config for 34khz random generator HIGH
+	movx @dptr, a		
+	
+	
 	ret		
 
 ;segment 3 getkey routine
@@ -65,7 +75,7 @@ getkey:				;get value from keypad
 	jnb P3.3, getkey;wait till key pressed down
 	mov a, P1
 	lcall keytab	;map key press to according number	
-	add a, #30h		;convert numerical to ascii
+	add a, #30h		;convert numerical to ascii )and beyond)
 	press:
 		jb P3.3, press	;wait in the loop until key released
 	ret
@@ -74,7 +84,7 @@ keytab:			;input: press on keypad. output: numerical value (not ascii)
 	inc a
 	movc a, @a+pc
 	ret
-	.DB 1,2,3,251,4,5,6,253,7,8,9,12,13,0,14,15	;251 is +, 253 is -
+	.DB 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 ;keypad as in relation to 3D ttc
 	
 ;segment 4 sndchr routine
 sndchr:

@@ -22,35 +22,52 @@
 #include <8051_read.h>
 
 //methods in main
-void main_play_ttc();
+void main_play_ttc(); //the two player one
+void main_play_tta_ai(); //ai vs ai
 
 void main()
 {	    
-//    struct tic_tac_ai tta;
-//    tta_init(&tta,4,3,true,true);
-//    disp_grid_init_ttc(&disp, tta.game.grid);
     
-//    while (tta.game.game_not_won == 0){
-//        tta_step(&disp,&tta,0,0,0); //ai move
-//        disp_grid_transmit(&disp);
-//    }
+    //main_play_ttc() ;
+    main_play_tta_ai();
     
-    main_play_ttc() ;
+    for(;;){} //pause
+}
 
+void main_play_tta_ai(){
+    LCD_Start();					    // initialize lcd
+    LCD_ClearDisplay();
+    UART_Start();                       // initialize UART
+    UART_PutChar(0x81); // init connection; set to 16x12 image 
     
+    struct disp_grid_81 disp; 
+    disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
+    disp_grid_transmit(&disp);
     
-
-//    LCD_Start();					    // initialize lcd
-//    
-//    uint8 values;
-//    for(;;)
-//    {
-//        waiter(5);
+    int x,y; uint8 Values; 
+    
+    struct tic_tac_ai tta;
+    tta_init(&tta,4,3,true,false); //first bool for player 1, second bool for player 2
+    disp_grid_init_ttc(&disp, tta.game.grid);
+    disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
+    disp_grid_transmit(&disp);
+    
+    while (tta.game.game_not_won == 0){
+        Values = read_from_8255(Values); //read and print
+        if (Values >= 48 && Values <= 63){ //integer value
+            y = Values - 48; // convert from ASCII to int
+            x = y % 4; //get row value
+            y = y / 4; // 
+        }
+        tta_step(&disp,&tta,x,y,Pin0_Read()); //increment a turn
+        disp_grid_transmit(&disp);
 //        LCD_ClearDisplay();
-//        values = Pin0_Read();
-//        LCD_PrintString("HU");
-//        LCD_PrintNumber(values); //print value I am getting
-//    }
+//        LCD_PrintString("TURN ");   
+//        LCD_PrintNumber(tta.game.turn);
+    }
+    LCD_ClearDisplay();
+    LCD_PrintString("GAME OVER!");   
+    
 }
 
 void main_play_ttc(){
