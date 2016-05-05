@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
   16:.\8051_read.c **** #define DEVICE_H
   17:.\8051_read.c **** #include <project.h>
   18:.\8051_read.c **** 
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 2
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 2
 
 
   19:.\8051_read.c **** #endif
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
   74 0038 0346     		mov	r3, r0
   75 003a FB73     		strb	r3, [r7, #15]
   36:.\8051_read.c ****     LCD_Position(0,0); //move back to top row
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 3
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 3
 
 
   76              		.loc 1 36 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  121 0084 10000000 		.word	.LC2
  122              		.cfi_endproc
  123              	.LFE63:
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 4
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 4
 
 
  124              		.size	read_from_8255, .-read_from_8255
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  178 0061 02       		.uleb128 0x2
  179 0062 08       		.byte	0x8
  180 0063 07       		.byte	0x7
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 5
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 5
 
 
  181 0064 50000000 		.4byte	.LASF7
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  235 00d5 81000000 		.4byte	0x81
  236 00d9 02       		.uleb128 0x2
  237 00da 91       		.byte	0x91
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 6
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 6
 
 
  238 00db 6F       		.sleb128 -17
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  292 001b 0E       		.uleb128 0xe
  293 001c 00       		.byte	0
  294 001d 00       		.byte	0
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 7
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 7
 
 
  295 001e 03       		.uleb128 0x3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  349 0054 12       		.uleb128 0x12
  350 0055 06       		.uleb128 0x6
  351 0056 40       		.uleb128 0x40
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 8
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 8
 
 
  352 0057 18       		.uleb128 0x18
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  406 008e 0A       		.uleb128 0xa
  407 008f 18       		.uleb128 0x18
  408 0090 00       		.byte	0
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 9
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 9
 
 
  409 0091 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  458      206C6F6E 
  458      6720696E 
  458      7400
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 10
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 10
 
 
  459              	.LASF3:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  481      6E616C20 
  482 00e5 6F652E63 		.ascii	"oe.cydsn\000"
  482      7964736E 
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 11
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 11
 
 
  482      00
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 1
  506 01d9 75696E74 		.ascii	"uint16\000"
  506      313600
  507              	.LASF10:
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cc355xbx.s 			page 12
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\cclKzwz3.s 			page 12
 
 
  508 01e0 696E7433 		.ascii	"int32_t\000"

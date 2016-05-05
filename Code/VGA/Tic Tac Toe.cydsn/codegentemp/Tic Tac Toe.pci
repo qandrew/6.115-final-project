@@ -1,5 +1,5 @@
 # Tic Tac Toe
-# 2016-04-29 18:32:54Z
+# 2016-05-05 01:26:43Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -24,3 +24,6 @@ set_io "Pin3(4)" iocell 3 4
 set_io "Pin3(5)" iocell 3 5
 set_io "Pin3(6)" iocell 3 6
 set_io "Pin3(7)" iocell 3 7
+set_io "PinNoise(0)" iocell 6 6
+set_io "Pin0(0)" iocell 0 0
+set_io "Pin0(1)" iocell 0 1

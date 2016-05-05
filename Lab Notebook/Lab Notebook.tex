@@ -290,7 +290,7 @@ Now that I have the basic connection completed, I should also develop a protocol
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
 \item Program 8051 to be able to send Tic Tac Toe game signals to PSoC {\bf done}
-\item Get AI working on PSoC 
+\item Get AI working on PSoC {\bf done}
 \end{tight_itemize}
 
 \subsection{Program 8051 to be able to send Tic Tac Toe game signals to PSoC}
@@ -305,9 +305,18 @@ For some reason, my 8255 is not completely reliable (or maybe my PSoC port 3 isn
 
 \subsection{Get AI working on PSoC }
 I'm still not exactly understanding how the implicit include in PSoC creator works, but one solution to solve this problem is to keep my AI and non-AI code in the same c file. See my \texttt{got ai to work in tic\_tac\_all.c without keypad} commit to see this stage of the project. 
-\\ The solution is to include the header \texttt{disp.h} file in \texttt{main.c} in which \texttt{disp.h} defines all of the methods (and includes the structures) but does not include the c file. In fact, never include the c file. 
+\\ The solution is to include the header \texttt{disp.h} file in \texttt{main.c} in which \texttt{disp.h} defines all of the methods (and includes the structures) but does not include the c file. In fact, never include the c file.  See my \texttt{added .h files so now psoc include works} commit to see this stage of the project. 
+\\
 \\ The next thing I need to do is get a random seed for my random number generator (otherwise I will be generating the same random numbers every time and thus the program will no longer be random). 
+\\ \indent I'll let P6\_6 be my input which will be very noisy. EDIT: not exactly working because I think as I've grounded my PSoC to the 8051 and the input noise is too predictable.
+\\ \indent I'll now try to use the PSoC clock module to generate random seed bits. I will use the 8254 on my 8051 to generate random signals. 
 
+\subsection{Two Player Game Interface Running}
+I also implemented the full game tonight, that is playable using the keypad and two high/low wires into P0\_0 and P0\_1 (which are the orange wires below). Now I can input across planes. 
+\begin{center}
+\includegraphics[width = 40mm]{Pics/5-4c.jpg}
+\includegraphics[width = 81mm]{Pics/5-4a.jpg}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%

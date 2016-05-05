@@ -309,7 +309,7 @@ int max_array(int array[], size_t size){
 		num_index = all_index[0];
 	}
 	else{
-		srand(time(NULL)); // set a random seed
+		srand(PinNoise_Read()+PinNoise_Read()*num_index); // set a random seed
 		max = rand() % num_index; // choose a random index
 		num_index = all_index[max];
 	}

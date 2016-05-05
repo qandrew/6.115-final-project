@@ -23,6 +23,14 @@ struct disp_grid_81{ //for 32x24 grid
     //uint8 damn
 };
 
+void waiter( int seconds ){   // dumb wait
+    int i,j;
+    for (i = 0; i < seconds*10; i++){
+        for (j = 0; j < seconds*100; j++){
+        }
+    }
+}
+
 void disp_grid_init(struct disp_grid_81* disp, uint8 color){ 
     int row,col;
     for (row = 0; row < 32; row++){
@@ -118,15 +126,6 @@ void disp_grid_transmit (struct disp_grid_81 * disp){ // this function displays 
         }
     }
     waiter(7); //minimum waiting time for 32x24
-}
-
-
-void waiter( int seconds ){   // dumb wait
-    int i,j;
-    for (i = 0; i < seconds*10; i++){
-        for (j = 0; j < seconds*100; j++){
-        }
-    }
 }
 
 
