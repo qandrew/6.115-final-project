@@ -304,7 +304,9 @@ For some reason, my 8255 is not completely reliable (or maybe my PSoC port 3 isn
 \\ The light gray colors were fed in from the keyboard as player 1; the dark gray as player 2. From the left image to the right image, the player has placed a value at 1,2,0 \end{center}
 
 \subsection{Get AI working on PSoC }
-I'm still not exactly understanding how the implicit include in PSoC creator works, but one solution to solve this problem is to keep my AI and non-AI code in the same c file. 
+I'm still not exactly understanding how the implicit include in PSoC creator works, but one solution to solve this problem is to keep my AI and non-AI code in the same c file. See my \texttt{got ai to work in tic\_tac\_all.c without keypad} commit to see this stage of the project. 
+\\ The solution is to include the header \texttt{disp.h} file in \texttt{main.c} in which \texttt{disp.h} defines all of the methods (and includes the structures) but does not include the c file. In fact, never include the c file. 
+\\ The next thing I need to do is get a random seed for my random number generator (otherwise I will be generating the same random numbers every time and thus the program will no longer be random). 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

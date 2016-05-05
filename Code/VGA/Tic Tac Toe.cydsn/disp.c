@@ -99,6 +99,10 @@ void disp_grid_ttc_place(struct disp_grid_81* disp, int i, int value){ // place 
 }
 
 void disp_grid_init_ttc(struct disp_grid_81* disp, int grid[64]){ // initialize the TTC board
+    // tags for boards
+    disp_grid_draw_square(disp,8,10,1,1,0x30); //second plane with 1 red
+    disp_grid_draw_square(disp,19,3,2,1,0x30); //third plane with 2 red
+    disp_grid_draw_square(disp,18,13,3,1,0x30); //fourth plane with 3 red
     int i;
     for (i = 0; i < 64; i++){
         disp_grid_ttc_place(disp,i, grid[i]);
@@ -117,8 +121,7 @@ void disp_grid_transmit (struct disp_grid_81 * disp){ // this function displays 
 }
 
 
-void waiter( int seconds )
-{   // dumb wait
+void waiter( int seconds ){   // dumb wait
     int i,j;
     for (i = 0; i < seconds*10; i++){
         for (j = 0; j < seconds*100; j++){
