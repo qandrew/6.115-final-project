@@ -328,12 +328,13 @@ I've committed the code in \texttt{random using 8254 timer, got 2 player impleme
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
 \item Get my Capacitance based sensor configured on the 8051 {\bf done}
+\item Design Capacitance based input box %{\bf done}
 \item Work on UI side for the PSOC 
 \end{tight_itemize}
 
 Problems I still have:
 \begin{tight_itemize}
-\item 8255 is unreliable
+\item 8255 is unreliable (I got a new 8255 chip)
 \item Do I want to configure 16c450 to communicate with the 12 pin cap sensor?
 \end{tight_itemize}
 
@@ -344,9 +345,14 @@ I bought capacitance based sensors from \href{https://learn.adafruit.com/adafrui
 \includegraphics[width = 63mm]{Pics/5-6b.jpg}
 \end{center}
 The picture in the left are the three chips I bought. The picture on the left is my connected 1010 cap sensor (touch the blue square area to activate) in an interrupt configuration. 
-\\ For now, I am writing a script so I can detect when I have pressed on the 1010 cap by using interrupts. \href{http://www.circuitstoday.com/external-interrupts-handling-in-8051}{This} is a nice reference link. I have written the interrupt code in \texttt{keypad\_with\_cap.asm}; please refer to commit \texttt{added capacitave chip interrupt code}. I have 
+\\ For now, I am writing a script so I can detect when I have pressed on the 1010 cap by using interrupts. \href{http://www.circuitstoday.com/external-interrupts-handling-in-8051}{This} is a nice reference link. I have written the interrupt code in \texttt{keypad\_with\_cap.asm}; please refer to commit \texttt{added capacitave chip interrupt code}. 
+\\ I have also tested the 1070 chip, which effectively detects touch on the five inputs; although it can only detect one at a time. 
 \\
 \\ Side note: The 12 pin MPR121 seems to require serial communication; so I'll have to configure my 16c450 chip. 
+
+\subsection{Designing the Capacitance Sensor Input Box}
+Now that I have confirmed that the capacitance based sensors will work, I'll need to design an aesthetically pleasing input grid. Drawing inspiration from Adafruit's design, I would like to build something like the box below: 
+\begin{center} \includegraphics[width = 50mm]{Pics/5-6c.jpg} \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
