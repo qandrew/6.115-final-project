@@ -379,6 +379,21 @@ Note that the 5 pin touch sensor AT42QT1070 is active low; so most of the time t
 
 \subsection{Work on PSoC UI}
 Now that I will be using an arrow pad for user input, I'll also have to change my PSoC user input software. I'll want blinking lights to show where we are, instead of directly inputting a position on the board using the keypad and the 1010 touch sensor to cycle through the grid layers. 
+\\ The convention between PSoC and 8051 will be defined as follows. My \texttt{cap\_input.hex} file will assist me in doing this.  
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+Databus Value & Corresponding Action \\ 
+\hline
+\#31h & Level Swap \\ 
+\#32h & Move Right \\ 
+\#33h & Move Left \\ 
+\#34h & Move Down \\ 
+\#35h & Move Up \\ 
+\#36h & Enter \\ 
+ \hline
+\end{tabular}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
@@ -393,3 +408,4 @@ Goals I have for today / {\bf done} if task completed
 \end{tight_itemize}
 
 \end{document}
+

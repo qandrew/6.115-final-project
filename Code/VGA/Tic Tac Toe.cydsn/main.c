@@ -29,9 +29,9 @@ void main_test_disp(); // just test the databus
 void main()
 {	    
     
-    main_play_ttc() ;
+    //main_play_ttc() ;
     //main_play_tta_ai();
-    //main_test_disp();
+    main_test_disp();
     
     
     
