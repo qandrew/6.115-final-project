@@ -24,14 +24,33 @@
 //methods in main
 void main_play_ttc(); //the two player one
 void main_play_tta_ai(); //ai vs ai
+void main_test_disp(); // just test the databus
 
 void main()
 {	    
     
-    //main_play_ttc() ;
-    main_play_tta_ai();
+    main_play_ttc() ;
+    //main_play_tta_ai();
+    //main_test_disp();
+    
+    
     
     for(;;){} //pause
+}
+
+void main_test_disp(){
+    LCD_Start();					    // initialize lcd
+    uint8 current;
+    for (;;){
+        LCD_ClearDisplay();
+        current = Pin3_Read(); //next, read a new value
+        LCD_Position(0,0); //move back to top row
+        LCD_PrintString("CURR:");
+        LCD_PutChar(current); //print ascii value
+        LCD_PrintString(" HEX: ");
+        LCD_PrintNumber(current); //print value I am getting
+        waiter(4);
+    }
 }
 
 void main_play_tta_ai(){
@@ -44,7 +63,7 @@ void main_play_tta_ai(){
     disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
     disp_grid_transmit(&disp);
     
-    int x,y; uint8 Values; 
+    int x,y,z; uint8 Values; 
     
     struct tic_tac_ai tta;
     tta_init(&tta,4,3,true,false); //first bool for player 1, second bool for player 2
@@ -54,12 +73,13 @@ void main_play_tta_ai(){
     
     while (tta.game.game_not_won == 0){
         Values = read_from_8255(Values); //read and print
-        if (Values >= 48 && Values <= 63){ //integer value
+        if (Values >= 0 && Values <= 63){ //integer value
+            z = Values / 16;
             y = Values - 48; // convert from ASCII to int
             x = y % 4; //get row value
             y = y / 4; // 
         }
-        tta_step(&disp,&tta,x,y,Pin0_Read()); //increment a turn
+        tta_step(&disp,&tta,x,y,z); //increment a turn
         disp_grid_transmit(&disp);
 //        LCD_ClearDisplay();
 //        LCD_PrintString("TURN ");   
@@ -86,19 +106,27 @@ void main_play_ttc(){
     disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
     disp_grid_transmit(&disp);
     
-    int x,y; uint8 Values;
+    int x,y,z; int Values;
     
     while (lolz.game_not_won == 0){
-        Values = read_from_8255(Values);
-        if (Values >= 48 && Values <= 63){ //integer value
-            y = Values - 48; // convert from ASCII to int
-            x = y % 4; //get row value
-            y = y / 4; // 
+        //Values = read_from_8255(Values);
+        Values = Pin3_Read();
+        if (Values >= 0 && Values <= 63){ //integer value
+            z = Values / 16;
+            x = Values % 4; //get row value
+            y = Values / 4 - z*4; // 
+            LCD_ClearDisplay();
+            LCD_PrintNumber(Values);
+            LCD_PrintString(" x");
+            LCD_PrintNumber(x);
+            LCD_PrintString(" y");
+            LCD_PrintNumber(y);
+            LCD_PrintString(" z");
+            LCD_PrintNumber(z);
         }
-        if (ttc_get_grid(&lolz,x,y,Pin0_Read()) == 0){ // has not been accessed
-            ttc_step(&disp,&lolz,x,y,Pin0_Read()); // step & print
+        if (ttc_get_grid(&lolz,x,y,z) == 0){ // has not been accessed
+            ttc_step(&disp,&lolz,x,y,z); // step & print
             disp_grid_transmit(&disp);
-            LCD_PrintString("HU");
         }
         
     }
@@ -120,4 +148,4 @@ void main_play_ttc(){
 //rx_int_StartEx(RX_INT);             // start RX interrupt (look for CY_ISR with RX_INT address)
                                     // for code that writes received bytes to LCD.
 
-//PGA_Start();
+//PGA_Start()

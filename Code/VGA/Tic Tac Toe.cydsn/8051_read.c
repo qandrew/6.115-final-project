@@ -18,6 +18,10 @@
 
 #endif
 
+uint8 read_Values(uint8 Values){
+    
+}
+
 uint8 read_from_8255(uint8 Values){
     // this function reads the live value from 8255 output. 
     // connected via databus on port 3
@@ -40,6 +44,6 @@ uint8 read_from_8255(uint8 Values){
     LCD_PrintNumber(current); //print value I am getting
     
     waiter(5);
-    if (current == 0) return Values; // do not return new value
+    if (current == 255) return Values; // do not return new value
     else return current; // return current nonzero value
 }

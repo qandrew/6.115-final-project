@@ -332,7 +332,7 @@ Goals I have for today / {\bf done} if task completed
 \item Work on UI side for the PSOC 
 \end{tight_itemize}
 
-Problems I still have:
+Problems I have:
 \begin{tight_itemize}
 \item 8255 is unreliable (I got a new 8255 chip)
 \item Do I want to configure 16c450 to communicate with the 12 pin cap sensor?
@@ -353,6 +353,32 @@ The picture in the left are the three chips I bought. The picture on the left is
 \subsection{Designing the Capacitance Sensor Input Box}
 Now that I have confirmed that the capacitance based sensors will work, I'll need to design an aesthetically pleasing input grid. Drawing inspiration from Adafruit's design, I would like to build something like the box below: 
 \begin{center} \includegraphics[width = 50mm]{Pics/5-6c.jpg} \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{May 8 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{tight_itemize}
+\item Laser Cut a 3D playing board {\bf done}
+\item Work on PSoC UI
+\end{tight_itemize}
+
+The problem with my 8255 was that my inverter was feeling a low signal of $1.2V$, which meant that the chip was in fact resetting every time. 
+
+\subsection{Designing the Capacitance Sensor Input Box}
+Note that the 5 pin touch sensor AT42QT1070 is active low; so most of the time the signal is at 3.3v high. I could either use my 74LS14 inverter to convert a 3.3v to a 5v, or I could also use a tip 120 transistor to configure otherwise. 
+\\
+\\ The design of my board is available in the Drawings folder, and the one I will use (see the image below) is \texttt{Andrew-board\_new.cdr}. 
+\\ 
+\\ INSERT IMAGE!
+\\
+\\ The schematic I will be using is the following:
+\\
+\\ INSERT SCHEMATIC!
+
+\subsection{Work on PSoC UI}
+Now that I will be using an arrow pad for user input, I'll also have to change my PSoC user input software. I'll want blinking lights to show where we are, instead of directly inputting a position on the board using the keypad and the 1010 touch sensor to cycle through the grid layers. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
