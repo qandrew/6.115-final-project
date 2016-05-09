@@ -13,10 +13,10 @@
 						;of the main body or loop in the program, called 'start'
 						
 .org 03h ;this is the P3.2 IE0 interrupt loc
-	ljmp cap_interrupt
+	ljmp key_interrupt
 
 .org 13h ;this is the P3.3 IE1 interrupt loc
-	ljmp key_interrupt
+	ljmp cap_interrupt
 		
 .org 100h				;and located at address location 100h in external mem
 start:
@@ -34,20 +34,28 @@ cap_interrupt:
 	reti
 
 key_interrupt:
-	lcall   print          ; print welcome message
-	.db 0ah, 0dh, "HU", 0h ;0ah, 0dh, is newline
-	jb P1.0, level 
-	jb P1.1, right
-	jb P1.2, left
-	jb P1.3, down
-	jb P1.4, up
+	mov P1, #01fh		;write to input
+	mov R0, #080h
+	wating: 
+		mov a, P1
+		jz wating
+	;dob:
+;		dob1: djnz R1, dob1 ;wait some more
+;		djnz R0, dob	;wait a bit
+	;lcall   print          ; print welcome message
+	;.db 0ah, 0dh, "HU", 0h ;0ah, 0dh, is newline
+	;mov a, P1
+	jb acc.0, level 
+	jb acc.1, right
+	jb acc.2, left
+	jb acc.3, down
+	jb acc.4, up
 	mov a, P1		;if for some reason we get something wrong
 	add a, #30h
 	sjmp key_reti
 
 level:
 	mov a, #31h
-	reti
 	sjmp key_reti
 right:
 	mov a, #32h
@@ -70,12 +78,12 @@ key_reti:
 sndpsoc:
 	mov dptr, #0fe30h	;move dptr to 8255 port A
 	movx @dptr, a		;move keypad press to 8255
-	;mov R0, #080h
-	;bob:
-	;	bob1: djnz R1, bob1 ;wait some more
-	;	djnz R0, bob	;wait a bit
-	;mov a, #0FFh
-	;movx @dptr, a		;go back to our default 8255 state of 0
+	mov R0, #080h
+	bob:
+		bob1: djnz R1, bob1 ;wait some more
+		djnz R0, bob	;wait a bit
+	mov a, #0FFh
+	movx @dptr, a		;go back to our default 8255 state of 0
 	ret
 		
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -105,7 +113,7 @@ init:
 	mov a, #01h			;config for 34khz random generator HIGH
 	movx @dptr, a		
 	
-	mov P1, #0fh		;initialize lower 4 bits of P1 as an input
+	mov P1, #0Ffh		;initialize lower 4 bits of P1 as an input
 	setb tcon.0			;detect high edge for P3.2
 	setb tcon.2			;detect high edge for P3.3
 	mov IE, #85h		;allow for Ext int 0/1 which is p3.2/3

@@ -33,8 +33,8 @@ void main()
     
     //main_play_ttc() ; // take out inverter and connection to 7430, run keypad with cap
     //main_play_tta_ai(); // take out inverter, run keypad with cap
-    //main_test_disp();
-    main_flashing_tta();
+    main_test_disp();
+    //main_flashing_tta();
     
     
     
