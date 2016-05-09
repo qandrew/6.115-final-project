@@ -370,12 +370,10 @@ The problem with my 8255 was that my inverter was feeling a low signal of $1.2V$
 Note that the 5 pin touch sensor AT42QT1070 is active low; so most of the time the signal is at 3.3v high. I could either use my 74LS14 inverter to convert a 3.3v to a 5v, or I could also use a tip 120 transistor to configure otherwise. 
 \\
 \\ The design of my board is available in the Drawings folder, and the one I will use (see the image below) is \texttt{Andrew-board\_new.cdr}. 
-\\ 
-\\ INSERT IMAGE!
-\\
-\\ The schematic I will be using is the following:
-\\
-\\ INSERT SCHEMATIC!
+\begin{center}\includegraphics[width = 70mm]{Pics/5-8b.jpg}\end{center}
+
+The schematic I will be using is the following. The input to the 1070 5-pin capacitave sensor are my buttons for my input is the board that can be seen above. 
+\begin{center}\includegraphics[width = 80mm]{Pics/5-8a.jpg}\end{center}
 
 \subsection{Work on PSoC UI}
 Now that I will be using an arrow pad for user input, I'll also have to change my PSoC user input software. I'll want blinking lights to show where we are, instead of directly inputting a position on the board using the keypad and the 1010 touch sensor to cycle through the grid layers. 
@@ -395,6 +393,19 @@ Databus Value & Corresponding Action \\
 \end{tabular}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TEMPLATE%
+
+\section{May 9 2016}
+
+Goals I have for today / {\bf done} if task completed
+\begin{tight_itemize}
+\item Play 3D tic tac toe using my touch panel board  {\bf done}
+\end{tight_itemize}
+
+\subsection{ Play 3D tic tac toe using my touch panel board }
+I was able to get the touch panel to work! And I can now play 3D tic tac toe against my AI; although I have a few bugs in my code, and I am not using the 8051. At all. Hmm. 
+\begin{center}\includegraphics[width = 80mm]{Pics/5-9a.jpg}\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TEMPLATE%
 
