@@ -1,6 +1,6 @@
 // ======================================================================
 // Tic Tac Toe.v generated from TopDesign.cysch
-// 05/04/2016 at 21:26
+// 05/09/2016 at 16:10
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -311,6 +311,10 @@ endmodule
 // top
 module top ;
 
+          wire  Net_598;
+          wire  Net_597;
+          wire  Net_596;
+          wire  Net_595;
           wire  Net_575;
           wire  Net_574;
           wire  Net_577;
@@ -693,69 +697,69 @@ module top ;
 		 (.clock_out(Net_576));
 
 
-	wire [1:0] tmpOE__Pin0_net;
-	wire [1:0] tmpIO_1__Pin0_net;
+	wire [5:0] tmpOE__Pin0_net;
+	wire [5:0] tmpIO_5__Pin0_net;
 	wire [0:0] tmpINTERRUPT_0__Pin0_net;
 	electrical [0:0] tmpSIOVREF__Pin0_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("d5c9d845-3391-443a-947e-3b30c95774d9"),
-		  .drive_mode(6'b001_001),
-		  .ibuf_enabled(2'b1_1),
-		  .init_dr_st(2'b0_0),
+		  .drive_mode(18'b001_001_001_001_001_001),
+		  .ibuf_enabled(6'b1_1_1_1_1_1),
+		  .init_dr_st(6'b0_0_0_0_0_0),
 		  .input_clk_en(0),
-		  .input_sync(2'b0_0),
-		  .input_sync_mode(2'b0_0),
-		  .intr_mode(4'b00_00),
+		  .input_sync(6'b0_0_0_0_0_0),
+		  .input_sync_mode(6'b0_0_0_0_0_0),
+		  .intr_mode(12'b00_00_00_00_00_00),
 		  .invert_in_clock(0),
 		  .invert_in_clock_en(0),
 		  .invert_in_reset(0),
 		  .invert_out_clock(0),
 		  .invert_out_clock_en(0),
 		  .invert_out_reset(0),
-		  .io_voltage(","),
+		  .io_voltage(",,,,,"),
 		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(2'b0_0),
+		  .oe_conn(6'b0_0_0_0_0_0),
 		  .oe_reset(0),
-		  .oe_sync(2'b0_0),
+		  .oe_sync(6'b0_0_0_0_0_0),
 		  .output_clk_en(0),
-		  .output_clock_mode(2'b0_0),
-		  .output_conn(2'b0_0),
-		  .output_mode(2'b0_0),
+		  .output_clock_mode(6'b0_0_0_0_0_0),
+		  .output_conn(6'b0_0_0_0_0_0),
+		  .output_mode(6'b0_0_0_0_0_0),
 		  .output_reset(0),
-		  .output_sync(2'b0_0),
+		  .output_sync(6'b0_0_0_0_0_0),
 		  .pa_in_clock(-1),
 		  .pa_in_clock_en(-1),
 		  .pa_in_reset(-1),
 		  .pa_out_clock(-1),
 		  .pa_out_clock_en(-1),
 		  .pa_out_reset(-1),
-		  .pin_aliases(","),
-		  .pin_mode("II"),
+		  .pin_aliases(",,,,,"),
+		  .pin_mode("IIIIII"),
 		  .por_state(4),
 		  .sio_group_cnt(0),
-		  .sio_hyst(2'b1_1),
+		  .sio_hyst(6'b1_1_1_1_1_1),
 		  .sio_ibuf(""),
-		  .sio_info(4'b00_00),
+		  .sio_info(12'b00_00_00_00_00_00),
 		  .sio_obuf(""),
 		  .sio_refsel(""),
 		  .sio_vtrip(""),
 		  .sio_hifreq(""),
 		  .sio_vohsel(""),
-		  .slew_rate(2'b0_0),
+		  .slew_rate(6'b0_0_0_0_0_0),
 		  .spanning(0),
-		  .use_annotation(2'b0_0),
-		  .vtrip(4'b00_00),
-		  .width(2),
-		  .ovt_hyst_trim(2'b0_0),
-		  .ovt_needed(2'b0_0),
-		  .ovt_slew_control(4'b00_00),
-		  .input_buffer_sel(4'b00_00))
+		  .use_annotation(6'b0_0_0_0_0_0),
+		  .vtrip(12'b00_00_00_00_00_00),
+		  .width(6),
+		  .ovt_hyst_trim(6'b0_0_0_0_0_0),
+		  .ovt_needed(6'b0_0_0_0_0_0),
+		  .ovt_slew_control(12'b00_00_00_00_00_00),
+		  .input_buffer_sel(12'b00_00_00_00_00_00))
 		Pin0
 		 (.oe(tmpOE__Pin0_net),
-		  .y({2'b0}),
-		  .fb({Net_575, Net_574}),
-		  .io({tmpIO_1__Pin0_net[1:0]}),
+		  .y({6'b0}),
+		  .fb({Net_598, Net_597, Net_596, Net_595, Net_575, Net_574}),
+		  .io({tmpIO_5__Pin0_net[5:0]}),
 		  .siovref(tmpSIOVREF__Pin0_net),
 		  .interrupt({tmpINTERRUPT_0__Pin0_net[0:0]}),
 		  .in_clock({1'b0}),
@@ -765,7 +769,7 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__Pin0_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{2'b11} : {2'b11};
+	assign tmpOE__Pin0_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{6'b111111} : {6'b111111};
 
 
 

@@ -668,12 +668,14 @@ void tta_ai_algorithm(struct disp_grid_81* disp,struct tic_tac_ai* tta, int play
 	if (player == 1){
 		ai_evaluate_board(&tta->game,&tta->ai_1);
 		ai_play_best_move(&tta->game,&tta->ai_1,disp);
-		ai_print_grid_eval(&tta->ai_1);
+        ai_evaluate_board(&tta->game,&tta->ai_1);
+		//ai_print_grid_eval(&tta->ai_1);
 	}
 	else if (player == -1){
 		ai_evaluate_board(&tta->game,&tta->ai_2);	
 		ai_play_best_move(&tta->game,&tta->ai_2,disp);
-		ai_print_grid_eval(&tta->ai_2);
+        ai_evaluate_board(&tta->game,&tta->ai_2);	
+		//ai_print_grid_eval(&tta->ai_2);
 	}
 }
 

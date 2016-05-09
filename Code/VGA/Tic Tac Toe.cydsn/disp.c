@@ -66,6 +66,72 @@ void disp_grid_draw_hu(struct disp_grid_81* disp){ // draws black H U on board
     disp_grid_draw_square(disp,16,13,3,2,0x00);
 }
 
+uint8 disp_grid_ttc_getval(struct disp_grid_81* disp, int i){
+    int x,y; // first, we want to get the x,y coords
+    if (i < 16 && i >= 0){ //z = 0
+        x = i%4;
+        y = (i-x)/4; // we want to start at 1,1
+        x = 2*x + 1;
+        y = 2*y + 1;
+    }
+    else if (i < 32){ // z = 1
+        i -= 16;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 1,11
+        x = 2*x + 1;
+        y = 2*y + 11;
+    }
+    else if (i < 48){ // z = 2
+        i -= 32;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 13,4
+        x = 2*x + 13;
+        y = 2*y + 4;
+    }
+    else if (i < 64){ // z = 3
+        i -= 48;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 13,14
+        x = 2*x + 13;
+        y = 2*y + 14;
+    }
+    uint8 toreturn;
+    toreturn = disp->matrix[x][y]; //get the value out of it
+    return toreturn;
+}
+
+void disp_grid_ttc_place_value(struct disp_grid_81* disp, int i, uint8 value){ // place color based on 
+    int x,y; // first, we want to get the x,y coords
+    if (i < 16 && i >= 0){ //z = 0
+        x = i%4;
+        y = (i-x)/4; // we want to start at 1,1
+        x = 2*x + 1;
+        y = 2*y + 1;
+    }
+    else if (i < 32){ // z = 1
+        i -= 16;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 1,11
+        x = 2*x + 1;
+        y = 2*y + 11;
+    }
+    else if (i < 48){ // z = 2
+        i -= 32;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 13,4
+        x = 2*x + 13;
+        y = 2*y + 4;
+    }
+    else if (i < 64){ // z = 3
+        i -= 48;
+        x = i%4;
+        y = (i-x)/4; // we want to start at 13,14
+        x = 2*x + 13;
+        y = 2*y + 14;
+    }
+    disp_grid_draw_square(disp,x,y,2,2,value); //dark gray
+}
+
 void disp_grid_ttc_place(struct disp_grid_81* disp, int i, int value){ // place color based on 
     int x,y; // first, we want to get the x,y coords
     if (i < 16 && i >= 0){ //z = 0

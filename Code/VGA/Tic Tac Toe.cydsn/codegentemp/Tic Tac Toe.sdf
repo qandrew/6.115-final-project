@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2016-05-05T01:26:47Z")
+ (DATE "2016-05-09T20:10:12Z")
  (DESIGN "Tic Tac Toe")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -195,6 +195,10 @@
     (INTERCONNECT PinNoise\(0\)_PAD PinNoise\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Pin0\(0\)_PAD Pin0\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Pin0\(1\)_PAD Pin0\(1\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin0\(2\)_PAD Pin0\(2\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin0\(3\)_PAD Pin0\(3\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin0\(4\)_PAD Pin0\(4\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin0\(5\)_PAD Pin0\(5\).pad_in (0.000:0.000:0.000))
    )
   )
  )

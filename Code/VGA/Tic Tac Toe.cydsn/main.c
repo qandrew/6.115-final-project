@@ -26,16 +26,104 @@ void main_play_ttc(); //the two player one
 void main_play_tta_ai(); //ai vs ai
 void main_test_disp(); // just test the databus
 
+void main_flashing_tta();
+
 void main()
 {	    
     
-    //main_play_ttc() ;
-    //main_play_tta_ai();
-    main_test_disp();
+    //main_play_ttc() ; // take out inverter and connection to 7430, run keypad with cap
+    //main_play_tta_ai(); // take out inverter, run keypad with cap
+    //main_test_disp();
+    main_flashing_tta();
     
     
     
     for(;;){} //pause
+}
+
+void main_flashing_tta(){
+    // this is the function compatible with the cap sensor input
+    LCD_Start();					    // initialize lcd
+    LCD_ClearDisplay();
+    UART_Start();                       // initialize UART
+    UART_PutChar(0x81); // init connection; set to 16x12 image 
+    
+    struct disp_grid_81 disp; 
+    disp_grid_init(&disp,0x3F); // init our display grid matrix to white  
+    disp_grid_transmit(&disp);
+    
+    struct tic_tac_ai tta;
+    tta_init(&tta,4,3,false,true); //first bool for player 1, second bool for player 2. true means is AI
+    disp_grid_init_ttc(&disp, tta.game.grid);
+    disp_grid_draw_xia(&disp,26,16,0x30); // draw xia
+    disp_grid_transmit(&disp);
+    
+    int x,y,z, count; uint8 Values; uint8 Values_prev;
+    Values_prev = Pin0_Read();
+    x = 0; y = 0; z = 0; //test value
+    count = 0;
+    
+    uint8 red_flash; //the temporary location flasher
+    uint8 other_val;
+    other_val = disp_grid_ttc_getval(&disp,z*16 + y*4 + x); // get the nonred val
+    red_flash = 0x30; //map to color red
+    
+    tta_step(&disp,&tta,x,y,z); //AI Increment also 
+    
+    while (tta.game.game_not_won == 0){
+//        Values = read_from_8255(Values); //read and print
+        
+        LCD_ClearDisplay();
+        
+        LCD_Position(0,0); //move back to top row
+        Values = Pin0_Read(); //next, read a new value
+        LCD_PrintString("P0: ");
+        LCD_PrintNumber(Values); //print value I am getting
+        
+        if (Values != Values_prev){
+            Values_prev = Values; //we don't want nonconsect
+            if (Values != 0){
+                if (Values == 32){
+                    tta_step(&disp,&tta,x,y,z); //increment a turn
+                    tta_step(&disp,&tta,x,y,z); //AI Increment also 
+                    other_val = disp_grid_ttc_getval(&disp,z*16 + y*4 + x); // get the nonred val
+                }
+                else{
+                    disp_grid_ttc_place_value(&disp,z*16 + y*4 + x,other_val);
+                    if (Values == 16 && y != 0){ // up
+                    y--;
+                    }
+                    else if (Values == 8 && y != 3){ // down
+                        y++;
+                    }
+                    else if (Values == 4 && x != 0){ // left
+                        x--;
+                    }
+                    else if (Values == 2 && x != 3){ // right
+                        x++;
+                    }
+                    else if (Values == 1){ // level shift
+                        z++;
+                        z = z % 4;
+                    }
+                    other_val = disp_grid_ttc_getval(&disp,z*16 + y*4 + x); // get the nonred val
+                }
+            }
+        }
+        
+        if (count == 0){ //decide print
+            count = 1;
+            disp_grid_ttc_place_value(&disp,z*16 + y*4 + x,red_flash);
+        }
+        else{
+            count = 0;
+            disp_grid_ttc_place_value(&disp,z*16 + y*4 + x,other_val);
+        }
+        disp_grid_transmit(&disp);
+    }
+    LCD_ClearDisplay();
+    LCD_PrintString("GAME OVER!");   
+    
 }
 
 void main_test_disp(){
@@ -43,12 +131,19 @@ void main_test_disp(){
     uint8 current;
     for (;;){
         LCD_ClearDisplay();
-        current = Pin3_Read(); //next, read a new value
+        
         LCD_Position(0,0); //move back to top row
-        LCD_PrintString("CURR:");
+        current = Pin0_Read(); //next, read a new value
+        LCD_PrintString("P0: ");
+        LCD_PrintNumber(current); //print value I am getting
+        
+        LCD_Position(1,0); //move to bot row
+        current = Pin3_Read(); //next, read a new value
+        LCD_PrintString("P3: ");
         LCD_PutChar(current); //print ascii value
         LCD_PrintString(" HEX: ");
         LCD_PrintNumber(current); //print value I am getting
+        
         waiter(4);
     }
 }
@@ -75,15 +170,19 @@ void main_play_tta_ai(){
         Values = read_from_8255(Values); //read and print
         if (Values >= 0 && Values <= 63){ //integer value
             z = Values / 16;
-            y = Values - 48; // convert from ASCII to int
-            x = y % 4; //get row value
-            y = y / 4; // 
+            x = Values % 4; //get row value
+            y = Values / 4 - z*4; // 
+//            LCD_ClearDisplay();
+//            LCD_PrintNumber(Values);
+//            LCD_PrintString(" x");
+//            LCD_PrintNumber(x);
+//            LCD_PrintString(" y");
+//            LCD_PrintNumber(y);
+//            LCD_PrintString(" z");
+//            LCD_PrintNumber(z);
         }
         tta_step(&disp,&tta,x,y,z); //increment a turn
         disp_grid_transmit(&disp);
-//        LCD_ClearDisplay();
-//        LCD_PrintString("TURN ");   
-//        LCD_PrintNumber(tta.game.turn);
     }
     LCD_ClearDisplay();
     LCD_PrintString("GAME OVER!");   

@@ -91,6 +91,10 @@ void Pin0_SetDriveMode(uint8 mode)
 {
 	CyPins_SetPinDriveMode(Pin0_0, mode);
 	CyPins_SetPinDriveMode(Pin0_1, mode);
+	CyPins_SetPinDriveMode(Pin0_2, mode);
+	CyPins_SetPinDriveMode(Pin0_3, mode);
+	CyPins_SetPinDriveMode(Pin0_4, mode);
+	CyPins_SetPinDriveMode(Pin0_5, mode);
 }
 
 
@@ -194,6 +198,22 @@ uint8 Pin0_ReadDataReg(void)
 		if((position & Pin0_1_INTR) != 0u) 
 		{ 
 			 Pin0_1_INTTYPE_REG = (uint8)mode; 
+		} 
+		if((position & Pin0_2_INTR) != 0u) 
+		{ 
+			 Pin0_2_INTTYPE_REG = (uint8)mode; 
+		} 
+		if((position & Pin0_3_INTR) != 0u) 
+		{ 
+			 Pin0_3_INTTYPE_REG = (uint8)mode; 
+		} 
+		if((position & Pin0_4_INTR) != 0u) 
+		{ 
+			 Pin0_4_INTTYPE_REG = (uint8)mode; 
+		} 
+		if((position & Pin0_5_INTR) != 0u) 
+		{ 
+			 Pin0_5_INTTYPE_REG = (uint8)mode; 
 		}
     }
     

@@ -31,5 +31,8 @@ void disp_grid_init_ttc(struct disp_grid_81* disp, int grid[64]);
 void disp_grid_transmit (struct disp_grid_81 * disp);
 void waiter( int seconds );
 
+void disp_grid_ttc_place_value(struct disp_grid_81* disp, int i, uint8 value);
+uint8 disp_grid_ttc_getval(struct disp_grid_81* disp, int i);
+
 
 /* [] END OF FILE */
