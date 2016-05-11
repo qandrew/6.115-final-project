@@ -13,19 +13,25 @@
 						;of the main body or loop in the program, called 'start'
 						
 .org 03h ;this is the P3.2 IE0 interrupt loc
-	ljmp key_interrupt
+	;setb b.1 ;cap should have higher priority
+	ljmp cap_interrupt
 
 .org 13h ;this is the P3.3 IE1 interrupt loc
-	ljmp cap_interrupt
+	setb b.0
+	reti
+	;ljmp key_interrupt
 		
 .org 100h				;and located at address location 100h in external mem
 start:
 	lcall init			;start the serial port by calling subroutine 'init'.	
 	loop:				;METHOD: main running loop
+		;jb b.1, cap_interrupt
+		jb b.0, key_interrupt
 		sjmp loop
 
 ;;;;;;;;;;;;;;;;;;;;;; INTERRUPTS ;;;;;;;;;;;;;;;;
 cap_interrupt:
+	clr b.0	;clear the key interrupt too
 	lcall   print          ; print welcome message
 	.db 0ah, 0dh, "CAP TOUCHED",0h ;0ah, 0dh, is newline
 	mov a, #36h;
@@ -38,7 +44,9 @@ key_interrupt:
 	mov R0, #080h
 	wating: 
 		mov a, P1
+		jnb b.0, loop 
 		jz wating
+	clr b.0
 	;dob:
 ;		dob1: djnz R1, dob1 ;wait some more
 ;		djnz R0, dob	;wait a bit
@@ -72,7 +80,7 @@ up:
 key_reti:
 	lcall sndchr
 	lcall sndpsoc
-	reti	
+	ljmp loop	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 sndpsoc:
