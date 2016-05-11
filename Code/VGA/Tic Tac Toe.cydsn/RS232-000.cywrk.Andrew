@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\Tic Tac Toe\Header Files\disp.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RS232-000\Tic Tac Toe\Header Files\8051_read.h">
 <ExpandedNodeIds>
 <v>RS232-000</v>
 <v>RS232-000\Tic Tac Toe</v>
@@ -299,6 +299,7 @@
 <name v=".\8051_read.c" />
 <name v=".\tic_tac_all.c" />
 <name v=".\disp.c" />
+<name v=".\disp.h" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

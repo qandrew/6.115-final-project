@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 1
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 1
 
 
    1              		.syntax unified
@@ -18,15 +18,28 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 1
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.read_Values,"ax",%progbits
+  18              		.section	.rodata
   19              		.align	2
-  20              		.global	read_Values
-  21              		.thumb
-  22              		.thumb_func
-  23              		.type	read_Values, %function
-  24              	read_Values:
-  25              	.LFB63:
-  26              		.file 1 ".\\8051_read.c"
+  20              	.LC0:
+  21 0000 4C415354 		.ascii	"LAST:\000"
+  21      3A00
+  22 0006 0000     		.align	2
+  23              	.LC1:
+  24 0008 20484558 		.ascii	" HEX: \000"
+  24      3A2000
+  25 000f 00       		.align	2
+  26              	.LC2:
+  27 0010 43555252 		.ascii	"CURR:\000"
+  27      3A00
+  28 0016 0000     		.section	.text.read_Values,"ax",%progbits
+  29              		.align	2
+  30              		.global	read_Values
+  31              		.thumb
+  32              		.thumb_func
+  33              		.type	read_Values, %function
+  34              	read_Values:
+  35              	.LFB63:
+  36              		.file 1 ".\\8051_read.c"
    1:.\8051_read.c **** /* ========================================
    2:.\8051_read.c ****  *
    3:.\8051_read.c ****  * Copyright HUDING ENTERPRISES, 2016
@@ -45,723 +58,786 @@ ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 1
   16:.\8051_read.c **** #define DEVICE_H
   17:.\8051_read.c **** #include <project.h>
   18:.\8051_read.c **** 
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 2
+
+
   19:.\8051_read.c **** #endif
   20:.\8051_read.c **** 
   21:.\8051_read.c **** uint8 read_Values(uint8 Values){
-  27              		.loc 1 21 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 8
-  30              		@ frame_needed = 1, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32 0000 80B4     		push	{r7}
-  33              		.cfi_def_cfa_offset 4
-  34              		.cfi_offset 7, -4
-  35 0002 83B0     		sub	sp, sp, #12
-  36              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 2
+  37              		.loc 1 21 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 16
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 84B0     		sub	sp, sp, #16
+  46              		.cfi_def_cfa_offset 24
+  47 0004 00AF     		add	r7, sp, #0
+  48              		.cfi_def_cfa_register 7
+  49 0006 0346     		mov	r3, r0
+  50 0008 FB71     		strb	r3, [r7, #7]
+  22:.\8051_read.c ****     // this function reads the live value from 8255 output. 
+  23:.\8051_read.c ****     // connected via databus on port 3
+  24:.\8051_read.c ****     // and displays on the LCD
+  25:.\8051_read.c ****     // this function assumes that LCD_Start() has already been run;
+  26:.\8051_read.c ****     // And uint8 Values has been declared
+  27:.\8051_read.c ****     LCD_ClearDisplay();
+  51              		.loc 1 27 0
+  52 000a 0120     		movs	r0, #1
+  53 000c FFF7FEFF 		bl	LCD_WriteControl
+  28:.\8051_read.c ****     LCD_Position(1,0); //move to bot row
+  54              		.loc 1 28 0
+  55 0010 0120     		movs	r0, #1
+  56 0012 0021     		movs	r1, #0
+  57 0014 FFF7FEFF 		bl	LCD_Position
+  29:.\8051_read.c ****     LCD_PrintString("LAST:"); //first, we print last value
+  58              		.loc 1 29 0
+  59 0018 1848     		ldr	r0, .L4
+  60 001a FFF7FEFF 		bl	LCD_PrintString
+  30:.\8051_read.c ****     LCD_PutChar(Values); //print ascii value
+  61              		.loc 1 30 0
+  62 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  63 0020 1846     		mov	r0, r3
+  64 0022 FFF7FEFF 		bl	LCD_PutChar
+  31:.\8051_read.c ****     LCD_PrintString(" HEX: ");
+  65              		.loc 1 31 0
+  66 0026 1648     		ldr	r0, .L4+4
+  67 0028 FFF7FEFF 		bl	LCD_PrintString
+  32:.\8051_read.c ****     LCD_PrintNumber(Values); //print value I am getting
+  68              		.loc 1 32 0
+  69 002c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  70 002e 1846     		mov	r0, r3
+  71 0030 FFF7FEFF 		bl	LCD_PrintU32Number
+  33:.\8051_read.c ****     
+  34:.\8051_read.c ****     uint8 current;
+  35:.\8051_read.c ****     current = Pin3_Read(); //next, read a new value
+  72              		.loc 1 35 0
+  73 0034 FFF7FEFF 		bl	Pin3_Read
+  74 0038 0346     		mov	r3, r0
+  75 003a FB73     		strb	r3, [r7, #15]
+  36:.\8051_read.c ****     LCD_Position(0,0); //move back to top row
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 3
 
 
-  37 0004 00AF     		add	r7, sp, #0
-  38              		.cfi_def_cfa_register 7
-  39 0006 0346     		mov	r3, r0
-  40 0008 FB71     		strb	r3, [r7, #7]
-  22:.\8051_read.c ****     
-  23:.\8051_read.c **** }
-  41              		.loc 1 23 0
-  42 000a 1846     		mov	r0, r3
-  43 000c 0C37     		adds	r7, r7, #12
-  44              		.cfi_def_cfa_offset 4
-  45 000e BD46     		mov	sp, r7
-  46              		.cfi_def_cfa_register 13
-  47              		@ sp needed
-  48 0010 5DF8047B 		ldr	r7, [sp], #4
-  49              		.cfi_restore 7
-  50              		.cfi_def_cfa_offset 0
-  51 0014 7047     		bx	lr
-  52              		.cfi_endproc
-  53              	.LFE63:
-  54              		.size	read_Values, .-read_Values
-  55 0016 00BF     		.section	.rodata
-  56              		.align	2
-  57              	.LC0:
-  58 0000 4C415354 		.ascii	"LAST:\000"
-  58      3A00
-  59 0006 0000     		.align	2
-  60              	.LC1:
-  61 0008 20484558 		.ascii	" HEX: \000"
-  61      3A2000
-  62 000f 00       		.align	2
-  63              	.LC2:
-  64 0010 43555252 		.ascii	"CURR:\000"
-  64      3A00
-  65 0016 0000     		.section	.text.read_from_8255,"ax",%progbits
-  66              		.align	2
-  67              		.global	read_from_8255
-  68              		.thumb
-  69              		.thumb_func
-  70              		.type	read_from_8255, %function
-  71              	read_from_8255:
-  72              	.LFB64:
-  24:.\8051_read.c **** 
-  25:.\8051_read.c **** uint8 read_from_8255(uint8 Values){
-  73              		.loc 1 25 0
-  74              		.cfi_startproc
-  75              		@ args = 0, pretend = 0, frame = 16
-  76              		@ frame_needed = 1, uses_anonymous_args = 0
-  77 0000 80B5     		push	{r7, lr}
-  78              		.cfi_def_cfa_offset 8
-  79              		.cfi_offset 7, -8
-  80              		.cfi_offset 14, -4
-  81 0002 84B0     		sub	sp, sp, #16
-  82              		.cfi_def_cfa_offset 24
-  83 0004 00AF     		add	r7, sp, #0
-  84              		.cfi_def_cfa_register 7
-  85 0006 0346     		mov	r3, r0
-  86 0008 FB71     		strb	r3, [r7, #7]
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 3
+  76              		.loc 1 36 0
+  77 003c 0020     		movs	r0, #0
+  78 003e 0021     		movs	r1, #0
+  79 0040 FFF7FEFF 		bl	LCD_Position
+  37:.\8051_read.c ****     LCD_PrintString("CURR:");
+  80              		.loc 1 37 0
+  81 0044 0F48     		ldr	r0, .L4+8
+  82 0046 FFF7FEFF 		bl	LCD_PrintString
+  38:.\8051_read.c ****     LCD_PutChar(current); //print ascii value
+  83              		.loc 1 38 0
+  84 004a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  85 004c 1846     		mov	r0, r3
+  86 004e FFF7FEFF 		bl	LCD_PutChar
+  39:.\8051_read.c ****     LCD_PrintString(" HEX: ");
+  87              		.loc 1 39 0
+  88 0052 0B48     		ldr	r0, .L4+4
+  89 0054 FFF7FEFF 		bl	LCD_PrintString
+  40:.\8051_read.c ****     LCD_PrintNumber(current); //print value I am getting
+  90              		.loc 1 40 0
+  91 0058 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  92 005a 1846     		mov	r0, r3
+  93 005c FFF7FEFF 		bl	LCD_PrintU32Number
+  41:.\8051_read.c ****     
+  42:.\8051_read.c ****     waiter(5);
+  94              		.loc 1 42 0
+  95 0060 0520     		movs	r0, #5
+  96 0062 FFF7FEFF 		bl	waiter
+  43:.\8051_read.c ****     if (current == 255) return Values; // do not return new value
+  97              		.loc 1 43 0
+  98 0066 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  99 0068 FF2B     		cmp	r3, #255
+ 100 006a 01D1     		bne	.L2
+ 101              		.loc 1 43 0 is_stmt 0 discriminator 1
+ 102 006c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 103 006e 00E0     		b	.L3
+ 104              	.L2:
+  44:.\8051_read.c ****     else return current;
+ 105              		.loc 1 44 0 is_stmt 1
+ 106 0070 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 107              	.L3:
+  45:.\8051_read.c **** }
+ 108              		.loc 1 45 0
+ 109 0072 1846     		mov	r0, r3
+ 110 0074 1037     		adds	r7, r7, #16
+ 111              		.cfi_def_cfa_offset 8
+ 112 0076 BD46     		mov	sp, r7
+ 113              		.cfi_def_cfa_register 13
+ 114              		@ sp needed
+ 115 0078 80BD     		pop	{r7, pc}
+ 116              	.L5:
+ 117 007a 00BF     		.align	2
+ 118              	.L4:
+ 119 007c 00000000 		.word	.LC0
+ 120 0080 08000000 		.word	.LC1
+ 121 0084 10000000 		.word	.LC2
+ 122              		.cfi_endproc
+ 123              	.LFE63:
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 4
 
 
-  26:.\8051_read.c ****     // this function reads the live value from 8255 output. 
-  27:.\8051_read.c ****     // connected via databus on port 3
-  28:.\8051_read.c ****     // and displays on the LCD
-  29:.\8051_read.c ****     // this function assumes that LCD_Start() has already been run;
-  30:.\8051_read.c ****     // And uint8 Values has been declared
-  31:.\8051_read.c ****     LCD_ClearDisplay();
-  87              		.loc 1 31 0
-  88 000a 0120     		movs	r0, #1
-  89 000c FFF7FEFF 		bl	LCD_WriteControl
-  32:.\8051_read.c ****     LCD_Position(1,0); //move to bot row
-  90              		.loc 1 32 0
-  91 0010 0120     		movs	r0, #1
-  92 0012 0021     		movs	r1, #0
-  93 0014 FFF7FEFF 		bl	LCD_Position
-  33:.\8051_read.c ****     LCD_PrintString("LAST:"); //first, we print last value
-  94              		.loc 1 33 0
-  95 0018 1848     		ldr	r0, .L5
-  96 001a FFF7FEFF 		bl	LCD_PrintString
-  34:.\8051_read.c ****     LCD_PutChar(Values); //print ascii value
-  97              		.loc 1 34 0
-  98 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
-  99 0020 1846     		mov	r0, r3
- 100 0022 FFF7FEFF 		bl	LCD_PutChar
-  35:.\8051_read.c ****     LCD_PrintString(" HEX: ");
- 101              		.loc 1 35 0
- 102 0026 1648     		ldr	r0, .L5+4
- 103 0028 FFF7FEFF 		bl	LCD_PrintString
-  36:.\8051_read.c ****     LCD_PrintNumber(Values); //print value I am getting
- 104              		.loc 1 36 0
- 105 002c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 106 002e 1846     		mov	r0, r3
- 107 0030 FFF7FEFF 		bl	LCD_PrintU32Number
-  37:.\8051_read.c ****     
-  38:.\8051_read.c ****     uint8 current;
-  39:.\8051_read.c ****     current = Pin3_Read(); //next, read a new value
- 108              		.loc 1 39 0
- 109 0034 FFF7FEFF 		bl	Pin3_Read
- 110 0038 0346     		mov	r3, r0
- 111 003a FB73     		strb	r3, [r7, #15]
-  40:.\8051_read.c ****     LCD_Position(0,0); //move back to top row
- 112              		.loc 1 40 0
- 113 003c 0020     		movs	r0, #0
- 114 003e 0021     		movs	r1, #0
- 115 0040 FFF7FEFF 		bl	LCD_Position
-  41:.\8051_read.c ****     LCD_PrintString("CURR:");
- 116              		.loc 1 41 0
- 117 0044 0F48     		ldr	r0, .L5+8
- 118 0046 FFF7FEFF 		bl	LCD_PrintString
-  42:.\8051_read.c ****     LCD_PutChar(current); //print ascii value
- 119              		.loc 1 42 0
- 120 004a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 121 004c 1846     		mov	r0, r3
- 122 004e FFF7FEFF 		bl	LCD_PutChar
-  43:.\8051_read.c ****     LCD_PrintString(" HEX: ");
- 123              		.loc 1 43 0
- 124 0052 0B48     		ldr	r0, .L5+4
- 125 0054 FFF7FEFF 		bl	LCD_PrintString
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 4
-
-
-  44:.\8051_read.c ****     LCD_PrintNumber(current); //print value I am getting
- 126              		.loc 1 44 0
- 127 0058 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 128 005a 1846     		mov	r0, r3
- 129 005c FFF7FEFF 		bl	LCD_PrintU32Number
-  45:.\8051_read.c ****     
-  46:.\8051_read.c ****     waiter(5);
- 130              		.loc 1 46 0
- 131 0060 0520     		movs	r0, #5
- 132 0062 FFF7FEFF 		bl	waiter
-  47:.\8051_read.c ****     if (current == 255) return Values; // do not return new value
+ 124              		.size	read_Values, .-read_Values
+ 125              		.section	.text.read_from_8255,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	read_from_8255
+ 128              		.thumb
+ 129              		.thumb_func
+ 130              		.type	read_from_8255, %function
+ 131              	read_from_8255:
+ 132              	.LFB64:
+  46:.\8051_read.c **** 
+  47:.\8051_read.c **** uint8 read_from_8255(uint8 Values){
  133              		.loc 1 47 0
- 134 0066 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 135 0068 FF2B     		cmp	r3, #255
- 136 006a 01D1     		bne	.L3
- 137              		.loc 1 47 0 is_stmt 0 discriminator 1
- 138 006c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 139 006e 00E0     		b	.L4
- 140              	.L3:
-  48:.\8051_read.c ****     else return current; // return current nonzero value
- 141              		.loc 1 48 0 is_stmt 1
- 142 0070 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 143              	.L4:
-  49:.\8051_read.c **** }...
- 144              		.loc 1 49 0
- 145 0072 1846     		mov	r0, r3
- 146 0074 1037     		adds	r7, r7, #16
- 147              		.cfi_def_cfa_offset 8
- 148 0076 BD46     		mov	sp, r7
- 149              		.cfi_def_cfa_register 13
- 150              		@ sp needed
- 151 0078 80BD     		pop	{r7, pc}
- 152              	.L6:
- 153 007a 00BF     		.align	2
- 154              	.L5:
- 155 007c 00000000 		.word	.LC0
- 156 0080 08000000 		.word	.LC1
- 157 0084 10000000 		.word	.LC2
- 158              		.cfi_endproc
- 159              	.LFE64:
- 160              		.size	read_from_8255, .-read_from_8255
- 161              		.text
- 162              	.Letext0:
- 163              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 164              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 165              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 166              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 167              		.section	.debug_info,"",%progbits
- 168              	.Ldebug_info0:
- 169 0000 2E010000 		.4byte	0x12e
- 170 0004 0400     		.2byte	0x4
- 171 0006 00000000 		.4byte	.Ldebug_abbrev0
- 172 000a 04       		.byte	0x4
- 173 000b 01       		.uleb128 0x1
- 174 000c 03010000 		.4byte	.LASF20
- 175 0010 01       		.byte	0x1
- 176 0011 3B000000 		.4byte	.LASF21
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 5
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 16
+ 136              		@ frame_needed = 1, uses_anonymous_args = 0
+ 137 0000 80B5     		push	{r7, lr}
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 7, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 84B0     		sub	sp, sp, #16
+ 142              		.cfi_def_cfa_offset 24
+ 143 0004 00AF     		add	r7, sp, #0
+ 144              		.cfi_def_cfa_register 7
+ 145 0006 0346     		mov	r3, r0
+ 146 0008 FB71     		strb	r3, [r7, #7]
+  48:.\8051_read.c ****     // this function reads the live value from 8255 output. 
+  49:.\8051_read.c ****     // connected via databus on port 3
+  50:.\8051_read.c ****     // and displays on the LCD
+  51:.\8051_read.c ****     // this function assumes that LCD_Start() has already been run;
+  52:.\8051_read.c ****     // And uint8 Values has been declared
+  53:.\8051_read.c ****     LCD_ClearDisplay();
+ 147              		.loc 1 53 0
+ 148 000a 0120     		movs	r0, #1
+ 149 000c FFF7FEFF 		bl	LCD_WriteControl
+  54:.\8051_read.c ****     LCD_Position(1,0); //move to bot row
+ 150              		.loc 1 54 0
+ 151 0010 0120     		movs	r0, #1
+ 152 0012 0021     		movs	r1, #0
+ 153 0014 FFF7FEFF 		bl	LCD_Position
+  55:.\8051_read.c ****     LCD_PrintString("LAST:"); //first, we print last value
+ 154              		.loc 1 55 0
+ 155 0018 1848     		ldr	r0, .L9
+ 156 001a FFF7FEFF 		bl	LCD_PrintString
+  56:.\8051_read.c ****     LCD_PutChar(Values); //print ascii value
+ 157              		.loc 1 56 0
+ 158 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 159 0020 1846     		mov	r0, r3
+ 160 0022 FFF7FEFF 		bl	LCD_PutChar
+  57:.\8051_read.c ****     LCD_PrintString(" HEX: ");
+ 161              		.loc 1 57 0
+ 162 0026 1648     		ldr	r0, .L9+4
+ 163 0028 FFF7FEFF 		bl	LCD_PrintString
+  58:.\8051_read.c ****     LCD_PrintNumber(Values); //print value I am getting
+ 164              		.loc 1 58 0
+ 165 002c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 166 002e 1846     		mov	r0, r3
+ 167 0030 FFF7FEFF 		bl	LCD_PrintU32Number
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 5
 
 
- 177 0015 95000000 		.4byte	.LASF22
- 178 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 179 001d 00000000 		.4byte	0
- 180 0021 00000000 		.4byte	.Ldebug_line0
- 181 0025 02       		.uleb128 0x2
- 182 0026 01       		.byte	0x1
- 183 0027 06       		.byte	0x6
- 184 0028 BF010000 		.4byte	.LASF0
- 185 002c 02       		.uleb128 0x2
- 186 002d 01       		.byte	0x1
- 187 002e 08       		.byte	0x8
- 188 002f 82000000 		.4byte	.LASF1
- 189 0033 02       		.uleb128 0x2
- 190 0034 02       		.byte	0x2
- 191 0035 05       		.byte	0x5
- 192 0036 DB010000 		.4byte	.LASF2
- 193 003a 02       		.uleb128 0x2
- 194 003b 02       		.byte	0x2
- 195 003c 07       		.byte	0x7
- 196 003d 0E000000 		.4byte	.LASF3
- 197 0041 03       		.uleb128 0x3
- 198 0042 CB010000 		.4byte	.LASF9
- 199 0046 02       		.byte	0x2
- 200 0047 3F       		.byte	0x3f
- 201 0048 4C000000 		.4byte	0x4c
- 202 004c 02       		.uleb128 0x2
- 203 004d 04       		.byte	0x4
- 204 004e 05       		.byte	0x5
- 205 004f FA000000 		.4byte	.LASF4
- 206 0053 02       		.uleb128 0x2
- 207 0054 04       		.byte	0x4
- 208 0055 07       		.byte	0x7
- 209 0056 91010000 		.4byte	.LASF5
- 210 005a 02       		.uleb128 0x2
- 211 005b 08       		.byte	0x8
- 212 005c 05       		.byte	0x5
- 213 005d 00000000 		.4byte	.LASF6
- 214 0061 02       		.uleb128 0x2
- 215 0062 08       		.byte	0x8
- 216 0063 07       		.byte	0x7
- 217 0064 5C000000 		.4byte	.LASF7
- 218 0068 04       		.uleb128 0x4
- 219 0069 04       		.byte	0x4
- 220 006a 05       		.byte	0x5
- 221 006b 696E7400 		.ascii	"int\000"
- 222 006f 02       		.uleb128 0x2
- 223 0070 04       		.byte	0x4
- 224 0071 07       		.byte	0x7
- 225 0072 21000000 		.4byte	.LASF8
- 226 0076 03       		.uleb128 0x3
- 227 0077 EC010000 		.4byte	.LASF10
- 228 007b 03       		.byte	0x3
- 229 007c 2C       		.byte	0x2c
- 230 007d 41000000 		.4byte	0x41
- 231 0081 05       		.uleb128 0x5
- 232 0082 35000000 		.4byte	.LASF11
- 233 0086 04       		.byte	0x4
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 6
+  59:.\8051_read.c ****     
+  60:.\8051_read.c ****     uint8 current;
+  61:.\8051_read.c ****     current = Pin3_Read(); //next, read a new value
+ 168              		.loc 1 61 0
+ 169 0034 FFF7FEFF 		bl	Pin3_Read
+ 170 0038 0346     		mov	r3, r0
+ 171 003a FB73     		strb	r3, [r7, #15]
+  62:.\8051_read.c ****     LCD_Position(0,0); //move back to top row
+ 172              		.loc 1 62 0
+ 173 003c 0020     		movs	r0, #0
+ 174 003e 0021     		movs	r1, #0
+ 175 0040 FFF7FEFF 		bl	LCD_Position
+  63:.\8051_read.c ****     LCD_PrintString("CURR:");
+ 176              		.loc 1 63 0
+ 177 0044 0F48     		ldr	r0, .L9+8
+ 178 0046 FFF7FEFF 		bl	LCD_PrintString
+  64:.\8051_read.c ****     LCD_PutChar(current); //print ascii value
+ 179              		.loc 1 64 0
+ 180 004a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 181 004c 1846     		mov	r0, r3
+ 182 004e FFF7FEFF 		bl	LCD_PutChar
+  65:.\8051_read.c ****     LCD_PrintString(" HEX: ");
+ 183              		.loc 1 65 0
+ 184 0052 0B48     		ldr	r0, .L9+4
+ 185 0054 FFF7FEFF 		bl	LCD_PrintString
+  66:.\8051_read.c ****     LCD_PrintNumber(current); //print value I am getting
+ 186              		.loc 1 66 0
+ 187 0058 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 188 005a 1846     		mov	r0, r3
+ 189 005c FFF7FEFF 		bl	LCD_PrintU32Number
+  67:.\8051_read.c ****     
+  68:.\8051_read.c ****     waiter(5);
+ 190              		.loc 1 68 0
+ 191 0060 0520     		movs	r0, #5
+ 192 0062 FFF7FEFF 		bl	waiter
+  69:.\8051_read.c ****     if (current == 255) return Values; // do not return new value
+ 193              		.loc 1 69 0
+ 194 0066 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 195 0068 FF2B     		cmp	r3, #255
+ 196 006a 01D1     		bne	.L7
+ 197              		.loc 1 69 0 is_stmt 0 discriminator 1
+ 198 006c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 199 006e 00E0     		b	.L8
+ 200              	.L7:
+  70:.\8051_read.c ****     else return current; // return current nonzero value
+ 201              		.loc 1 70 0 is_stmt 1
+ 202 0070 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 203              	.L8:
+  71:.\8051_read.c **** }...
+ 204              		.loc 1 71 0
+ 205 0072 1846     		mov	r0, r3
+ 206 0074 1037     		adds	r7, r7, #16
+ 207              		.cfi_def_cfa_offset 8
+ 208 0076 BD46     		mov	sp, r7
+ 209              		.cfi_def_cfa_register 13
+ 210              		@ sp needed
+ 211 0078 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 6
 
 
- 234 0087 3801     		.2byte	0x138
- 235 0089 2C000000 		.4byte	0x2c
- 236 008d 05       		.uleb128 0x5
- 237 008e E5010000 		.4byte	.LASF12
- 238 0092 04       		.byte	0x4
- 239 0093 3901     		.2byte	0x139
- 240 0095 3A000000 		.4byte	0x3a
- 241 0099 02       		.uleb128 0x2
- 242 009a 04       		.byte	0x4
- 243 009b 04       		.byte	0x4
- 244 009c D5010000 		.4byte	.LASF13
- 245 00a0 02       		.uleb128 0x2
- 246 00a1 08       		.byte	0x8
- 247 00a2 04       		.byte	0x4
- 248 00a3 A3010000 		.4byte	.LASF14
- 249 00a7 02       		.uleb128 0x2
- 250 00a8 01       		.byte	0x1
- 251 00a9 08       		.byte	0x8
- 252 00aa 90000000 		.4byte	.LASF15
- 253 00ae 02       		.uleb128 0x2
- 254 00af 04       		.byte	0x4
- 255 00b0 07       		.byte	0x7
- 256 00b1 F4010000 		.4byte	.LASF16
- 257 00b5 06       		.uleb128 0x6
- 258 00b6 49000000 		.4byte	.LASF17
- 259 00ba 01       		.byte	0x1
- 260 00bb 15       		.byte	0x15
- 261 00bc 81000000 		.4byte	0x81
- 262 00c0 00000000 		.4byte	.LFB63
- 263 00c4 16000000 		.4byte	.LFE63-.LFB63
- 264 00c8 01       		.uleb128 0x1
- 265 00c9 9C       		.byte	0x9c
- 266 00ca DD000000 		.4byte	0xdd
- 267 00ce 07       		.uleb128 0x7
- 268 00cf 2E000000 		.4byte	.LASF19
- 269 00d3 01       		.byte	0x1
- 270 00d4 15       		.byte	0x15
- 271 00d5 81000000 		.4byte	0x81
- 272 00d9 02       		.uleb128 0x2
- 273 00da 91       		.byte	0x91
- 274 00db 77       		.sleb128 -9
- 275 00dc 00       		.byte	0
- 276 00dd 08       		.uleb128 0x8
- 277 00de 73000000 		.4byte	.LASF18
- 278 00e2 01       		.byte	0x1
- 279 00e3 19       		.byte	0x19
- 280 00e4 81000000 		.4byte	0x81
- 281 00e8 00000000 		.4byte	.LFB64
- 282 00ec 88000000 		.4byte	.LFE64-.LFB64
- 283 00f0 01       		.uleb128 0x1
- 284 00f1 9C       		.byte	0x9c
- 285 00f2 20010000 		.4byte	0x120
- 286 00f6 07       		.uleb128 0x7
- 287 00f7 2E000000 		.4byte	.LASF19
- 288 00fb 01       		.byte	0x1
- 289 00fc 19       		.byte	0x19
- 290 00fd 81000000 		.4byte	0x81
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 7
+ 212              	.L10:
+ 213 007a 00BF     		.align	2
+ 214              	.L9:
+ 215 007c 00000000 		.word	.LC0
+ 216 0080 08000000 		.word	.LC1
+ 217 0084 10000000 		.word	.LC2
+ 218              		.cfi_endproc
+ 219              	.LFE64:
+ 220              		.size	read_from_8255, .-read_from_8255
+ 221              		.text
+ 222              	.Letext0:
+ 223              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 224              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 225              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 226              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 227              		.section	.debug_info,"",%progbits
+ 228              	.Ldebug_info0:
+ 229 0000 49010000 		.4byte	0x149
+ 230 0004 0400     		.2byte	0x4
+ 231 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 232 000a 04       		.byte	0x4
+ 233 000b 01       		.uleb128 0x1
+ 234 000c 03010000 		.4byte	.LASF22
+ 235 0010 01       		.byte	0x1
+ 236 0011 3B000000 		.4byte	.LASF23
+ 237 0015 95000000 		.4byte	.LASF24
+ 238 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 239 001d 00000000 		.4byte	0
+ 240 0021 00000000 		.4byte	.Ldebug_line0
+ 241 0025 02       		.uleb128 0x2
+ 242 0026 01       		.byte	0x1
+ 243 0027 06       		.byte	0x6
+ 244 0028 BF010000 		.4byte	.LASF0
+ 245 002c 02       		.uleb128 0x2
+ 246 002d 01       		.byte	0x1
+ 247 002e 08       		.byte	0x8
+ 248 002f 82000000 		.4byte	.LASF1
+ 249 0033 02       		.uleb128 0x2
+ 250 0034 02       		.byte	0x2
+ 251 0035 05       		.byte	0x5
+ 252 0036 DB010000 		.4byte	.LASF2
+ 253 003a 02       		.uleb128 0x2
+ 254 003b 02       		.byte	0x2
+ 255 003c 07       		.byte	0x7
+ 256 003d 0E000000 		.4byte	.LASF3
+ 257 0041 03       		.uleb128 0x3
+ 258 0042 CB010000 		.4byte	.LASF9
+ 259 0046 02       		.byte	0x2
+ 260 0047 3F       		.byte	0x3f
+ 261 0048 4C000000 		.4byte	0x4c
+ 262 004c 02       		.uleb128 0x2
+ 263 004d 04       		.byte	0x4
+ 264 004e 05       		.byte	0x5
+ 265 004f FA000000 		.4byte	.LASF4
+ 266 0053 02       		.uleb128 0x2
+ 267 0054 04       		.byte	0x4
+ 268 0055 07       		.byte	0x7
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 7
 
 
- 291 0101 02       		.uleb128 0x2
- 292 0102 91       		.byte	0x91
- 293 0103 6F       		.sleb128 -17
- 294 0104 09       		.uleb128 0x9
- 295 0105 AA010000 		.4byte	.LASF23
- 296 0109 01       		.byte	0x1
- 297 010a 26       		.byte	0x26
- 298 010b 81000000 		.4byte	0x81
- 299 010f 02       		.uleb128 0x2
- 300 0110 91       		.byte	0x91
- 301 0111 77       		.sleb128 -9
- 302 0112 0A       		.uleb128 0xa
- 303 0113 55000000 		.4byte	.LASF24
- 304 0117 01       		.byte	0x1
- 305 0118 2E       		.byte	0x2e
- 306 0119 68000000 		.4byte	0x68
- 307 011d 0B       		.uleb128 0xb
- 308 011e 00       		.byte	0
- 309 011f 00       		.byte	0
- 310 0120 0C       		.uleb128 0xc
- 311 0121 B2010000 		.4byte	.LASF25
- 312 0125 05       		.byte	0x5
- 313 0126 5506     		.2byte	0x655
- 314 0128 2C010000 		.4byte	0x12c
- 315 012c 0D       		.uleb128 0xd
- 316 012d 76000000 		.4byte	0x76
- 317 0131 00       		.byte	0
- 318              		.section	.debug_abbrev,"",%progbits
- 319              	.Ldebug_abbrev0:
- 320 0000 01       		.uleb128 0x1
- 321 0001 11       		.uleb128 0x11
- 322 0002 01       		.byte	0x1
- 323 0003 25       		.uleb128 0x25
- 324 0004 0E       		.uleb128 0xe
- 325 0005 13       		.uleb128 0x13
- 326 0006 0B       		.uleb128 0xb
- 327 0007 03       		.uleb128 0x3
- 328 0008 0E       		.uleb128 0xe
- 329 0009 1B       		.uleb128 0x1b
- 330 000a 0E       		.uleb128 0xe
- 331 000b 55       		.uleb128 0x55
- 332 000c 17       		.uleb128 0x17
- 333 000d 11       		.uleb128 0x11
- 334 000e 01       		.uleb128 0x1
- 335 000f 10       		.uleb128 0x10
- 336 0010 17       		.uleb128 0x17
- 337 0011 00       		.byte	0
- 338 0012 00       		.byte	0
- 339 0013 02       		.uleb128 0x2
- 340 0014 24       		.uleb128 0x24
- 341 0015 00       		.byte	0
- 342 0016 0B       		.uleb128 0xb
- 343 0017 0B       		.uleb128 0xb
- 344 0018 3E       		.uleb128 0x3e
- 345 0019 0B       		.uleb128 0xb
- 346 001a 03       		.uleb128 0x3
- 347 001b 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 8
+ 269 0056 91010000 		.4byte	.LASF5
+ 270 005a 02       		.uleb128 0x2
+ 271 005b 08       		.byte	0x8
+ 272 005c 05       		.byte	0x5
+ 273 005d 00000000 		.4byte	.LASF6
+ 274 0061 02       		.uleb128 0x2
+ 275 0062 08       		.byte	0x8
+ 276 0063 07       		.byte	0x7
+ 277 0064 5C000000 		.4byte	.LASF7
+ 278 0068 04       		.uleb128 0x4
+ 279 0069 04       		.byte	0x4
+ 280 006a 05       		.byte	0x5
+ 281 006b 696E7400 		.ascii	"int\000"
+ 282 006f 02       		.uleb128 0x2
+ 283 0070 04       		.byte	0x4
+ 284 0071 07       		.byte	0x7
+ 285 0072 21000000 		.4byte	.LASF8
+ 286 0076 03       		.uleb128 0x3
+ 287 0077 EC010000 		.4byte	.LASF10
+ 288 007b 03       		.byte	0x3
+ 289 007c 2C       		.byte	0x2c
+ 290 007d 41000000 		.4byte	0x41
+ 291 0081 05       		.uleb128 0x5
+ 292 0082 35000000 		.4byte	.LASF11
+ 293 0086 04       		.byte	0x4
+ 294 0087 3801     		.2byte	0x138
+ 295 0089 2C000000 		.4byte	0x2c
+ 296 008d 05       		.uleb128 0x5
+ 297 008e E5010000 		.4byte	.LASF12
+ 298 0092 04       		.byte	0x4
+ 299 0093 3901     		.2byte	0x139
+ 300 0095 3A000000 		.4byte	0x3a
+ 301 0099 02       		.uleb128 0x2
+ 302 009a 04       		.byte	0x4
+ 303 009b 04       		.byte	0x4
+ 304 009c D5010000 		.4byte	.LASF13
+ 305 00a0 02       		.uleb128 0x2
+ 306 00a1 08       		.byte	0x8
+ 307 00a2 04       		.byte	0x4
+ 308 00a3 A3010000 		.4byte	.LASF14
+ 309 00a7 02       		.uleb128 0x2
+ 310 00a8 01       		.byte	0x1
+ 311 00a9 08       		.byte	0x8
+ 312 00aa 90000000 		.4byte	.LASF15
+ 313 00ae 02       		.uleb128 0x2
+ 314 00af 04       		.byte	0x4
+ 315 00b0 07       		.byte	0x7
+ 316 00b1 F4010000 		.4byte	.LASF16
+ 317 00b5 06       		.uleb128 0x6
+ 318 00b6 49000000 		.4byte	.LASF17
+ 319 00ba 01       		.byte	0x1
+ 320 00bb 15       		.byte	0x15
+ 321 00bc 81000000 		.4byte	0x81
+ 322 00c0 00000000 		.4byte	.LFB63
+ 323 00c4 88000000 		.4byte	.LFE63-.LFB63
+ 324 00c8 01       		.uleb128 0x1
+ 325 00c9 9C       		.byte	0x9c
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 8
 
 
- 348 001c 00       		.byte	0
- 349 001d 00       		.byte	0
- 350 001e 03       		.uleb128 0x3
- 351 001f 16       		.uleb128 0x16
- 352 0020 00       		.byte	0
- 353 0021 03       		.uleb128 0x3
- 354 0022 0E       		.uleb128 0xe
- 355 0023 3A       		.uleb128 0x3a
- 356 0024 0B       		.uleb128 0xb
- 357 0025 3B       		.uleb128 0x3b
- 358 0026 0B       		.uleb128 0xb
- 359 0027 49       		.uleb128 0x49
- 360 0028 13       		.uleb128 0x13
- 361 0029 00       		.byte	0
- 362 002a 00       		.byte	0
- 363 002b 04       		.uleb128 0x4
- 364 002c 24       		.uleb128 0x24
- 365 002d 00       		.byte	0
- 366 002e 0B       		.uleb128 0xb
- 367 002f 0B       		.uleb128 0xb
- 368 0030 3E       		.uleb128 0x3e
- 369 0031 0B       		.uleb128 0xb
- 370 0032 03       		.uleb128 0x3
- 371 0033 08       		.uleb128 0x8
- 372 0034 00       		.byte	0
- 373 0035 00       		.byte	0
- 374 0036 05       		.uleb128 0x5
- 375 0037 16       		.uleb128 0x16
- 376 0038 00       		.byte	0
- 377 0039 03       		.uleb128 0x3
- 378 003a 0E       		.uleb128 0xe
- 379 003b 3A       		.uleb128 0x3a
- 380 003c 0B       		.uleb128 0xb
- 381 003d 3B       		.uleb128 0x3b
- 382 003e 05       		.uleb128 0x5
- 383 003f 49       		.uleb128 0x49
- 384 0040 13       		.uleb128 0x13
- 385 0041 00       		.byte	0
- 386 0042 00       		.byte	0
- 387 0043 06       		.uleb128 0x6
- 388 0044 2E       		.uleb128 0x2e
- 389 0045 01       		.byte	0x1
- 390 0046 3F       		.uleb128 0x3f
- 391 0047 19       		.uleb128 0x19
- 392 0048 03       		.uleb128 0x3
- 393 0049 0E       		.uleb128 0xe
- 394 004a 3A       		.uleb128 0x3a
- 395 004b 0B       		.uleb128 0xb
- 396 004c 3B       		.uleb128 0x3b
- 397 004d 0B       		.uleb128 0xb
- 398 004e 27       		.uleb128 0x27
- 399 004f 19       		.uleb128 0x19
- 400 0050 49       		.uleb128 0x49
- 401 0051 13       		.uleb128 0x13
- 402 0052 11       		.uleb128 0x11
- 403 0053 01       		.uleb128 0x1
- 404 0054 12       		.uleb128 0x12
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 9
+ 326 00ca F8000000 		.4byte	0xf8
+ 327 00ce 07       		.uleb128 0x7
+ 328 00cf 2E000000 		.4byte	.LASF19
+ 329 00d3 01       		.byte	0x1
+ 330 00d4 15       		.byte	0x15
+ 331 00d5 81000000 		.4byte	0x81
+ 332 00d9 02       		.uleb128 0x2
+ 333 00da 91       		.byte	0x91
+ 334 00db 6F       		.sleb128 -17
+ 335 00dc 08       		.uleb128 0x8
+ 336 00dd AA010000 		.4byte	.LASF20
+ 337 00e1 01       		.byte	0x1
+ 338 00e2 22       		.byte	0x22
+ 339 00e3 81000000 		.4byte	0x81
+ 340 00e7 02       		.uleb128 0x2
+ 341 00e8 91       		.byte	0x91
+ 342 00e9 77       		.sleb128 -9
+ 343 00ea 09       		.uleb128 0x9
+ 344 00eb 55000000 		.4byte	.LASF21
+ 345 00ef 01       		.byte	0x1
+ 346 00f0 2A       		.byte	0x2a
+ 347 00f1 68000000 		.4byte	0x68
+ 348 00f5 0A       		.uleb128 0xa
+ 349 00f6 00       		.byte	0
+ 350 00f7 00       		.byte	0
+ 351 00f8 06       		.uleb128 0x6
+ 352 00f9 73000000 		.4byte	.LASF18
+ 353 00fd 01       		.byte	0x1
+ 354 00fe 2F       		.byte	0x2f
+ 355 00ff 81000000 		.4byte	0x81
+ 356 0103 00000000 		.4byte	.LFB64
+ 357 0107 88000000 		.4byte	.LFE64-.LFB64
+ 358 010b 01       		.uleb128 0x1
+ 359 010c 9C       		.byte	0x9c
+ 360 010d 3B010000 		.4byte	0x13b
+ 361 0111 07       		.uleb128 0x7
+ 362 0112 2E000000 		.4byte	.LASF19
+ 363 0116 01       		.byte	0x1
+ 364 0117 2F       		.byte	0x2f
+ 365 0118 81000000 		.4byte	0x81
+ 366 011c 02       		.uleb128 0x2
+ 367 011d 91       		.byte	0x91
+ 368 011e 6F       		.sleb128 -17
+ 369 011f 08       		.uleb128 0x8
+ 370 0120 AA010000 		.4byte	.LASF20
+ 371 0124 01       		.byte	0x1
+ 372 0125 3C       		.byte	0x3c
+ 373 0126 81000000 		.4byte	0x81
+ 374 012a 02       		.uleb128 0x2
+ 375 012b 91       		.byte	0x91
+ 376 012c 77       		.sleb128 -9
+ 377 012d 09       		.uleb128 0x9
+ 378 012e 55000000 		.4byte	.LASF21
+ 379 0132 01       		.byte	0x1
+ 380 0133 2A       		.byte	0x2a
+ 381 0134 68000000 		.4byte	0x68
+ 382 0138 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 9
 
 
- 405 0055 06       		.uleb128 0x6
- 406 0056 40       		.uleb128 0x40
- 407 0057 18       		.uleb128 0x18
- 408 0058 9742     		.uleb128 0x2117
- 409 005a 19       		.uleb128 0x19
- 410 005b 01       		.uleb128 0x1
- 411 005c 13       		.uleb128 0x13
- 412 005d 00       		.byte	0
- 413 005e 00       		.byte	0
- 414 005f 07       		.uleb128 0x7
- 415 0060 05       		.uleb128 0x5
- 416 0061 00       		.byte	0
- 417 0062 03       		.uleb128 0x3
- 418 0063 0E       		.uleb128 0xe
- 419 0064 3A       		.uleb128 0x3a
- 420 0065 0B       		.uleb128 0xb
- 421 0066 3B       		.uleb128 0x3b
- 422 0067 0B       		.uleb128 0xb
- 423 0068 49       		.uleb128 0x49
- 424 0069 13       		.uleb128 0x13
- 425 006a 02       		.uleb128 0x2
- 426 006b 18       		.uleb128 0x18
- 427 006c 00       		.byte	0
- 428 006d 00       		.byte	0
- 429 006e 08       		.uleb128 0x8
- 430 006f 2E       		.uleb128 0x2e
- 431 0070 01       		.byte	0x1
- 432 0071 3F       		.uleb128 0x3f
- 433 0072 19       		.uleb128 0x19
- 434 0073 03       		.uleb128 0x3
- 435 0074 0E       		.uleb128 0xe
- 436 0075 3A       		.uleb128 0x3a
- 437 0076 0B       		.uleb128 0xb
- 438 0077 3B       		.uleb128 0x3b
- 439 0078 0B       		.uleb128 0xb
- 440 0079 27       		.uleb128 0x27
- 441 007a 19       		.uleb128 0x19
- 442 007b 49       		.uleb128 0x49
- 443 007c 13       		.uleb128 0x13
- 444 007d 11       		.uleb128 0x11
- 445 007e 01       		.uleb128 0x1
- 446 007f 12       		.uleb128 0x12
- 447 0080 06       		.uleb128 0x6
- 448 0081 40       		.uleb128 0x40
- 449 0082 18       		.uleb128 0x18
- 450 0083 9642     		.uleb128 0x2116
- 451 0085 19       		.uleb128 0x19
- 452 0086 01       		.uleb128 0x1
- 453 0087 13       		.uleb128 0x13
- 454 0088 00       		.byte	0
- 455 0089 00       		.byte	0
- 456 008a 09       		.uleb128 0x9
- 457 008b 34       		.uleb128 0x34
- 458 008c 00       		.byte	0
- 459 008d 03       		.uleb128 0x3
- 460 008e 0E       		.uleb128 0xe
- 461 008f 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 10
+ 383 0139 00       		.byte	0
+ 384 013a 00       		.byte	0
+ 385 013b 0B       		.uleb128 0xb
+ 386 013c B2010000 		.4byte	.LASF25
+ 387 0140 05       		.byte	0x5
+ 388 0141 5506     		.2byte	0x655
+ 389 0143 47010000 		.4byte	0x147
+ 390 0147 0C       		.uleb128 0xc
+ 391 0148 76000000 		.4byte	0x76
+ 392 014c 00       		.byte	0
+ 393              		.section	.debug_abbrev,"",%progbits
+ 394              	.Ldebug_abbrev0:
+ 395 0000 01       		.uleb128 0x1
+ 396 0001 11       		.uleb128 0x11
+ 397 0002 01       		.byte	0x1
+ 398 0003 25       		.uleb128 0x25
+ 399 0004 0E       		.uleb128 0xe
+ 400 0005 13       		.uleb128 0x13
+ 401 0006 0B       		.uleb128 0xb
+ 402 0007 03       		.uleb128 0x3
+ 403 0008 0E       		.uleb128 0xe
+ 404 0009 1B       		.uleb128 0x1b
+ 405 000a 0E       		.uleb128 0xe
+ 406 000b 55       		.uleb128 0x55
+ 407 000c 17       		.uleb128 0x17
+ 408 000d 11       		.uleb128 0x11
+ 409 000e 01       		.uleb128 0x1
+ 410 000f 10       		.uleb128 0x10
+ 411 0010 17       		.uleb128 0x17
+ 412 0011 00       		.byte	0
+ 413 0012 00       		.byte	0
+ 414 0013 02       		.uleb128 0x2
+ 415 0014 24       		.uleb128 0x24
+ 416 0015 00       		.byte	0
+ 417 0016 0B       		.uleb128 0xb
+ 418 0017 0B       		.uleb128 0xb
+ 419 0018 3E       		.uleb128 0x3e
+ 420 0019 0B       		.uleb128 0xb
+ 421 001a 03       		.uleb128 0x3
+ 422 001b 0E       		.uleb128 0xe
+ 423 001c 00       		.byte	0
+ 424 001d 00       		.byte	0
+ 425 001e 03       		.uleb128 0x3
+ 426 001f 16       		.uleb128 0x16
+ 427 0020 00       		.byte	0
+ 428 0021 03       		.uleb128 0x3
+ 429 0022 0E       		.uleb128 0xe
+ 430 0023 3A       		.uleb128 0x3a
+ 431 0024 0B       		.uleb128 0xb
+ 432 0025 3B       		.uleb128 0x3b
+ 433 0026 0B       		.uleb128 0xb
+ 434 0027 49       		.uleb128 0x49
+ 435 0028 13       		.uleb128 0x13
+ 436 0029 00       		.byte	0
+ 437 002a 00       		.byte	0
+ 438 002b 04       		.uleb128 0x4
+ 439 002c 24       		.uleb128 0x24
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 10
 
 
- 462 0090 0B       		.uleb128 0xb
- 463 0091 3B       		.uleb128 0x3b
- 464 0092 0B       		.uleb128 0xb
- 465 0093 49       		.uleb128 0x49
- 466 0094 13       		.uleb128 0x13
- 467 0095 02       		.uleb128 0x2
- 468 0096 18       		.uleb128 0x18
- 469 0097 00       		.byte	0
- 470 0098 00       		.byte	0
- 471 0099 0A       		.uleb128 0xa
- 472 009a 2E       		.uleb128 0x2e
- 473 009b 01       		.byte	0x1
- 474 009c 3F       		.uleb128 0x3f
- 475 009d 19       		.uleb128 0x19
- 476 009e 03       		.uleb128 0x3
- 477 009f 0E       		.uleb128 0xe
- 478 00a0 3A       		.uleb128 0x3a
- 479 00a1 0B       		.uleb128 0xb
- 480 00a2 3B       		.uleb128 0x3b
- 481 00a3 0B       		.uleb128 0xb
- 482 00a4 49       		.uleb128 0x49
- 483 00a5 13       		.uleb128 0x13
- 484 00a6 3C       		.uleb128 0x3c
- 485 00a7 19       		.uleb128 0x19
- 486 00a8 00       		.byte	0
- 487 00a9 00       		.byte	0
- 488 00aa 0B       		.uleb128 0xb
- 489 00ab 18       		.uleb128 0x18
- 490 00ac 00       		.byte	0
- 491 00ad 00       		.byte	0
- 492 00ae 00       		.byte	0
- 493 00af 0C       		.uleb128 0xc
- 494 00b0 34       		.uleb128 0x34
- 495 00b1 00       		.byte	0
- 496 00b2 03       		.uleb128 0x3
- 497 00b3 0E       		.uleb128 0xe
- 498 00b4 3A       		.uleb128 0x3a
- 499 00b5 0B       		.uleb128 0xb
- 500 00b6 3B       		.uleb128 0x3b
- 501 00b7 05       		.uleb128 0x5
- 502 00b8 49       		.uleb128 0x49
- 503 00b9 13       		.uleb128 0x13
- 504 00ba 3F       		.uleb128 0x3f
- 505 00bb 19       		.uleb128 0x19
- 506 00bc 3C       		.uleb128 0x3c
- 507 00bd 19       		.uleb128 0x19
- 508 00be 00       		.byte	0
- 509 00bf 00       		.byte	0
- 510 00c0 0D       		.uleb128 0xd
- 511 00c1 35       		.uleb128 0x35
- 512 00c2 00       		.byte	0
- 513 00c3 49       		.uleb128 0x49
- 514 00c4 13       		.uleb128 0x13
- 515 00c5 00       		.byte	0
- 516 00c6 00       		.byte	0
- 517 00c7 00       		.byte	0
- 518              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 11
+ 440 002d 00       		.byte	0
+ 441 002e 0B       		.uleb128 0xb
+ 442 002f 0B       		.uleb128 0xb
+ 443 0030 3E       		.uleb128 0x3e
+ 444 0031 0B       		.uleb128 0xb
+ 445 0032 03       		.uleb128 0x3
+ 446 0033 08       		.uleb128 0x8
+ 447 0034 00       		.byte	0
+ 448 0035 00       		.byte	0
+ 449 0036 05       		.uleb128 0x5
+ 450 0037 16       		.uleb128 0x16
+ 451 0038 00       		.byte	0
+ 452 0039 03       		.uleb128 0x3
+ 453 003a 0E       		.uleb128 0xe
+ 454 003b 3A       		.uleb128 0x3a
+ 455 003c 0B       		.uleb128 0xb
+ 456 003d 3B       		.uleb128 0x3b
+ 457 003e 05       		.uleb128 0x5
+ 458 003f 49       		.uleb128 0x49
+ 459 0040 13       		.uleb128 0x13
+ 460 0041 00       		.byte	0
+ 461 0042 00       		.byte	0
+ 462 0043 06       		.uleb128 0x6
+ 463 0044 2E       		.uleb128 0x2e
+ 464 0045 01       		.byte	0x1
+ 465 0046 3F       		.uleb128 0x3f
+ 466 0047 19       		.uleb128 0x19
+ 467 0048 03       		.uleb128 0x3
+ 468 0049 0E       		.uleb128 0xe
+ 469 004a 3A       		.uleb128 0x3a
+ 470 004b 0B       		.uleb128 0xb
+ 471 004c 3B       		.uleb128 0x3b
+ 472 004d 0B       		.uleb128 0xb
+ 473 004e 27       		.uleb128 0x27
+ 474 004f 19       		.uleb128 0x19
+ 475 0050 49       		.uleb128 0x49
+ 476 0051 13       		.uleb128 0x13
+ 477 0052 11       		.uleb128 0x11
+ 478 0053 01       		.uleb128 0x1
+ 479 0054 12       		.uleb128 0x12
+ 480 0055 06       		.uleb128 0x6
+ 481 0056 40       		.uleb128 0x40
+ 482 0057 18       		.uleb128 0x18
+ 483 0058 9642     		.uleb128 0x2116
+ 484 005a 19       		.uleb128 0x19
+ 485 005b 01       		.uleb128 0x1
+ 486 005c 13       		.uleb128 0x13
+ 487 005d 00       		.byte	0
+ 488 005e 00       		.byte	0
+ 489 005f 07       		.uleb128 0x7
+ 490 0060 05       		.uleb128 0x5
+ 491 0061 00       		.byte	0
+ 492 0062 03       		.uleb128 0x3
+ 493 0063 0E       		.uleb128 0xe
+ 494 0064 3A       		.uleb128 0x3a
+ 495 0065 0B       		.uleb128 0xb
+ 496 0066 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 11
 
 
- 519 0000 24000000 		.4byte	0x24
- 520 0004 0200     		.2byte	0x2
- 521 0006 00000000 		.4byte	.Ldebug_info0
- 522 000a 04       		.byte	0x4
- 523 000b 00       		.byte	0
- 524 000c 0000     		.2byte	0
- 525 000e 0000     		.2byte	0
- 526 0010 00000000 		.4byte	.LFB63
- 527 0014 16000000 		.4byte	.LFE63-.LFB63
- 528 0018 00000000 		.4byte	.LFB64
- 529 001c 88000000 		.4byte	.LFE64-.LFB64
- 530 0020 00000000 		.4byte	0
- 531 0024 00000000 		.4byte	0
- 532              		.section	.debug_ranges,"",%progbits
- 533              	.Ldebug_ranges0:
- 534 0000 00000000 		.4byte	.LFB63
- 535 0004 16000000 		.4byte	.LFE63
- 536 0008 00000000 		.4byte	.LFB64
- 537 000c 88000000 		.4byte	.LFE64
- 538 0010 00000000 		.4byte	0
- 539 0014 00000000 		.4byte	0
- 540              		.section	.debug_line,"",%progbits
- 541              	.Ldebug_line0:
- 542 0000 8A010000 		.section	.debug_str,"MS",%progbits,1
- 542      02004E01 
- 542      00000201 
- 542      FB0E0D00 
- 542      01010101 
- 543              	.LASF6:
- 544 0000 6C6F6E67 		.ascii	"long long int\000"
- 544      206C6F6E 
- 544      6720696E 
- 544      7400
- 545              	.LASF3:
- 546 000e 73686F72 		.ascii	"short unsigned int\000"
- 546      7420756E 
- 546      7369676E 
- 546      65642069 
- 546      6E7400
- 547              	.LASF8:
- 548 0021 756E7369 		.ascii	"unsigned int\000"
- 548      676E6564 
- 548      20696E74 
- 548      00
- 549              	.LASF19:
- 550 002e 56616C75 		.ascii	"Values\000"
- 550      657300
- 551              	.LASF11:
- 552 0035 75696E74 		.ascii	"uint8\000"
- 552      3800
- 553              	.LASF21:
- 554 003b 2E5C3830 		.ascii	".\\8051_read.c\000"
- 554      35315F72 
- 554      6561642E 
- 554      6300
- 555              	.LASF17:
- 556 0049 72656164 		.ascii	"read_Values\000"
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 12
+ 497 0067 0B       		.uleb128 0xb
+ 498 0068 49       		.uleb128 0x49
+ 499 0069 13       		.uleb128 0x13
+ 500 006a 02       		.uleb128 0x2
+ 501 006b 18       		.uleb128 0x18
+ 502 006c 00       		.byte	0
+ 503 006d 00       		.byte	0
+ 504 006e 08       		.uleb128 0x8
+ 505 006f 34       		.uleb128 0x34
+ 506 0070 00       		.byte	0
+ 507 0071 03       		.uleb128 0x3
+ 508 0072 0E       		.uleb128 0xe
+ 509 0073 3A       		.uleb128 0x3a
+ 510 0074 0B       		.uleb128 0xb
+ 511 0075 3B       		.uleb128 0x3b
+ 512 0076 0B       		.uleb128 0xb
+ 513 0077 49       		.uleb128 0x49
+ 514 0078 13       		.uleb128 0x13
+ 515 0079 02       		.uleb128 0x2
+ 516 007a 18       		.uleb128 0x18
+ 517 007b 00       		.byte	0
+ 518 007c 00       		.byte	0
+ 519 007d 09       		.uleb128 0x9
+ 520 007e 2E       		.uleb128 0x2e
+ 521 007f 01       		.byte	0x1
+ 522 0080 3F       		.uleb128 0x3f
+ 523 0081 19       		.uleb128 0x19
+ 524 0082 03       		.uleb128 0x3
+ 525 0083 0E       		.uleb128 0xe
+ 526 0084 3A       		.uleb128 0x3a
+ 527 0085 0B       		.uleb128 0xb
+ 528 0086 3B       		.uleb128 0x3b
+ 529 0087 0B       		.uleb128 0xb
+ 530 0088 49       		.uleb128 0x49
+ 531 0089 13       		.uleb128 0x13
+ 532 008a 3C       		.uleb128 0x3c
+ 533 008b 19       		.uleb128 0x19
+ 534 008c 00       		.byte	0
+ 535 008d 00       		.byte	0
+ 536 008e 0A       		.uleb128 0xa
+ 537 008f 18       		.uleb128 0x18
+ 538 0090 00       		.byte	0
+ 539 0091 00       		.byte	0
+ 540 0092 00       		.byte	0
+ 541 0093 0B       		.uleb128 0xb
+ 542 0094 34       		.uleb128 0x34
+ 543 0095 00       		.byte	0
+ 544 0096 03       		.uleb128 0x3
+ 545 0097 0E       		.uleb128 0xe
+ 546 0098 3A       		.uleb128 0x3a
+ 547 0099 0B       		.uleb128 0xb
+ 548 009a 3B       		.uleb128 0x3b
+ 549 009b 05       		.uleb128 0x5
+ 550 009c 49       		.uleb128 0x49
+ 551 009d 13       		.uleb128 0x13
+ 552 009e 3F       		.uleb128 0x3f
+ 553 009f 19       		.uleb128 0x19
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 12
 
 
- 556      5F56616C 
- 556      75657300 
- 557              	.LASF24:
- 558 0055 77616974 		.ascii	"waiter\000"
- 558      657200
- 559              	.LASF7:
- 560 005c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 560      206C6F6E 
- 560      6720756E 
- 560      7369676E 
- 560      65642069 
- 561              	.LASF18:
- 562 0073 72656164 		.ascii	"read_from_8255\000"
- 562      5F66726F 
- 562      6D5F3832 
- 562      353500
- 563              	.LASF1:
- 564 0082 756E7369 		.ascii	"unsigned char\000"
- 564      676E6564 
- 564      20636861 
- 564      7200
- 565              	.LASF15:
- 566 0090 63686172 		.ascii	"char\000"
- 566      00
- 567              	.LASF22:
- 568 0095 433A5C55 		.ascii	"C:\\Users\\Andrew\\Dropbox (Personal)\\MIT\\MIT 201"
- 568      73657273 
- 568      5C416E64 
- 568      7265775C 
- 568      44726F70 
- 569 00c3 36205370 		.ascii	"6 Spring\\6115\\Final Project\\Code\\VGA\\Tic Tac T"
- 569      72696E67 
- 569      5C363131 
- 569      355C4669 
- 569      6E616C20 
- 570 00f1 6F652E63 		.ascii	"oe.cydsn\000"
- 570      7964736E 
- 570      00
- 571              	.LASF4:
- 572 00fa 6C6F6E67 		.ascii	"long int\000"
- 572      20696E74 
- 572      00
- 573              	.LASF20:
- 574 0103 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 574      4320342E 
- 574      392E3320 
- 574      32303135 
- 574      30333033 
- 575 0136 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 575      20726576 
- 575      6973696F 
- 575      6E203232 
- 575      31323230 
- 576 0169 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 576      66756E63 
- 576      74696F6E 
- 576      2D736563 
-ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccRczWxf.s 			page 13
-
-
- 576      74696F6E 
- 577              	.LASF5:
- 578 0191 6C6F6E67 		.ascii	"long unsigned int\000"
- 578      20756E73 
- 578      69676E65 
- 578      6420696E 
- 578      7400
- 579              	.LASF14:
- 580 01a3 646F7562 		.ascii	"double\000"
- 580      6C6500
- 581              	.LASF23:
- 582 01aa 63757272 		.ascii	"current\000"
- 582      656E7400 
- 583              	.LASF25:
- 584 01b2 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 584      52784275 
- 584      66666572 
- 584      00
- 585              	.LASF0:
- 586 01bf 7369676E 		.ascii	"signed char\000"
- 586      65642063 
- 586      68617200 
- 587              	.LASF9:
- 588 01cb 5F5F696E 		.ascii	"__int32_t\000"
- 588      7433325F 
- 588      7400
- 589              	.LASF13:
- 590 01d5 666C6F61 		.ascii	"float\000"
- 590      7400
- 591              	.LASF2:
- 592 01db 73686F72 		.ascii	"short int\000"
- 592      7420696E 
+ 554 00a0 3C       		.uleb128 0x3c
+ 555 00a1 19       		.uleb128 0x19
+ 556 00a2 00       		.byte	0
+ 557 00a3 00       		.byte	0
+ 558 00a4 0C       		.uleb128 0xc
+ 559 00a5 35       		.uleb128 0x35
+ 560 00a6 00       		.byte	0
+ 561 00a7 49       		.uleb128 0x49
+ 562 00a8 13       		.uleb128 0x13
+ 563 00a9 00       		.byte	0
+ 564 00aa 00       		.byte	0
+ 565 00ab 00       		.byte	0
+ 566              		.section	.debug_aranges,"",%progbits
+ 567 0000 24000000 		.4byte	0x24
+ 568 0004 0200     		.2byte	0x2
+ 569 0006 00000000 		.4byte	.Ldebug_info0
+ 570 000a 04       		.byte	0x4
+ 571 000b 00       		.byte	0
+ 572 000c 0000     		.2byte	0
+ 573 000e 0000     		.2byte	0
+ 574 0010 00000000 		.4byte	.LFB63
+ 575 0014 88000000 		.4byte	.LFE63-.LFB63
+ 576 0018 00000000 		.4byte	.LFB64
+ 577 001c 88000000 		.4byte	.LFE64-.LFB64
+ 578 0020 00000000 		.4byte	0
+ 579 0024 00000000 		.4byte	0
+ 580              		.section	.debug_ranges,"",%progbits
+ 581              	.Ldebug_ranges0:
+ 582 0000 00000000 		.4byte	.LFB63
+ 583 0004 88000000 		.4byte	.LFE63
+ 584 0008 00000000 		.4byte	.LFB64
+ 585 000c 88000000 		.4byte	.LFE64
+ 586 0010 00000000 		.4byte	0
+ 587 0014 00000000 		.4byte	0
+ 588              		.section	.debug_line,"",%progbits
+ 589              	.Ldebug_line0:
+ 590 0000 A0010000 		.section	.debug_str,"MS",%progbits,1
+ 590      02004E01 
+ 590      00000201 
+ 590      FB0E0D00 
+ 590      01010101 
+ 591              	.LASF6:
+ 592 0000 6C6F6E67 		.ascii	"long long int\000"
+ 592      206C6F6E 
+ 592      6720696E 
  592      7400
- 593              	.LASF12:
- 594 01e5 75696E74 		.ascii	"uint16\000"
- 594      313600
- 595              	.LASF10:
- 596 01ec 696E7433 		.ascii	"int32_t\000"
- 596      325F7400 
- 597              	.LASF16:
- 598 01f4 73697A65 		.ascii	"sizetype\000"
- 598      74797065 
- 598      00
- 599              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 593              	.LASF3:
+ 594 000e 73686F72 		.ascii	"short unsigned int\000"
+ 594      7420756E 
+ 594      7369676E 
+ 594      65642069 
+ 594      6E7400
+ 595              	.LASF8:
+ 596 0021 756E7369 		.ascii	"unsigned int\000"
+ 596      676E6564 
+ 596      20696E74 
+ 596      00
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 13
+
+
+ 597              	.LASF19:
+ 598 002e 56616C75 		.ascii	"Values\000"
+ 598      657300
+ 599              	.LASF11:
+ 600 0035 75696E74 		.ascii	"uint8\000"
+ 600      3800
+ 601              	.LASF23:
+ 602 003b 2E5C3830 		.ascii	".\\8051_read.c\000"
+ 602      35315F72 
+ 602      6561642E 
+ 602      6300
+ 603              	.LASF17:
+ 604 0049 72656164 		.ascii	"read_Values\000"
+ 604      5F56616C 
+ 604      75657300 
+ 605              	.LASF21:
+ 606 0055 77616974 		.ascii	"waiter\000"
+ 606      657200
+ 607              	.LASF7:
+ 608 005c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 608      206C6F6E 
+ 608      6720756E 
+ 608      7369676E 
+ 608      65642069 
+ 609              	.LASF18:
+ 610 0073 72656164 		.ascii	"read_from_8255\000"
+ 610      5F66726F 
+ 610      6D5F3832 
+ 610      353500
+ 611              	.LASF1:
+ 612 0082 756E7369 		.ascii	"unsigned char\000"
+ 612      676E6564 
+ 612      20636861 
+ 612      7200
+ 613              	.LASF15:
+ 614 0090 63686172 		.ascii	"char\000"
+ 614      00
+ 615              	.LASF24:
+ 616 0095 433A5C55 		.ascii	"C:\\Users\\Andrew\\Dropbox (Personal)\\MIT\\MIT 201"
+ 616      73657273 
+ 616      5C416E64 
+ 616      7265775C 
+ 616      44726F70 
+ 617 00c3 36205370 		.ascii	"6 Spring\\6115\\Final Project\\Code\\VGA\\Tic Tac T"
+ 617      72696E67 
+ 617      5C363131 
+ 617      355C4669 
+ 617      6E616C20 
+ 618 00f1 6F652E63 		.ascii	"oe.cydsn\000"
+ 618      7964736E 
+ 618      00
+ 619              	.LASF4:
+ 620 00fa 6C6F6E67 		.ascii	"long int\000"
+ 620      20696E74 
+ 620      00
+ 621              	.LASF22:
+ 622 0103 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 14
+
+
+ 622      4320342E 
+ 622      392E3320 
+ 622      32303135 
+ 622      30333033 
+ 623 0136 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 623      20726576 
+ 623      6973696F 
+ 623      6E203232 
+ 623      31323230 
+ 624 0169 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 624      66756E63 
+ 624      74696F6E 
+ 624      2D736563 
+ 624      74696F6E 
+ 625              	.LASF5:
+ 626 0191 6C6F6E67 		.ascii	"long unsigned int\000"
+ 626      20756E73 
+ 626      69676E65 
+ 626      6420696E 
+ 626      7400
+ 627              	.LASF14:
+ 628 01a3 646F7562 		.ascii	"double\000"
+ 628      6C6500
+ 629              	.LASF20:
+ 630 01aa 63757272 		.ascii	"current\000"
+ 630      656E7400 
+ 631              	.LASF25:
+ 632 01b2 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 632      52784275 
+ 632      66666572 
+ 632      00
+ 633              	.LASF0:
+ 634 01bf 7369676E 		.ascii	"signed char\000"
+ 634      65642063 
+ 634      68617200 
+ 635              	.LASF9:
+ 636 01cb 5F5F696E 		.ascii	"__int32_t\000"
+ 636      7433325F 
+ 636      7400
+ 637              	.LASF13:
+ 638 01d5 666C6F61 		.ascii	"float\000"
+ 638      7400
+ 639              	.LASF2:
+ 640 01db 73686F72 		.ascii	"short int\000"
+ 640      7420696E 
+ 640      7400
+ 641              	.LASF12:
+ 642 01e5 75696E74 		.ascii	"uint16\000"
+ 642      313600
+ 643              	.LASF10:
+ 644 01ec 696E7433 		.ascii	"int32_t\000"
+ 644      325F7400 
+ 645              	.LASF16:
+ 646 01f4 73697A65 		.ascii	"sizetype\000"
+ 646      74797065 
+ 646      00
+ 647              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  C:\Users\Andrew\AppData\Local\Temp\ccM6WXyg.s 			page 15
+
+

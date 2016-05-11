@@ -50,6 +50,26 @@ void disp_grid_draw_square(struct disp_grid_81* disp, int x_start, int y_start, 
     }
 }
 
+void disp_grid_draw_tic(struct disp_grid_81* disp, int x_start, int y_start, uint8 color){ // displays character TTC at x,y
+    disp_grid_draw_square(disp,x_start,y_start,3,1,color); //first T
+    disp_grid_draw_square(disp,x_start+1,y_start+1,1,2,color);
+    disp_grid_draw_square(disp,x_start+2,y_start+1,3,1,color+2); //second T
+    disp_grid_draw_square(disp,x_start+3,y_start+2,1,2,color+2);
+    disp_grid_draw_square(disp,x_start+4,y_start+2,3,1,color+4); //C
+    disp->matrix[x_start+4][y_start+3] = color+4;
+    disp_grid_draw_square(disp,x_start+4,y_start+4,3,1,color+4);
+    disp_grid_draw_square(disp,x_start-1,y_start-1,9,1,0x00); //box around
+    disp_grid_draw_square(disp,x_start-1,y_start+5,9,1,0x00);
+    disp_grid_draw_square(disp,x_start-1,y_start,1,5,0x00);
+    disp_grid_draw_square(disp,x_start+7,y_start,1,5,0x00);
+    
+}
+
+void disp_grid_draw_win(struct disp_grid_81* disp, int x_start, int y_start, int won){ //displays whether won or not
+    if (won == 1) disp_grid_draw_square(disp,x_start,y_start,4,4,0x30); //red square
+    else disp_grid_draw_square(disp,x_start,y_start,4,4,0x0c); //green squaare
+}
+
 void disp_grid_draw_xia(struct disp_grid_81* disp, int x_start, int y_start, uint8 color){ // displays character 下 at x,y
     disp_grid_draw_square(disp,x_start,y_start,5,1,color);
     disp_grid_draw_square(disp,x_start+2,y_start+1,1,6,color);
@@ -129,7 +149,7 @@ void disp_grid_ttc_place_value(struct disp_grid_81* disp, int i, uint8 value){ /
         x = 2*x + 13;
         y = 2*y + 14;
     }
-    disp_grid_draw_square(disp,x,y,2,2,value); //dark gray
+    disp_grid_draw_square(disp,x,y,1,1,value); //dark gray
 }
 
 void disp_grid_ttc_place(struct disp_grid_81* disp, int i, int value){ // place color based on 

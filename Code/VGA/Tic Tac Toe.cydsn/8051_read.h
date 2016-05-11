@@ -17,3 +17,4 @@
 #endif
 
 uint8 read_from_8255(uint8 Values);
+uint8 read_Values(uint8 Values);

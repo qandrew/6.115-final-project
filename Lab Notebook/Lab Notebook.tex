@@ -372,8 +372,11 @@ Note that the 5 pin touch sensor AT42QT1070 is active low; so most of the time t
 \\ The design of my board is available in the Drawings folder, and the one I will use (see the image below) is \texttt{Andrew-board\_new.cdr}. 
 \begin{center}\includegraphics[width = 70mm]{Pics/5-8b.jpg}\end{center}
 
-The schematic I will be using is the following. The input to the 1070 5-pin capacitave sensor are my buttons for my input is the board that can be seen above. 
-\begin{center}\includegraphics[width = 80mm]{Pics/5-8a.jpg}\end{center}
+The schematic I will be using is the following. The input to the 1070 5-pin capacitave sensor are my buttons for my input is the board that can be seen above. While the inputs are fed into P1.0 to P1.4, I also use a 74LS30 to NAND all of the signals to trigger the external interrupt at P3.4. 
+\begin{center}
+\includegraphics[width = 70mm]{Pics/5-8a.jpg}
+\includegraphics[width = 80mm]{Pics/5-10b.jpg}
+\end{center}
 
 \subsection{Work on PSoC UI}
 Now that I will be using an arrow pad for user input, I'll also have to change my PSoC user input software. I'll want blinking lights to show where we are, instead of directly inputting a position on the board using the keypad and the 1010 touch sensor to cycle through the grid layers. 
@@ -408,16 +411,32 @@ I was able to get the touch panel to work! And I can now play 3D tic tac toe aga
 \begin{center}\includegraphics[width = 80mm]{Pics/5-9a.jpg}\end{center}
 I solved the PSoC Problem in the new \texttt{cap\_input.asm} code. The problem was that P1 reads too quickly. See my May 9th commit. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%TEMPLATE%
 
-\newpage
-\section{DATE 2016}
+\section{May 10 2016}
 
 Goals I have for today / {\bf done} if task completed
 \begin{tight_itemize}
-\item Task % {\bf done}
-\item Task 
+\item Finish the project! {\bf done}
+\item Write up hardware and software schematics
 \end{tight_itemize}
+
+\subsection{Finish the project!}
+I can confidently say that on May 10th, 2016, I am done with my 6.115 final project! The 3D Tic Tac Toe game can be played using a capacitave-based touch sensor gamepad, and I have programmed an AI to counter the human's moves. The output of the game is displayed on the VGA.
+\\ One problem I ran into was that when I was using a flashing red light to display the location of the current position, the VGA display transmission was consuming too much computing power of the PSoC so I couldn't read an input from the keypad. I considered using an interrupt; however interrupting a VGA transmission is a bad idea so I decided against it. I instead changed the aesthetics of the cursor so we can still play the game and know where we placed keys. 
+
+\subsection{Final Hardware Schematics}
+Below is the hardware schematic of my R31JP board
+\begin{center}\includegraphics[width = 120mm]{Pics/5-10a.jpg}\end{center}
+
+Below is the hardware schematic of my PSoC.
+\begin{center}\includegraphics[width = 80mm]{Pics/5-10c.jpg}\end{center}
+
+\appendix
+\section{Acknowledgements}
+I would like to give my heartfelt gratitude towards Prof. Leeb and all of the TAs and LAs that have made 6.115 my favorite and most enjoyable class at MIT so far. 
+
+\section{Code}
+The remaining code can be found online at \href{https://github.com/qandrew/6.115-final-project}{https://github.com/qandrew/6.115-final-project}. 
 
 \end{document}
 
